@@ -1,0 +1,34 @@
+# Python and notebook noise
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments
+.venv/
+venv/
+.env
+.env.*
+
+# Large or generated data
+data/raw/*
+data/interim/*
+data/processed/*
+results/figures/*
+results/tables/*
+results/reports/*
+
+# Keep directory documentation/placeholders
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!results/figures/.gitkeep
+!results/tables/.gitkeep
+!results/reports/.gitkeep
+
+# OS/editor files
+.DS_Store
+*.swp
+*.swo
