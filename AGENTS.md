@@ -61,6 +61,8 @@ Specific issues to address:
 
 Every analysis should be reproducible from scripts or notebooks committed to the repository. Prefer parameterized scripts for final analyses and notebooks for exploration.
 
+Use `STUDY.md` as the live project tracker. When starting, completing, blocking, or re-scoping a task, update the relevant checklist item and add a dated changelog entry. Do not let `STUDY.md` become stale.
+
 For each result, record:
 
 - Dataset version and source URL or accession.
@@ -84,6 +86,7 @@ Use this structure unless there is a strong reason to change it:
 .
 ├── AGENTS.md
 ├── README.md
+├── STUDY.md               # live task tracker and progress log
 ├── data/
 │   ├── raw/                 # downloaded immutable inputs; preferably gitignored if large
 │   ├── external/            # external annotations and reference tables
@@ -105,6 +108,26 @@ Use this structure unless there is a strong reason to change it:
 ```
 
 Large raw genotype files should normally not be committed. Put download instructions, checksums, and expected paths in `docs/methods/` or `data/README.md`.
+
+## Literature Search Workflow
+
+Literature search is a required early work package. The project needs a conceptual and empirical foundation before large analyses are run.
+
+Use:
+
+- `docs/concept/literature-search-plan.md` for search clusters, search terms, screening rules, and evidence extraction fields.
+- `docs/concept/literature-matrix.tsv` as the structured bibliography and evidence matrix.
+
+Prioritize six clusters:
+
+- robustness and evolvability theory
+- glycan evolution and Golgi diversification
+- glycans as organism-environment interface
+- disease architecture of glycosylation
+- pathway and network biology
+- comparative pathway framing
+
+For each important paper, record its role in the manuscript: introduction, methods, results support, discussion, or background only. Prefer papers that provide reusable data, clear quantitative methods, disease gene tables, pathway structure, or direct evidence for glycan-mediated interface biology.
 
 ## Candidate Modern Data Sources
 
@@ -170,12 +193,13 @@ Disease architecture:
 
 ## First Milestone
 
-Create a reproducible project skeleton and concept note:
+Create a reproducible project skeleton, concept note, and literature foundation:
 
 1. Preserve the original PDF and write a short critique/context note in `docs/original-paper/`.
 2. Draft a concept memo in `docs/concept/` that states the paper thesis, competing hypotheses, predictions, and target figure set.
-3. Create a machine-readable gene table with stable IDs, symbols, coordinates, pathway class, and evidence source.
-4. Define the modernized multi-evidence analysis plan before running large-scale scans.
+3. Build the literature-search protocol and structured literature matrix.
+4. Create a machine-readable gene table with stable IDs, symbols, coordinates, pathway class, and evidence source.
+5. Define the modernized multi-evidence analysis plan before running large-scale scans.
 
 Second milestone:
 
@@ -189,6 +213,7 @@ Formalize the robustness/evolvability hypothesis as measurable predictions:
 ## Working Conventions
 
 - Use `rg`/`rg --files` for local search.
+- Update `STUDY.md` as the source of truth for progress.
 - Use scripts for repeatable transformations; notebooks may call scripts but should not become the only source of truth.
 - Keep generated results out of version control if they are large or trivially reproducible.
 - Commit small, reviewable changes.
