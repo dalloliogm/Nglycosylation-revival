@@ -38,12 +38,12 @@ Key files:
 ## Phase 1: Literature Search and Conceptual Foundation
 
 - `[~]` Define literature-search clusters.
-- `[~]` Seed the literature matrix with high-priority papers.
-- `[ ]` Expand robustness/evolvability theory references.
-- `[ ]` Expand glycan evolution and Golgi diversification references.
-- `[ ]` Expand glycoimmunology and host-pathogen interface references.
-- `[ ]` Expand disease architecture and CDG references.
-- `[ ]` Expand pathway/network biology references.
+- `[x]` Seed the literature matrix with high-priority papers.
+- `[~]` Expand robustness/evolvability theory references.
+- `[~]` Expand glycan evolution and Golgi diversification references.
+- `[~]` Expand glycoimmunology and host-pathogen interface references.
+- `[~]` Expand disease architecture and CDG references.
+- `[~]` Expand pathway/network biology references.
 - `[ ]` Expand comparator-pathway references.
 - `[ ]` Extract structured notes from high-priority papers.
 - `[ ]` Write `docs/concept/paper-thesis.md`.
@@ -53,12 +53,13 @@ Key files:
 
 - `docs/concept/literature-search-plan.md`
 - `docs/concept/literature-matrix.tsv`
+- `docs/concept/literature-review.md`
 - `docs/concept/paper-thesis.md`
 
 Immediate next tasks:
 
-1. Add at least 30 high-priority references to `docs/concept/literature-matrix.tsv`.
-2. Mark each reference by role: introduction, methods, results support, discussion, or background only.
+1. Extract structured notes from the highest-priority pathway-core papers into `docs/concept/literature-matrix.tsv`.
+2. Add missing primary papers on sialic acid evolution, glycosyltransferase family evolution, and host-pathogen glycan conflict.
 3. Draft the core paper thesis in one page.
 
 ## Phase 2: Pathway Curation
@@ -244,4 +245,4 @@ Expected outputs:
 ## Change Log
 
 - 2026-05-20: Created `STUDY.md` as the live project tracker.
-
+- 2026-05-20: Added `docs/concept/literature-review.md` as the readable grouped literature summary; corrected the N-linked glycosylation network citation; expanded `docs/concept/literature-matrix.tsv` with high-priority references across N-glycosylation, population genetics, network biology, disease/constraint, glycoimmunology, and robustness/evolvability.
