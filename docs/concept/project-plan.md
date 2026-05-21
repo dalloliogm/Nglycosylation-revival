@@ -22,6 +22,133 @@ The paper should test this as an architectural hypothesis using multiple evidenc
 
 Population genetics is a supporting layer, not the center of the paper.
 
+## Failure Modes To Design Against
+
+The original paper is valuable because it exposed the base idea, but its weaknesses should become design requirements for the new paper.
+
+### F1: Interesting biology mistaken for demonstrated evolutionary mechanism
+
+Risk:
+
+The paper could tell a compelling story about upstream robustness and downstream interface biology without actually testing the mechanism.
+
+Defense:
+
+- State each claim as a measurable prediction before running analyses.
+- Separate conceptual argument, empirical observation, and mechanistic inference.
+- Use multiple evidence streams before making architecture-level claims.
+- Use cautious language when evidence is indirect.
+
+### F2: Outlier statistics treated as selection events
+
+Risk:
+
+Population-genetic or association outliers could be described as true adaptive events when they may reflect demography, drift, LD, ascertainment, local genomic context, or nearby genes.
+
+Defense:
+
+- Treat population genetics as optional supporting evidence.
+- Use terms such as "candidate signal", "outlier", or "consistent with" unless there is strong causal evidence.
+- Require replication across methods or datasets before highlighting a candidate locus.
+- Do not build the main paper around individual selection-scan hits.
+
+### F3: Crude population categories and demographic confounding
+
+Risk:
+
+Broad population labels or one-vs-rest comparisons could create a false impression of local adaptation.
+
+Defense:
+
+- Avoid population genetics unless it contributes a clear, controlled test.
+- If included, use modern datasets, explicit sample definitions, pairwise or branch-aware comparisons, and demographic caveats.
+- Prefer pathway architecture, constraint, disease, and tissue evidence as the primary pillars.
+
+### F4: Weak assignment of regional genomic signals to pathway genes
+
+Risk:
+
+Signals near a gene could be incorrectly attributed to that gene or to N-glycosylation biology.
+
+Defense:
+
+- Keep SNP-level, region-level, and gene-level claims distinct.
+- Inspect nearby genes, LD, recombination, regulatory annotations, and variant consequences for candidate loci.
+- Avoid causal gene language unless supported by functional, fine-mapping, eQTL, or disease evidence.
+
+### F5: Fragile small-count upstream/downstream tests
+
+Risk:
+
+The key contrast could depend on arbitrary labels, window sizes, or a small number of genes.
+
+Defense:
+
+- Use sensitivity analyses across pathway-region definitions.
+- Report effect sizes and uncertainty, not only p-values.
+- Use matched null sets or covariate-adjusted models where possible.
+- Test whether architecture features add information beyond a simple upstream/downstream binary.
+
+### F6: Decorative network analysis
+
+Risk:
+
+Network centrality could become an underpowered add-on that sounds sophisticated but does not support the argument.
+
+Defense:
+
+- Define graph construction rules before computing metrics.
+- Prioritize interpretable architecture features: depth, branch point status, redundancy, checkpoint proximity, terminal modification, and tissue specificity.
+- Treat centrality metrics as exploratory unless robust across graph encodings and null models.
+
+### F7: No functional grounding
+
+Risk:
+
+The paper could discuss glycan biology while analyzing only abstract gene lists.
+
+Defense:
+
+- Add disease, expression, tissue, trait, and functional annotation layers.
+- Distinguish core biochemical function from downstream cell-surface/interface roles.
+- Where possible, connect genes to known glycan phenotypes, CDG evidence, immune biology, cancer biology, or host-pathogen interactions.
+
+### F8: Disease architecture missed or underused
+
+Risk:
+
+The strongest testable prediction may be missed: severe core defects upstream versus subtler/context-dependent phenotypes downstream.
+
+Defense:
+
+- Make disease architecture a core work package.
+- Separate high-confidence Mendelian disease from broad association evidence.
+- Test severe Mendelian burden, ClinVar pathogenicity, CDG membership, GWAS associations, and trait category profiles by pathway region.
+
+### F9: Gene-hit narrative overwhelms architecture
+
+Risk:
+
+The manuscript could drift into a list of interesting genes rather than testing a general architecture hypothesis.
+
+Defense:
+
+- Organize results by predictions and pathway regions.
+- Use individual genes as examples only after pathway-level patterns are shown.
+- Include an evidence matrix distinguishing robust architecture-level findings from hypothesis-generating candidates.
+
+### F10: Overconfident conclusions
+
+Risk:
+
+The final paper could make claims stronger than the data justify.
+
+Defense:
+
+- Include a dedicated limitations section.
+- Maintain a claims register: what the paper shows, suggests, and does not show.
+- Explicitly state whether the work demonstrates mechanism, supports a model, or proposes a testable framework.
+
 ## Main Hypotheses
 
 ### H1: Robustness/evolvability partition
@@ -338,4 +465,3 @@ If the main N-glycosylation result is weak, pivot to a broader review/perspectiv
 - N-glycosylation as a Model for Evolutionary Architecture in Cellular Systems
 - From Core Constraint to Interface Diversity: Evolutionary Architecture of N-glycosylation
 - Catastrophic Cores and Evolvable Interfaces in Biological Pathways
-
