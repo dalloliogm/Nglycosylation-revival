@@ -76,8 +76,8 @@ Immediate next tasks:
 - `[ ]` Flag ambiguous or multi-role genes.
 - `[ ]` Test sensitivity to alternative pathway-region labels.
 - `[x]` Create machine-readable gene table.
-- `[ ]` Create pathway edge table or graph representation.
-- `[ ]` Create first pathway-region schematic.
+- `[x]` Create pathway edge table or graph representation.
+- `[x]` Create first pathway-region schematic.
 
 Expected outputs:
 
@@ -91,7 +91,7 @@ Immediate next tasks:
 1. Cross-check provisional MyGene.info Ensembl IDs and coordinates against Ensembl/HGNC.
 2. Cross-check first-pass labels against GlyGen, UniProt, HGNC, and GO.
 3. Decide whether low-specificity terminal modification genes should remain in the primary downstream set or only in sensitivity analyses.
-4. Create `data/processed/nglyco_pathway_edges.tsv` from Reactome child events and the curated table.
+4. Review first pathway network visualization for readability and decide whether to split primary genes from support genes in separate panels.
 
 ## Phase 3: Architecture Metrics
 
@@ -272,3 +272,4 @@ Expected outputs:
 - 2026-05-21: Added original-paper criticisms as explicit robustness/reviewer-risk safeguards in `docs/concept/project-plan.md` and mirrored them as checklist items in this tracker.
 - 2026-05-21: Deferred all-pathway expansion for later and added `docs/concept/linear-pathway-comparators.md` to preserve candidate linear or quasi-linear pathway comparators, including GPI-anchor biosynthesis, heme biosynthesis, cholesterol biosynthesis, CoQ biosynthesis, and related metabolic controls.
 - 2026-05-21: Started N-glycosylation pathway curation. Added `docs/methods/pathway-curation.md` and first-pass `data/processed/nglyco_gene_table.tsv` with pathway-region labels, primary-analysis flags, sensitivity flags, provisional Ensembl IDs, and provisional coordinates. Reactome release 96 and MyGene.info were checked; direct Ensembl/HGNC validation and GlyGen/UniProt/GO cross-checks remain pending.
+- 2026-05-21: Added uv project environment, `data/processed/nglyco_pathway_edges.tsv`, and `scripts/plot_nglyco_pathway_network.py`; generated first pathway architecture visualization at `results/figures/nglyco_pathway_network.png` and `.svg`.

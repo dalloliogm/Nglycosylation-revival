@@ -1,0 +1,8 @@
+source	target	edge_type	evidence	source_group	target_group	curation_notes
+substrate_biosynthesis	llo_assembly	substrate_support	Reactome:R-HSA-446193	substrate_support	upstream_core	Substrate and donor-sugar supply feeds lipid-linked oligosaccharide assembly.
+llo_assembly	ost_transfer	biosynthetic_order	Reactome:R-HSA-446193;Reactome:R-HSA-446209	upstream_core	upstream_core	Assembled LLO is transferred en bloc to nascent protein by OST.
+ost_transfer	er_quality_control	biosynthetic_order	Reactome:R-HSA-446209;Reactome:R-HSA-532668	upstream_core	checkpoint_layer	Transferred glycan enters ER trimming and folding quality-control cycle.
+er_quality_control	golgi_core_processing	biosynthetic_order	Reactome:R-HSA-532668;Reactome:R-HSA-948021	checkpoint_layer	downstream_diversification	Folded glycoproteins move from ER quality control to Golgi processing.
+golgi_core_processing	golgi_branching	biosynthetic_order	Reactome:R-HSA-948021;Reactome:R-HSA-975576	downstream_diversification	downstream_diversification	Core-processed glycans become substrates for GlcNAc branching.
+golgi_branching	terminal_modification	biosynthetic_order	Reactome:R-HSA-975576;Reactome:R-HSA-975578	downstream_diversification	downstream_diversification	Branched glycans receive terminal fucose, galactose, sialic acid, sulfate, and related modifications.
+substrate_biosynthesis	terminal_modification	substrate_support	Reactome:R-HSA-446193;Reactome:R-HSA-975576	substrate_support	downstream_diversification	Donor sugar biosynthesis and transport also support terminal fucosylation, galactosylation, and sialylation.
