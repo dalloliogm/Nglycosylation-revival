@@ -76,22 +76,24 @@ Immediate next tasks:
 - `[ ]` Flag ambiguous or multi-role genes.
 - `[ ]` Test sensitivity to alternative pathway-region labels.
 - `[x]` Create machine-readable gene table.
-- `[x]` Create pathway edge table or graph representation.
-- `[x]` Create first pathway-region schematic.
+- `[x]` Create component-level pathway edge table.
+- `[x]` Create gene-level pathway edge table with metabolite/intermediate labels.
+- `[x]` Create first gene-level pathway network visualization.
 
 Expected outputs:
 
 - `docs/methods/pathway-curation.md`
 - `data/processed/nglyco_gene_table.tsv`
 - `data/processed/nglyco_pathway_edges.tsv`
-- `results/figures/nglyco_pathway_architecture.*`
+- `data/processed/nglyco_gene_gene_edges.tsv`
+- `results/figures/nglyco_pathway_network.*`
 
 Immediate next tasks:
 
 1. Cross-check provisional MyGene.info Ensembl IDs and coordinates against Ensembl/HGNC.
 2. Cross-check first-pass labels against GlyGen, UniProt, HGNC, and GO.
 3. Decide whether low-specificity terminal modification genes should remain in the primary downstream set or only in sensitivity analyses.
-4. Review first pathway network visualization for readability and decide whether to split primary genes from support genes in separate panels.
+4. Review gene-level pathway network visualization for readability and decide whether to split substrate-support donor edges into a separate panel.
 
 ## Phase 3: Architecture Metrics
 
@@ -273,3 +275,4 @@ Expected outputs:
 - 2026-05-21: Deferred all-pathway expansion for later and added `docs/concept/linear-pathway-comparators.md` to preserve candidate linear or quasi-linear pathway comparators, including GPI-anchor biosynthesis, heme biosynthesis, cholesterol biosynthesis, CoQ biosynthesis, and related metabolic controls.
 - 2026-05-21: Started N-glycosylation pathway curation. Added `docs/methods/pathway-curation.md` and first-pass `data/processed/nglyco_gene_table.tsv` with pathway-region labels, primary-analysis flags, sensitivity flags, provisional Ensembl IDs, and provisional coordinates. Reactome release 96 and MyGene.info were checked; direct Ensembl/HGNC validation and GlyGen/UniProt/GO cross-checks remain pending.
 - 2026-05-21: Added uv project environment, `data/processed/nglyco_pathway_edges.tsv`, and `scripts/plot_nglyco_pathway_network.py`; generated first pathway architecture visualization at `results/figures/nglyco_pathway_network.png` and `.svg`.
+- 2026-05-21: Re-scoped the pathway visualization from component nodes to gene nodes. Added `data/processed/nglyco_gene_gene_edges.tsv`, where each edge connects source and target genes and carries a metabolite, glycoprotein intermediate, donor substrate, quality-control, or complex-context label.
