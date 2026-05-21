@@ -24,6 +24,7 @@ results/reports/*
 !data/raw/.gitkeep
 !data/interim/.gitkeep
 !data/processed/.gitkeep
+!data/processed/nglyco_gene_table.tsv
 !results/figures/.gitkeep
 !results/tables/.gitkeep
 !results/reports/.gitkeep

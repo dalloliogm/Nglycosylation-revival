@@ -1,0 +1,102 @@
+symbol	ensembl_gene_id	grch38_chr	grch38_start	grch38_end	primary_region	analysis_group	pathway_step	evidence_sources	include_primary	include_sensitivity	curation_confidence	curation_notes
+HK1	ENSG00000156515	10	69269984	69403496	substrate_biosynthesis	substrate_support	mannose phosphorylation	Reactome:R-HSA-446193	no	yes	medium	Substrate supply; not N-glycosylation-specific.
+MPI	ENSG00000178802	15	74890005	74902219	substrate_biosynthesis	substrate_support	mannose phosphate interconversion	Reactome:R-HSA-446193	no	yes	high	Substrate supply gene with direct CDG relevance.
+PMM1	ENSG00000100417	22	41576896	41595275	substrate_biosynthesis	substrate_support	mannose phosphate interconversion	Reactome:R-HSA-446193	no	yes	medium	Paralog included by Reactome; analyze separately from PMM2 if needed.
+PMM2	ENSG00000140650	16	8788823	8862534	substrate_biosynthesis	substrate_support	mannose phosphate interconversion	Reactome:R-HSA-446193	no	yes	high	Substrate supply gene with strong CDG relevance.
+GMPPA	ENSG00000144591	2	219498618	219513898	substrate_biosynthesis	substrate_support	GDP-mannose homeostasis	Reactome:R-HSA-446193	no	yes	medium	Substrate/homeostasis gene; classification may change after disease review.
+GMPPB	ENSG00000173540	3	49716844	49723985	substrate_biosynthesis	substrate_support	GDP-mannose synthesis	Reactome:R-HSA-446193	no	yes	high	Substrate supply gene.
+DPM1	ENSG00000000419	20	50934852	50959140	substrate_biosynthesis	substrate_support	dolichol-phosphate mannose synthesis	Reactome:R-HSA-446193	no	yes	high	Donor substrate synthesis for LLO assembly.
+DPM2	ENSG00000136908	9	127935090	127937866	substrate_biosynthesis	substrate_support	dolichol-phosphate mannose synthesis	Reactome:R-HSA-446193	no	yes	high	Donor substrate synthesis for LLO assembly.
+DPM3	ENSG00000179085	1	155139886	155140595	substrate_biosynthesis	substrate_support	dolichol-phosphate mannose synthesis	Reactome:R-HSA-446193	no	yes	high	Donor substrate synthesis for LLO assembly.
+DOLK	ENSG00000175283	9	128945530	128947603	substrate_biosynthesis	substrate_support	dolichol phosphate metabolism	Reactome:R-HSA-446193	no	yes	high	Dolichol substrate support; severe disease relevance expected.
+DOLPP1	ENSG00000167130	9	129081100	129090438	substrate_biosynthesis	substrate_support	dolichol phosphate metabolism	Reactome:R-HSA-446193	no	yes	medium	Support enzyme; not specific to N-glycan architecture.
+DHDDS	ENSG00000117682	1	26432282	26471322	substrate_biosynthesis	substrate_support	dolichol synthesis	Reactome:R-HSA-446193	no	yes	medium	Dolichol synthesis support.
+NUS1	ENSG00000153989	6	117675469	117710727	substrate_biosynthesis	substrate_support	dolichol synthesis	Reactome:R-HSA-446193	no	yes	medium	Dolichol synthesis support.
+SRD5A3	ENSG00000128039	4	55346213	55373100	substrate_biosynthesis	substrate_support	dolichol synthesis	Reactome:R-HSA-446193	no	yes	high	Dolichol support gene with CDG relevance.
+MPDU1	ENSG00000129255	17	7583529	7592789	substrate_biosynthesis	substrate_support	dolichol-linked donor utilization	Reactome:R-HSA-446193	no	yes	high	Supports use of dolichol-linked mannose/glucose donors.
+PGM3	ENSG00000013375	6	83147324	83194005	substrate_biosynthesis	substrate_support	UDP-GlcNAc supply	Reactome:R-HSA-446193	no	yes	medium	UDP-GlcNAc supply; broad glycosylation relevance.
+UAP1	ENSG00000117143	1	162561481	162601259	substrate_biosynthesis	substrate_support	UDP-GlcNAc synthesis	Reactome:R-HSA-446193	no	yes	medium	UDP-GlcNAc supply; broad glycosylation relevance.
+GFPT1	ENSG00000198380	2	69319780	69387281	substrate_biosynthesis	substrate_support	hexosamine biosynthesis	Reactome:R-HSA-446193	no	yes	medium	Broad hexosamine-pathway support.
+GFPT2	ENSG00000131459	5	180300682	180353339	substrate_biosynthesis	substrate_support	hexosamine biosynthesis	Reactome:R-HSA-446193	no	yes	medium	Broad hexosamine-pathway support.
+GNPNAT1	ENSG00000100522	14	52770976	52791668	substrate_biosynthesis	substrate_support	UDP-GlcNAc synthesis	Reactome:R-HSA-446193	no	yes	medium	Broad substrate support.
+NAGK	ENSG00000124357	2	71064344	71079808	substrate_biosynthesis	substrate_support	UDP-GlcNAc salvage	Reactome:R-HSA-446193	no	yes	low	Keep only for sensitivity until pathway specificity is checked.
+GNE	ENSG00000159921	9	36214441	36277042	substrate_biosynthesis	substrate_support	sialic acid biosynthesis	Reactome:R-HSA-446193	no	yes	medium	Sialic acid substrate supply for terminal sialylation.
+NANS	ENSG00000095380	9	98056674	98083087	substrate_biosynthesis	substrate_support	sialic acid biosynthesis	Reactome:R-HSA-446193	no	yes	medium	Sialic acid substrate supply.
+NANP	ENSG00000170191	20	25612935	25624014	substrate_biosynthesis	substrate_support	sialic acid biosynthesis	Reactome:R-HSA-446193	no	yes	medium	Sialic acid substrate supply.
+CMAS	ENSG00000111726	12	22046174	22065674	substrate_biosynthesis	substrate_support	CMP-sialic acid synthesis	Reactome:R-HSA-446193	no	yes	medium	Sialic acid donor activation.
+SLC35A1	ENSG00000164414	6	87470623	87512336	substrate_biosynthesis	substrate_support	CMP-sialic acid transport	Reactome:R-HSA-446193	no	yes	medium	Donor transport support for terminal sialylation.
+GMDS	ENSG00000112699	6	1623793	2245702	substrate_biosynthesis	substrate_support	GDP-fucose synthesis	Reactome:R-HSA-446193	no	yes	medium	Fucose donor supply.
+FPGT	ENSG00000254685	1	74198238	74234086	substrate_biosynthesis	substrate_support	GDP-fucose synthesis	Reactome:R-HSA-446193	no	yes	medium	Fucose donor supply.
+FCSK	ENSG00000157353	16	70454398	70480274	substrate_biosynthesis	substrate_support	GDP-fucose salvage	Reactome:R-HSA-446193	no	yes	medium	Fucose donor supply.
+SLC35C1	ENSG00000181830	11	45804072	45813016	substrate_biosynthesis	substrate_support	GDP-fucose transport	Reactome:R-HSA-446193	no	yes	medium	Fucose donor transport.
+DPAGT1	ENSG00000172269	11	119096025	119108331	llo_assembly	upstream_core	initiation of LLO assembly	Reactome:R-HSA-446193;EssentialsGlycobiology:Chapter9	yes	yes	high	First committed GlcNAc-phosphate transfer to dolichol phosphate.
+ALG13	ENSG00000101901	X	111665811	111760649	llo_assembly	upstream_core	LLO GlcNAc transfer	Reactome:R-HSA-446193;EssentialsGlycobiology:Chapter9	yes	yes	high	Part of ALG13/ALG14 UDP-GlcNAc transferase step.
+ALG14	ENSG00000172339	1	94974405	95072951	llo_assembly	upstream_core	LLO GlcNAc transfer	Reactome:R-HSA-446193;EssentialsGlycobiology:Chapter9	yes	yes	high	Part of ALG13/ALG14 UDP-GlcNAc transferase step.
+ALG1	ENSG00000033011	16	5033702	5087379	llo_assembly	upstream_core	LLO mannose transfer	Reactome:R-HSA-446193;EssentialsGlycobiology:Chapter9	yes	yes	high	Cytosolic-side mannose addition.
+ALG2	ENSG00000119523	9	99216425	99221942	llo_assembly	upstream_core	LLO mannose transfer	Reactome:R-HSA-446193;EssentialsGlycobiology:Chapter9	yes	yes	high	Cytosolic-side mannose addition.
+ALG11	ENSG00000253710	13	52012391	52079232	llo_assembly	upstream_core	LLO mannose transfer	Reactome:R-HSA-446193;EssentialsGlycobiology:Chapter9	yes	yes	high	Cytosolic-side mannose addition.
+RFT1	ENSG00000163933	3	53066853	53130472	llo_assembly	upstream_core	LLO flipping	Reactome:R-HSA-446193;EssentialsGlycobiology:Chapter9	yes	yes	high	Flips Man5GlcNAc2-PP-dolichol across ER membrane; inferred in Reactome.
+ALG3	ENSG00000214160	3	184242301	184249548	llo_assembly	upstream_core	LLO luminal mannose transfer	Reactome:R-HSA-446193;EssentialsGlycobiology:Chapter9	yes	yes	high	Luminal mannose addition.
+ALG9	ENSG00000086848	11	111782195	111872405	llo_assembly	upstream_core	LLO luminal mannose transfer	Reactome:R-HSA-446193;EssentialsGlycobiology:Chapter9	yes	yes	high	Luminal mannose addition.
+ALG12	ENSG00000182858	22	49900229	49918458	llo_assembly	upstream_core	LLO luminal mannose transfer	Reactome:R-HSA-446193;EssentialsGlycobiology:Chapter9	yes	yes	high	Luminal mannose addition.
+ALG6	ENSG00000088035	1	63367575	63438553	llo_assembly	upstream_core	LLO glucose transfer	Reactome:R-HSA-446193;EssentialsGlycobiology:Chapter9	yes	yes	high	First glucose addition to LLO.
+ALG8	ENSG00000159063	11	78095244	78139660	llo_assembly	upstream_core	LLO glucose transfer	Reactome:R-HSA-446193;EssentialsGlycobiology:Chapter9	yes	yes	high	Second glucose addition to LLO.
+ALG10	ENSG00000139133	12	34022468	34029694	llo_assembly	upstream_core	LLO glucose transfer	Reactome:R-HSA-446193;EssentialsGlycobiology:Chapter9	yes	yes	high	Terminal glucose addition to LLO.
+ALG10B	ENSG00000175548	12	38316762	38329721	llo_assembly	upstream_core	LLO glucose transfer	Reactome:R-HSA-446193	yes	yes	medium	Reactome includes ALG10B; confirm specificity against UniProt/GlyGen.
+ALG5	ENSG00000120697	13	36949738	37000763	llo_assembly	upstream_core	dolichol-phosphate glucose synthesis	Reactome:R-HSA-446193;EssentialsGlycobiology:Chapter9	yes	yes	high	Direct donor generation for LLO glucosylation; can be grouped with substrate support in sensitivity analysis.
+STT3A	ENSG00000134910	11	125591712	125625215	ost_transfer	upstream_core	co-translational OST transfer	Reactome:R-HSA-446209;EssentialsGlycobiology:Chapter9	yes	yes	high	Catalytic OST subunit.
+STT3B	ENSG00000163527	3	31532521	31638548	ost_transfer	upstream_core	post-translational OST transfer	Reactome:R-HSA-446209;EssentialsGlycobiology:Chapter9	yes	yes	high	Catalytic OST subunit.
+DDOST	ENSG00000244038	1	20651767	20661544	ost_transfer	upstream_core	OST complex subunit	Reactome:R-HSA-446209	yes	yes	high	OST complex subunit.
+DAD1	ENSG00000129562	14	22564902	22589235	ost_transfer	upstream_core	OST complex subunit	Reactome:R-HSA-446209	yes	yes	high	OST complex subunit.
+RPN1	ENSG00000163902	3	128619968	128681075	ost_transfer	upstream_core	OST complex subunit	Reactome:R-HSA-446209	yes	yes	high	OST complex subunit.
+RPN2	ENSG00000291973	20	37178396	37241624	ost_transfer	upstream_core	OST complex subunit	Reactome:R-HSA-446209	yes	yes	high	OST complex subunit.
+OST4	ENSG00000228474	2	27070470	27071685	ost_transfer	upstream_core	OST complex subunit	Reactome:R-HSA-446209	yes	yes	high	OST complex subunit.
+OSTC	ENSG00000198856	4	108650585	108667820	ost_transfer	upstream_core	OST complex subunit	Reactome:R-HSA-446209	yes	yes	high	OST complex subunit.
+TMEM258	ENSG00000134825	11	61768501	61792802	ost_transfer	upstream_core	OST complex subunit	Reactome:R-HSA-446209	yes	yes	medium	Also known as DC2; verify current HGNC symbol and complex membership.
+MAGT1	ENSG00000102158	X	77825747	77899271	ost_transfer	upstream_core	OST accessory oxidoreductase-like subunit	Reactome:R-HSA-446209	yes	yes	medium	Paralogous/accessory OST subunit; sensitivity candidate.
+TUSC3	ENSG00000104723	8	15417215	15766649	ost_transfer	upstream_core	OST accessory oxidoreductase-like subunit	Reactome:R-HSA-446209	yes	yes	medium	Paralogous/accessory OST subunit; sensitivity candidate.
+MOGS	ENSG00000115275	2	74461057	74465410	er_quality_control	checkpoint_layer	ER glucose trimming	Reactome:R-HSA-532668;EssentialsGlycobiology:Chapter9	yes	yes	high	Glucosidase I.
+GANAB	ENSG00000089597	11	62624824	62646726	er_quality_control	checkpoint_layer	ER glucose trimming	Reactome:R-HSA-532668;EssentialsGlycobiology:Chapter9	yes	yes	high	Glucosidase II alpha subunit.
+PRKCSH	ENSG00000130175	19	11422369	11450969	er_quality_control	checkpoint_layer	ER glucose trimming	Reactome:R-HSA-532668;EssentialsGlycobiology:Chapter9	yes	yes	high	Glucosidase II beta subunit.
+UGGT1	ENSG00000136731	2	128091151	128195677	er_quality_control	checkpoint_layer	reglucosylation quality control	Reactome:R-HSA-532668;EssentialsGlycobiology:Chapter9	yes	yes	high	Recognizes folding state and reglucosylates N-glycans.
+UGGT2	ENSG00000102595	13	95801580	96053482	er_quality_control	checkpoint_layer	reglucosylation quality control	Reactome:R-HSA-532668	yes	yes	medium	Paralog included by Reactome; confirm catalytic role strength.
+CANX	ENSG00000283777	5	179678628	179731641	er_quality_control	checkpoint_layer	calnexin/calreticulin cycle	Reactome:R-HSA-532668;EssentialsGlycobiology:Chapter9	yes	yes	high	Glycan-recognizing ER chaperone.
+CALR	ENSG00000179218	19	12938578	12944490	er_quality_control	checkpoint_layer	calnexin/calreticulin cycle	Reactome:R-HSA-532668;EssentialsGlycobiology:Chapter9	yes	yes	high	Glycan-recognizing ER chaperone.
+PDIA3	ENSG00000167004	15	43746394	43773279	er_quality_control	checkpoint_layer	calnexin/calreticulin cycle	Reactome:R-HSA-532668	yes	yes	medium	ERp57; chaperone-associated rather than glycan enzyme.
+MAN1B1	ENSG00000177239	9	137086857	137109189	er_quality_control	checkpoint_layer	ER mannose trimming and ERAD timing	Reactome:R-HSA-532668;EssentialsGlycobiology:Chapter9	yes	yes	high	Links glycan processing to quality-control fate.
+EDEM1	ENSG00000134109	3	5187646	5219958	er_quality_control	checkpoint_layer	ERAD-associated mannose trimming	Reactome:R-HSA-532668	yes	yes	medium	ERAD-proximal; keep sensitivity flag.
+EDEM2	ENSG00000088298	20	35115360	35147358	er_quality_control	checkpoint_layer	ERAD-associated mannose trimming	Reactome:R-HSA-532668	yes	yes	medium	ERAD-proximal; keep sensitivity flag.
+EDEM3	ENSG00000116406	1	184690237	184754907	er_quality_control	checkpoint_layer	ERAD-associated mannose trimming	Reactome:R-HSA-532668	yes	yes	medium	ERAD-proximal; keep sensitivity flag.
+MLEC	ENSG00000110917	12	120687125	120704282	er_quality_control	checkpoint_layer	malectin binding of glucosylated glycans	Reactome:R-HSA-532668	yes	yes	medium	Glycan-binding checkpoint component.
+NGLY1	ENSG00000151092	3	25718717	25790039	er_quality_control	checkpoint_layer	cytosolic deglycosylation in ERAD	Reactome:R-HSA-532668	no	yes	medium	N-glycan turnover/ERAD; not part of biosynthetic forward path.
+ENGASE	ENSG00000167280	17	79074824	79088599	er_quality_control	checkpoint_layer	cytosolic deglycosylation in ERAD	Reactome:R-HSA-532668	no	yes	medium	N-glycan turnover/ERAD; not part of biosynthetic forward path.
+OS9	ENSG00000135506	12	57693841	57728342	er_quality_control	checkpoint_layer	ERAD glycoprotein recognition	Reactome:R-HSA-532668	no	yes	medium	ERAD recognition component; exclude from primary biosynthesis set.
+SEL1L	ENSG00000071537	14	81471547	81533863	er_quality_control	checkpoint_layer	ERAD glycoprotein recognition	Reactome:R-HSA-532668	no	yes	medium	ERAD component; exclude from primary biosynthesis set.
+MAN1A1	ENSG00000111885	6	119177204	119349767	golgi_core_processing	downstream_diversification	Golgi mannose trimming	Reactome:R-HSA-948021;EssentialsGlycobiology:Chapter9	yes	yes	high	Class I Golgi mannosidase.
+MAN1A2	ENSG00000198162	1	117367449	117528872	golgi_core_processing	downstream_diversification	Golgi mannose trimming	Reactome:R-HSA-948021;EssentialsGlycobiology:Chapter9	yes	yes	high	Class I Golgi mannosidase.
+MAN1C1	ENSG00000117643	1	25616791	25786205	golgi_core_processing	downstream_diversification	Golgi mannose trimming	Reactome:R-HSA-948021;EssentialsGlycobiology:Chapter9	yes	yes	high	Class I Golgi mannosidase.
+MGAT1	ENSG00000131446	5	180784780	180815652	golgi_core_processing	downstream_diversification	commitment to hybrid/complex N-glycans	Reactome:R-HSA-948021;EssentialsGlycobiology:Chapter9	yes	yes	high	GlcNAcT-I; key downstream transition step.
+MAN2A1	ENSG00000112893	5	109689375	109869625	golgi_core_processing	downstream_diversification	Golgi mannose trimming	Reactome:R-HSA-975578;EssentialsGlycobiology:Chapter9	yes	yes	high	Class II Golgi mannosidase.
+MAN2A2	ENSG00000196547	15	90902218	90922585	golgi_core_processing	downstream_diversification	Golgi mannose trimming	Reactome:R-HSA-975578;EssentialsGlycobiology:Chapter9	yes	yes	high	Class II Golgi mannosidase.
+MGAT2	ENSG00000168282	14	49620799	49623481	golgi_core_processing	downstream_diversification	complex N-glycan synthesis	Reactome:R-HSA-975578;EssentialsGlycobiology:Chapter9	yes	yes	high	GlcNAcT-II; required for complex N-glycans.
+MGAT3	ENSG00000128268	22	39447127	39492194	golgi_branching	downstream_diversification	bisecting GlcNAc branch	Reactome:R-HSA-975574;Reactome:R-HSA-975576;EssentialsGlycobiology:Chapter9	yes	yes	high	Bisecting GlcNAc modification.
+MGAT4A	ENSG00000071073	2	98619106	98732639	golgi_branching	downstream_diversification	GlcNAc branching	Reactome:R-HSA-975576;EssentialsGlycobiology:Chapter9	yes	yes	high	GnT-IV branch enzyme.
+MGAT4B	ENSG00000284501	5	179797597	179806979	golgi_branching	downstream_diversification	GlcNAc branching	Reactome:R-HSA-975576;EssentialsGlycobiology:Chapter9	yes	yes	high	GnT-IV branch enzyme.
+MGAT4C	ENSG00000182050	12	85955666	86838904	golgi_branching	downstream_diversification	GlcNAc branching	Reactome:R-HSA-975576	yes	yes	medium	GnT-IV family member; confirm tissue specificity.
+MGAT5	ENSG00000152127	2	134119933	134454621	golgi_branching	downstream_diversification	GlcNAc branching	Reactome:R-HSA-975576;EssentialsGlycobiology:Chapter9	yes	yes	high	GnT-V branch enzyme.
+FUT8	ENSG00000033170	14	65410592	65744125	terminal_modification	downstream_diversification	core fucosylation	Reactome:R-HSA-975578;EssentialsGlycobiology:Chapter9	yes	yes	high	Core alpha-1,6 fucosyltransferase for N-glycans.
+FUT3	ENSG00000171124	19	5842888	5851471	terminal_modification	downstream_diversification	terminal fucosylation	Reactome:R-HSA-975578	yes	yes	medium	Terminal glycan enzyme; not N-glycan-exclusive.
+B4GALT1	ENSG00000086062	9	33100493	33167359	terminal_modification	downstream_diversification	terminal galactosylation	Reactome:R-HSA-975576;EssentialsGlycobiology:Chapter9	yes	yes	high	B4GALT family member used in Reactome N-glycan elongation.
+B4GALT2	ENSG00000117411	1	43978943	43991173	terminal_modification	downstream_diversification	terminal galactosylation	Reactome:R-HSA-975576	yes	yes	medium	Not N-glycan-exclusive; sensitivity candidate.
+B4GALT3	ENSG00000158850	1	161171306	161178652	terminal_modification	downstream_diversification	terminal galactosylation	Reactome:R-HSA-975576	yes	yes	medium	Not N-glycan-exclusive; sensitivity candidate.
+B4GALT4	ENSG00000121578	3	119211628	119240952	terminal_modification	downstream_diversification	terminal galactosylation	Reactome:R-HSA-975576	yes	yes	medium	Not N-glycan-exclusive; sensitivity candidate.
+B4GALT5	ENSG00000158470	20	49632945	49713908	terminal_modification	downstream_diversification	terminal galactosylation	Reactome:R-HSA-975576	yes	yes	medium	Not N-glycan-exclusive; sensitivity candidate.
+B4GALT6	ENSG00000118276	18	31621911	31685836	terminal_modification	downstream_diversification	terminal galactosylation	Reactome:R-HSA-975576	yes	yes	medium	Not N-glycan-exclusive; sensitivity candidate.
+ST3GAL4	ENSG00000110080	11	126354677	126440344	terminal_modification	downstream_diversification	terminal sialylation	Reactome:R-HSA-975576;EssentialsGlycobiology:Chapter9	yes	yes	high	Alpha-2,3 sialylation of terminal galactose on N-glycans.
+ST6GAL1	ENSG00000073849	3	186930325	187078932	terminal_modification	downstream_diversification	terminal sialylation	Reactome:R-HSA-975576;EssentialsGlycobiology:Chapter9	yes	yes	high	Alpha-2,6 sialylation of terminal galactose on N-glycans.
+ST8SIA2	ENSG00000140557	15	92393881	92468728	terminal_modification	downstream_diversification	terminal polysialylation	Reactome:R-HSA-975576	yes	yes	medium	Terminal sialyltransferase; context-specific.
+ST8SIA3	ENSG00000177511	18	57352557	57371731	terminal_modification	downstream_diversification	terminal polysialylation	Reactome:R-HSA-975576	yes	yes	medium	Terminal sialyltransferase; context-specific.
+ST8SIA6	ENSG00000148488	10	17315421	17454595	terminal_modification	downstream_diversification	terminal polysialylation	Reactome:R-HSA-975576	yes	yes	medium	Terminal sialyltransferase; context-specific.
+CHST8	ENSG00000124302	19	33621942	33773509	terminal_modification	downstream_diversification	terminal sulfation	Reactome:R-HSA-975578	yes	yes	low	Reactome places specific glycoprotein sulfation in pathway; test exclusion.
+CHST10	ENSG00000115526	2	100391860	100417826	terminal_modification	downstream_diversification	terminal sulfation	Reactome:R-HSA-975578	yes	yes	low	Reactome places specific glycoprotein sulfation in pathway; test exclusion.
+B4GALNT2	ENSG00000167080	17	49132460	49178647	terminal_modification	downstream_diversification	Sd(a) antigen modification	Reactome:R-HSA-446203	yes	yes	low	Specific terminal reaction on UMOD in Reactome; low-specificity sensitivity candidate.
