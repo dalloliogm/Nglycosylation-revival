@@ -75,8 +75,67 @@ EDGE_DRAW_ORDER = [
     "metabolite_intermediate",
 ]
 
+SOURCE_METADATA = {
+    "reactome_substrates": {
+        "source_database": "Reactome",
+        "source_pathway_id": "R-HSA-446219",
+        "source_pathway_name": "Synthesis of substrates in N-glycan biosythesis",
+        "source_url": "https://reactome.org/content/detail/R-HSA-446219",
+        "evidence_basis": "curated pathway membership; gene-to-transferase edge is an abstracted donor-supply relationship",
+        "curation_confidence": "supporting",
+    },
+    "reactome_llo": {
+        "source_database": "Reactome",
+        "source_pathway_id": "R-HSA-446193",
+        "source_pathway_name": "Biosynthesis of the N-glycan precursor (LLO) and transfer to a nascent protein",
+        "source_url": "https://reactome.org/content/detail/R-HSA-446193",
+        "evidence_basis": "curated Reactome reaction order; represented here as adjacent gene-to-gene edges through shared LLO intermediates",
+        "curation_confidence": "high",
+    },
+    "reactome_er_qc": {
+        "source_database": "Reactome",
+        "source_pathway_id": "R-HSA-532668",
+        "source_pathway_name": "N-glycan trimming in the ER and Calnexin/Calreticulin cycle",
+        "source_url": "https://reactome.org/content/detail/R-HSA-532668",
+        "evidence_basis": "curated pathway events; chaperone and recycling edges are abstracted from glycoprotein-processing context",
+        "curation_confidence": "high",
+    },
+    "reactome_golgi_cis": {
+        "source_database": "Reactome",
+        "source_pathway_id": "R-HSA-964739",
+        "source_pathway_name": "N-glycan trimming and elongation in the cis-Golgi",
+        "source_url": "https://reactome.org/content/detail/R-HSA-964739",
+        "evidence_basis": "curated pathway events; represented as adjacent gene-to-gene edges through generic N-glycan intermediates",
+        "curation_confidence": "high",
+    },
+    "reactome_golgi_antennae": {
+        "source_database": "Reactome",
+        "source_pathway_id": "R-HSA-975576",
+        "source_pathway_name": "N-glycan antennae elongation in the medial/trans-Golgi",
+        "source_url": "https://reactome.org/content/detail/R-HSA-975576",
+        "evidence_basis": "Reactome generic reaction annotation; downstream network topology is intentionally abstracted because exact glycan topography is incomplete",
+        "curation_confidence": "moderate",
+    },
+    "kegg_nglycan": {
+        "source_database": "KEGG",
+        "source_pathway_id": "hsa00510",
+        "source_pathway_name": "N-Glycan biosynthesis - Homo sapiens",
+        "source_url": "https://www.kegg.jp/pathway/hsa00510",
+        "evidence_basis": "pathway-level support for donor substrate use and enzyme classes; not a direct source of this edge topology",
+        "curation_confidence": "supporting",
+    },
+}
 
-def add_edges(edges: list[dict[str, str]], sources: list[str], targets: list[str], metabolite: str, edge_class: str) -> None:
+
+def add_edges(
+    edges: list[dict[str, str]],
+    sources: list[str],
+    targets: list[str],
+    metabolite: str,
+    edge_class: str,
+    source_key: str,
+    curation_notes: str = "Generic edge label; exact glycan structure not curated in this pass.",
+) -> None:
     for source in sources:
         for target in targets:
             edges.append(
@@ -85,7 +144,8 @@ def add_edges(edges: list[dict[str, str]], sources: list[str], targets: list[str
                     "target_gene": target,
                     "edge_metabolite": metabolite,
                     "edge_class": edge_class,
-                    "curation_notes": "Generic edge label; exact glycan structure not curated in this pass.",
+                    **SOURCE_METADATA[source_key],
+                    "curation_notes": curation_notes,
                 }
             )
 
@@ -93,50 +153,50 @@ def add_edges(edges: list[dict[str, str]], sources: list[str], targets: list[str
 def curated_gene_edges() -> list[dict[str, str]]:
     edges: list[dict[str, str]] = []
 
-    add_edges(edges, ["DHDDS", "NUS1", "SRD5A3", "DOLK", "DOLPP1"], ["DPAGT1"], "dolichol phosphate pool", "donor_substrate")
-    add_edges(edges, ["GFPT1", "GFPT2", "GNPNAT1", "PGM3", "UAP1", "NAGK"], ["DPAGT1", "ALG13", "ALG14"], "UDP-GlcNAc donor", "donor_substrate")
-    add_edges(edges, ["HK1", "MPI", "PMM1", "PMM2", "GMPPA", "GMPPB"], ["ALG1", "ALG2", "ALG11"], "GDP-mannose donor", "donor_substrate")
-    add_edges(edges, ["DPM1", "DPM2", "DPM3", "MPDU1"], ["ALG3", "ALG9", "ALG12"], "Dol-P-mannose donor", "donor_substrate")
-    add_edges(edges, ["ALG5"], ["ALG6", "ALG8", "ALG10", "ALG10B"], "Dol-P-glucose donor", "donor_substrate")
+    add_edges(edges, ["DHDDS", "NUS1", "SRD5A3", "DOLK", "DOLPP1"], ["DPAGT1"], "dolichol phosphate pool", "donor_substrate", "reactome_substrates")
+    add_edges(edges, ["GFPT1", "GFPT2", "GNPNAT1", "PGM3", "UAP1", "NAGK"], ["DPAGT1", "ALG13", "ALG14"], "UDP-GlcNAc donor", "donor_substrate", "reactome_substrates")
+    add_edges(edges, ["HK1", "MPI", "PMM1", "PMM2", "GMPPA", "GMPPB"], ["ALG1", "ALG2", "ALG11"], "GDP-mannose donor", "donor_substrate", "reactome_substrates")
+    add_edges(edges, ["DPM1", "DPM2", "DPM3", "MPDU1"], ["ALG3", "ALG9", "ALG12"], "Dol-P-mannose donor", "donor_substrate", "reactome_substrates")
+    add_edges(edges, ["ALG5"], ["ALG6", "ALG8", "ALG10", "ALG10B"], "Dol-P-glucose donor", "donor_substrate", "reactome_substrates")
 
-    add_edges(edges, ["DPAGT1"], ["ALG13", "ALG14"], "early LLO intermediate", "metabolite_intermediate")
-    add_edges(edges, ["ALG13", "ALG14"], ["ALG1"], "GlcNAc2-PP-dolichol", "metabolite_intermediate")
-    add_edges(edges, ["ALG1"], ["ALG2"], "mannosylated LLO intermediate", "metabolite_intermediate")
-    add_edges(edges, ["ALG2"], ["ALG11"], "mannosylated LLO intermediate", "metabolite_intermediate")
-    add_edges(edges, ["ALG11"], ["RFT1"], "Man5-GlcNAc2-PP-dolichol", "metabolite_intermediate")
-    add_edges(edges, ["RFT1"], ["ALG3"], "flipped LLO intermediate", "metabolite_intermediate")
-    add_edges(edges, ["ALG3"], ["ALG9"], "luminal LLO intermediate", "metabolite_intermediate")
-    add_edges(edges, ["ALG9"], ["ALG12"], "luminal LLO intermediate", "metabolite_intermediate")
-    add_edges(edges, ["ALG12"], ["ALG6"], "Man9 LLO intermediate", "metabolite_intermediate")
-    add_edges(edges, ["ALG6"], ["ALG8"], "glucosylated LLO intermediate", "metabolite_intermediate")
-    add_edges(edges, ["ALG8"], ["ALG10", "ALG10B"], "glucosylated LLO intermediate", "metabolite_intermediate")
+    add_edges(edges, ["DPAGT1"], ["ALG13", "ALG14"], "early LLO intermediate", "metabolite_intermediate", "reactome_llo")
+    add_edges(edges, ["ALG13", "ALG14"], ["ALG1"], "GlcNAc2-PP-dolichol", "metabolite_intermediate", "reactome_llo")
+    add_edges(edges, ["ALG1"], ["ALG2"], "mannosylated LLO intermediate", "metabolite_intermediate", "reactome_llo")
+    add_edges(edges, ["ALG2"], ["ALG11"], "mannosylated LLO intermediate", "metabolite_intermediate", "reactome_llo")
+    add_edges(edges, ["ALG11"], ["RFT1"], "Man5-GlcNAc2-PP-dolichol", "metabolite_intermediate", "reactome_llo")
+    add_edges(edges, ["RFT1"], ["ALG3"], "flipped LLO intermediate", "metabolite_intermediate", "reactome_llo")
+    add_edges(edges, ["ALG3"], ["ALG9"], "luminal LLO intermediate", "metabolite_intermediate", "reactome_llo")
+    add_edges(edges, ["ALG9"], ["ALG12"], "luminal LLO intermediate", "metabolite_intermediate", "reactome_llo")
+    add_edges(edges, ["ALG12"], ["ALG6"], "Man9 LLO intermediate", "metabolite_intermediate", "reactome_llo")
+    add_edges(edges, ["ALG6"], ["ALG8"], "glucosylated LLO intermediate", "metabolite_intermediate", "reactome_llo")
+    add_edges(edges, ["ALG8"], ["ALG10", "ALG10B"], "glucosylated LLO intermediate", "metabolite_intermediate", "reactome_llo")
 
     ost_subunits = ["DAD1", "DDOST", "MAGT1", "OST4", "OSTC", "RPN1", "RPN2", "STT3A", "STT3B", "TMEM258", "TUSC3"]
-    add_edges(edges, ["ALG10", "ALG10B"], ["STT3A", "STT3B"], "mature LLO donor", "metabolite_intermediate")
-    add_edges(edges, [g for g in ost_subunits if g not in {"STT3A", "STT3B"}], ["STT3A", "STT3B"], "OST complex context", "complex_or_binding_context")
+    add_edges(edges, ["ALG10", "ALG10B"], ["STT3A", "STT3B"], "mature LLO donor", "metabolite_intermediate", "reactome_llo")
+    add_edges(edges, [g for g in ost_subunits if g not in {"STT3A", "STT3B"}], ["STT3A", "STT3B"], "OST complex context", "complex_or_binding_context", "reactome_llo")
 
-    add_edges(edges, ["STT3A", "STT3B"], ["MOGS"], "nascent N-glycoprotein", "glycoprotein_intermediate")
-    add_edges(edges, ["MOGS"], ["GANAB", "PRKCSH"], "monoglucosylated N-glycoprotein", "glycoprotein_intermediate")
-    add_edges(edges, ["GANAB", "PRKCSH"], ["CANX", "CALR", "MLEC"], "folding-checkpoint glycoprotein", "complex_or_binding_context")
-    add_edges(edges, ["CANX", "CALR"], ["PDIA3"], "chaperone-bound glycoprotein", "complex_or_binding_context")
-    add_edges(edges, ["CANX", "CALR", "PDIA3"], ["UGGT1", "UGGT2"], "folding-assessed glycoprotein", "quality_control_cycle")
-    add_edges(edges, ["UGGT1", "UGGT2"], ["MOGS"], "reglucosylated N-glycoprotein", "quality_control_cycle")
-    add_edges(edges, ["GANAB", "PRKCSH"], ["MAN1B1"], "deglucosylated N-glycoprotein", "glycoprotein_intermediate")
-    add_edges(edges, ["MAN1B1"], ["EDEM1", "EDEM2", "EDEM3"], "mannose-trimmed ER glycoprotein", "quality_control_cycle")
-    add_edges(edges, ["MAN1B1"], ["MAN1A1", "MAN1A2", "MAN1C1"], "ER-exit N-glycoprotein", "glycoprotein_intermediate")
+    add_edges(edges, ["STT3A", "STT3B"], ["MOGS"], "nascent N-glycoprotein", "glycoprotein_intermediate", "reactome_er_qc")
+    add_edges(edges, ["MOGS"], ["GANAB", "PRKCSH"], "monoglucosylated N-glycoprotein", "glycoprotein_intermediate", "reactome_er_qc")
+    add_edges(edges, ["GANAB", "PRKCSH"], ["CANX", "CALR", "MLEC"], "folding-checkpoint glycoprotein", "complex_or_binding_context", "reactome_er_qc")
+    add_edges(edges, ["CANX", "CALR"], ["PDIA3"], "chaperone-bound glycoprotein", "complex_or_binding_context", "reactome_er_qc")
+    add_edges(edges, ["CANX", "CALR", "PDIA3"], ["UGGT1", "UGGT2"], "folding-assessed glycoprotein", "quality_control_cycle", "reactome_er_qc")
+    add_edges(edges, ["UGGT1", "UGGT2"], ["MOGS"], "reglucosylated N-glycoprotein", "quality_control_cycle", "reactome_er_qc")
+    add_edges(edges, ["GANAB", "PRKCSH"], ["MAN1B1"], "deglucosylated N-glycoprotein", "glycoprotein_intermediate", "reactome_er_qc")
+    add_edges(edges, ["MAN1B1"], ["EDEM1", "EDEM2", "EDEM3"], "mannose-trimmed ER glycoprotein", "quality_control_cycle", "reactome_er_qc")
+    add_edges(edges, ["MAN1B1"], ["MAN1A1", "MAN1A2", "MAN1C1"], "ER-exit N-glycoprotein", "glycoprotein_intermediate", "reactome_golgi_cis")
 
-    add_edges(edges, ["MAN1A1", "MAN1A2", "MAN1C1"], ["MGAT1"], "Golgi-trimmed N-glycan", "glycoprotein_intermediate")
-    add_edges(edges, ["MGAT1"], ["MAN2A1", "MAN2A2"], "hybrid/complex precursor N-glycan", "glycoprotein_intermediate")
-    add_edges(edges, ["MAN2A1", "MAN2A2"], ["MGAT2"], "complex precursor N-glycan", "glycoprotein_intermediate")
-    add_edges(edges, ["GFPT1", "GFPT2", "GNPNAT1", "PGM3", "UAP1", "NAGK"], ["MGAT1", "MGAT2", "MGAT3", "MGAT4A", "MGAT4B", "MGAT4C", "MGAT5"], "UDP-GlcNAc donor", "donor_substrate")
-    add_edges(edges, ["MGAT2"], ["MGAT3", "MGAT4A", "MGAT4B", "MGAT4C", "MGAT5"], "complex N-glycan acceptor", "glycoprotein_intermediate")
+    add_edges(edges, ["MAN1A1", "MAN1A2", "MAN1C1"], ["MGAT1"], "Golgi-trimmed N-glycan", "glycoprotein_intermediate", "reactome_golgi_cis")
+    add_edges(edges, ["MGAT1"], ["MAN2A1", "MAN2A2"], "hybrid/complex precursor N-glycan", "glycoprotein_intermediate", "reactome_golgi_cis")
+    add_edges(edges, ["MAN2A1", "MAN2A2"], ["MGAT2"], "complex precursor N-glycan", "glycoprotein_intermediate", "reactome_golgi_cis")
+    add_edges(edges, ["GFPT1", "GFPT2", "GNPNAT1", "PGM3", "UAP1", "NAGK"], ["MGAT1", "MGAT2", "MGAT3", "MGAT4A", "MGAT4B", "MGAT4C", "MGAT5"], "UDP-GlcNAc donor", "donor_substrate", "kegg_nglycan")
+    add_edges(edges, ["MGAT2"], ["MGAT3", "MGAT4A", "MGAT4B", "MGAT4C", "MGAT5"], "complex N-glycan acceptor", "glycoprotein_intermediate", "reactome_golgi_antennae")
 
-    add_edges(edges, ["MGAT3", "MGAT4A", "MGAT4B", "MGAT4C", "MGAT5"], ["B4GALT1", "B4GALT2", "B4GALT3", "B4GALT4", "B4GALT5", "B4GALT6"], "branched N-glycan acceptor", "glycoprotein_intermediate")
-    add_edges(edges, ["MGAT2", "MGAT3", "MGAT4A", "MGAT4B", "MGAT4C", "MGAT5"], ["FUT8"], "core-fucosylation acceptor", "glycoprotein_intermediate")
-    add_edges(edges, ["GMDS", "FPGT", "FCSK", "SLC35C1"], ["FUT8", "FUT3"], "GDP-fucose donor", "donor_substrate")
-    add_edges(edges, ["B4GALT1", "B4GALT2", "B4GALT3", "B4GALT4", "B4GALT5", "B4GALT6"], ["ST3GAL4", "ST6GAL1", "ST8SIA2", "ST8SIA3", "ST8SIA6"], "galactosylated N-glycan acceptor", "glycoprotein_intermediate")
-    add_edges(edges, ["GNE", "NANS", "NANP", "CMAS", "SLC35A1"], ["ST3GAL4", "ST6GAL1", "ST8SIA2", "ST8SIA3", "ST8SIA6"], "CMP-sialic acid donor", "donor_substrate")
-    add_edges(edges, ["B4GALT1", "B4GALT2", "B4GALT3", "B4GALT4", "B4GALT5", "B4GALT6"], ["FUT3", "CHST8", "CHST10", "B4GALNT2"], "terminal N-glycan acceptor", "glycoprotein_intermediate")
+    add_edges(edges, ["MGAT3", "MGAT4A", "MGAT4B", "MGAT4C", "MGAT5"], ["B4GALT1", "B4GALT2", "B4GALT3", "B4GALT4", "B4GALT5", "B4GALT6"], "branched N-glycan acceptor", "glycoprotein_intermediate", "reactome_golgi_antennae")
+    add_edges(edges, ["MGAT2", "MGAT3", "MGAT4A", "MGAT4B", "MGAT4C", "MGAT5"], ["FUT8"], "core-fucosylation acceptor", "glycoprotein_intermediate", "reactome_golgi_antennae")
+    add_edges(edges, ["GMDS", "FPGT", "FCSK", "SLC35C1"], ["FUT8", "FUT3"], "GDP-fucose donor", "donor_substrate", "kegg_nglycan")
+    add_edges(edges, ["B4GALT1", "B4GALT2", "B4GALT3", "B4GALT4", "B4GALT5", "B4GALT6"], ["ST3GAL4", "ST6GAL1", "ST8SIA2", "ST8SIA3", "ST8SIA6"], "galactosylated N-glycan acceptor", "glycoprotein_intermediate", "reactome_golgi_antennae")
+    add_edges(edges, ["GNE", "NANS", "NANP", "CMAS", "SLC35A1"], ["ST3GAL4", "ST6GAL1", "ST8SIA2", "ST8SIA3", "ST8SIA6"], "CMP-sialic acid donor", "donor_substrate", "kegg_nglycan")
+    add_edges(edges, ["B4GALT1", "B4GALT2", "B4GALT3", "B4GALT4", "B4GALT5", "B4GALT6"], ["FUT3", "CHST8", "CHST10", "B4GALNT2"], "terminal N-glycan acceptor", "glycoprotein_intermediate", "reactome_golgi_antennae")
 
     return edges
 
@@ -146,7 +206,19 @@ def write_edge_table(edges: list[dict[str, str]], path: Path) -> None:
     with path.open("w", newline="") as handle:
         writer = csv.DictWriter(
             handle,
-            fieldnames=["source_gene", "target_gene", "edge_metabolite", "edge_class", "curation_notes"],
+            fieldnames=[
+                "source_gene",
+                "target_gene",
+                "edge_metabolite",
+                "edge_class",
+                "source_database",
+                "source_pathway_id",
+                "source_pathway_name",
+                "source_url",
+                "evidence_basis",
+                "curation_confidence",
+                "curation_notes",
+            ],
             delimiter="\t",
             lineterminator="\n",
         )

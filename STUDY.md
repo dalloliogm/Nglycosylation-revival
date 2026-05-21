@@ -68,6 +68,7 @@ Immediate next tasks:
 
 - `[x]` Define pathway-region labels and classification rules.
 - `[x]` Create `docs/methods/pathway-curation.md`.
+- `[x]` Create `docs/methods/pathway-edge-curation.md`.
 - `[~]` Collect N-glycosylation genes from Reactome.
 - `[ ]` Cross-check genes against GlyGen.
 - `[ ]` Cross-check genes against UniProt, Ensembl/GENCODE, and Gene Ontology.
@@ -83,6 +84,7 @@ Immediate next tasks:
 Expected outputs:
 
 - `docs/methods/pathway-curation.md`
+- `docs/methods/pathway-edge-curation.md`
 - `data/processed/nglyco_gene_table.tsv`
 - `data/processed/nglyco_pathway_edges.tsv`
 - `data/processed/nglyco_gene_gene_edges.tsv`
@@ -276,3 +278,4 @@ Expected outputs:
 - 2026-05-21: Started N-glycosylation pathway curation. Added `docs/methods/pathway-curation.md` and first-pass `data/processed/nglyco_gene_table.tsv` with pathway-region labels, primary-analysis flags, sensitivity flags, provisional Ensembl IDs, and provisional coordinates. Reactome release 96 and MyGene.info were checked; direct Ensembl/HGNC validation and GlyGen/UniProt/GO cross-checks remain pending.
 - 2026-05-21: Added uv project environment, `data/processed/nglyco_pathway_edges.tsv`, and `scripts/plot_nglyco_pathway_network.py`; generated first pathway architecture visualization at `results/figures/nglyco_pathway_network.png` and `.svg`.
 - 2026-05-21: Re-scoped the pathway visualization from component nodes to gene nodes. Added `data/processed/nglyco_gene_gene_edges.tsv`, where each edge connects source and target genes and carries a metabolite, glycoprotein intermediate, donor substrate, quality-control, or complex-context label.
+- 2026-05-21: Added source provenance columns to `data/processed/nglyco_gene_gene_edges.tsv` and documented edge abstraction rules in `docs/methods/pathway-edge-curation.md`.
