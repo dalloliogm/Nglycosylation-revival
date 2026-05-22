@@ -222,8 +222,10 @@ Expected outputs:
 
 ## Phase 9: Figures and Manuscript
 
-- `[ ]` Create manuscript outline.
-- `[ ]` Create figure plan.
+- `[x]` Create ARS-style paper configuration record.
+- `[x]` Create manuscript outline.
+- `[x]` Create ARS-style argument blueprint.
+- `[x]` Create figure plan.
 - `[ ]` Create evidence matrix separating robust architecture-level findings from hypothesis-generating candidate signals.
 - `[ ]` Draft introduction.
 - `[ ]` Draft methods.
@@ -238,6 +240,8 @@ Expected outputs:
 Expected outputs:
 
 - `docs/manuscript/outline.md`
+- `docs/manuscript/paper-configuration.md`
+- `docs/manuscript/argument-blueprint.md`
 - `docs/manuscript/figure-plan.md`
 - `docs/manuscript/draft.md`
 - `results/figures/`
@@ -268,6 +272,7 @@ Expected outputs:
 - `[!]` Decide whether the first paper should include comparator pathways or stay focused on N-glycosylation.
 - `[!]` Decide how much population genetics to include.
 - `[!]` Decide whether this is framed as a primary computational analysis paper or a conceptual paper with quantitative support.
+- `[!]` Confirm the ARS paper configuration record before moving from planning to drafting.
 
 ## Change Log
 
@@ -279,3 +284,4 @@ Expected outputs:
 - 2026-05-21: Added uv project environment, `data/processed/nglyco_pathway_edges.tsv`, and `scripts/plot_nglyco_pathway_network.py`; generated first pathway architecture visualization at `results/figures/nglyco_pathway_network.png` and `.svg`.
 - 2026-05-21: Re-scoped the pathway visualization from component nodes to gene nodes. Added `data/processed/nglyco_gene_gene_edges.tsv`, where each edge connects source and target genes and carries a metabolite, glycoprotein intermediate, donor substrate, quality-control, or complex-context label.
 - 2026-05-21: Added source provenance columns to `data/processed/nglyco_gene_gene_edges.tsv` and documented edge abstraction rules in `docs/methods/pathway-edge-curation.md`.
+- 2026-05-22: Adapted manuscript planning to the `academic-research-suite` `academic-paper` conventions. Added `docs/manuscript/paper-configuration.md`, `docs/manuscript/outline.md`, `docs/manuscript/argument-blueprint.md`, and `docs/manuscript/figure-plan.md`.
