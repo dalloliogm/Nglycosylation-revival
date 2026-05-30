@@ -273,6 +273,7 @@ Expected outputs:
 - `[x]` Create a machine-readable agent and gate registry.
 - `[x]` Create a lightweight registry inspection script.
 - `[x]` Create Makefile targets for inspecting and checking the agentic workflow.
+- `[x]` Create a prompt generator that turns a backlog item into an executable Codex task packet.
 - `[ ]` Draft `docs/concept/paper-thesis.md` using the hypothesis agent role.
 - `[ ]` Draft `docs/concept/claims-register.md` using the critic and hypothesis agent roles.
 - `[ ]` Draft `docs/methods/architecture-metrics.md` using the architecture agent role.
@@ -283,6 +284,7 @@ Expected outputs:
 - `docs/methods/agentic-system-plan.md`
 - `workflow/agentic_paper_system.json`
 - `scripts/inspect_agentic_system.py`
+- `scripts/create_agentic_task_prompt.py`
 - `Makefile`
 
 ## Active Decisions
@@ -306,3 +308,4 @@ Expected outputs:
 - 2026-05-28: Continued ARS deep-research literature expansion. Added new references on bow-tie/sloppiness theory, sialic-acid and SIGLEC evolution, vertebrate glycan diversity, glycosyltransferase phylogenetic profiling, fucosyltransferase evolution, mucosal/gut glycan interface biology, and initial comparator anchors for MHC/HLA, olfactory receptors, and ER quality control to `docs/concept/literature-matrix.tsv`; updated `docs/concept/literature-review.md` with synthesis notes and revised immediate next tasks.
 - 2026-05-30: Added an agentic paper implementation plan, machine-readable agent/gate registry, and inspection script so future work can be organized as small supervised research-agent tasks.
 - 2026-05-30: Added Makefile targets for inspecting, checking, and listing ready agentic workflow tasks.
+- 2026-05-30: Added a prompt generator and `make agentic-prompt` target to turn registry backlog items into concrete Codex work instructions.
