@@ -267,6 +267,22 @@ Expected outputs:
 - reproducible repository release
 - submission package
 
+## Phase 11: Agentic Paper Implementation
+
+- `[x]` Define an agentic-system plan for implementing the paper as supervised research workflows.
+- `[x]` Create a machine-readable agent and gate registry.
+- `[x]` Create a lightweight registry inspection script.
+- `[ ]` Draft `docs/concept/paper-thesis.md` using the hypothesis agent role.
+- `[ ]` Draft `docs/concept/claims-register.md` using the critic and hypothesis agent roles.
+- `[ ]` Draft `docs/methods/architecture-metrics.md` using the architecture agent role.
+- `[ ]` Use the registry to choose and commit small agentic work units.
+
+Expected outputs:
+
+- `docs/methods/agentic-system-plan.md`
+- `workflow/agentic_paper_system.json`
+- `scripts/inspect_agentic_system.py`
+
 ## Active Decisions
 
 - `[!]` Decide whether the first paper should include comparator pathways or stay focused on N-glycosylation.
@@ -285,3 +301,4 @@ Expected outputs:
 - 2026-05-21: Re-scoped the pathway visualization from component nodes to gene nodes. Added `data/processed/nglyco_gene_gene_edges.tsv`, where each edge connects source and target genes and carries a metabolite, glycoprotein intermediate, donor substrate, quality-control, or complex-context label.
 - 2026-05-21: Added source provenance columns to `data/processed/nglyco_gene_gene_edges.tsv` and documented edge abstraction rules in `docs/methods/pathway-edge-curation.md`.
 - 2026-05-22: Adapted manuscript planning to the `academic-research-suite` `academic-paper` conventions. Added `docs/manuscript/paper-configuration.md`, `docs/manuscript/outline.md`, `docs/manuscript/argument-blueprint.md`, and `docs/manuscript/figure-plan.md`.
+- 2026-05-30: Added an agentic paper implementation plan, machine-readable agent/gate registry, and inspection script so future work can be organized as small supervised research-agent tasks.
