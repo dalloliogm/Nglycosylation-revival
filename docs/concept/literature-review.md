@@ -22,8 +22,14 @@ Key papers already tracked:
 - Helenius and Aebi, "Roles of N-linked glycans in the endoplasmic reticulum".
 - Aebi, "N-linked protein glycosylation in the ER".
 - Varki, "Evolutionary forces shaping the Golgi glycosylation machinery".
+- Varki, "Biological roles of glycans".
+- Varki, "Uniquely human evolution of sialic acid genetics and biology".
+- Suzuki, "Glycan diversity in the course of vertebrate evolution".
+- Tomono et al., "Investigation of glycan evolution based on a comprehensive analysis of glycosyltransferases using phylogenetic profiling".
 - Kim, Lee, and Jeong, "Centralized Modularity of N-Linked Glycosylation Pathways in Mammalian Cells".
 - Dall'Olio et al., the 2012 BMC Evolutionary Biology paper, as historical context and hypothesis generator.
+
+The new glycan-evolution additions strengthen a key distinction for the manuscript: ER-linked N-glycosylation supports conserved maturation and quality control, while later glycan elaboration and terminal modification are repeatedly implicated in lineage-specific and interface-facing diversity. Tomono et al. are especially useful because they analyze glycosyltransferases directly and argue that non-reducing terminal glycan synthesis is associated with more recently evolved enzymes. This should be treated as support for a downstream evolvability hypothesis, not as proof that every downstream N-glycosylation enzyme is adaptive.
 
 ## Glycans as an Organism-Environment Interface
 
@@ -40,8 +46,14 @@ Key papers already tracked:
 - Reily et al., "N-Glycosylation and Inflammation; the Not-So-Sweet Relation".
 - Smith and Cummings, "Glycans in virus-host interactions: a structural perspective".
 - Wolfert and Boons, "Adaptive immune activation: glycosylation does matter".
+- Varki and Gagneux, "Multifarious roles of sialic acids in immunity".
+- Dias et al., "Glycans as critical regulators of gut immunity in homeostasis and disease".
+- Josenhans et al., "How bacterial pathogens of the gastrointestinal tract use the mucosal glyco-code to harness mucus and microbiota".
+- Pinho et al., "Mucosal glycans: key drivers of the development of inflammatory bowel disease and a potential new therapeutic target".
 - Shen et al., "Multivariate discovery and replication of five novel loci associated with Immunoglobulin G N-glycosylation".
 - Klaric et al., "Glycosylation of immunoglobulin G is regulated by a large network of genes pleiotropic with inflammatory diseases".
+
+The mucosal and sialic-acid papers broaden the organism-environment interface argument beyond generic immune recognition. They make clear that glycans participate in barrier integrity, host-microbiota crosstalk, pathogen binding or mimicry, Siglec-mediated self-recognition, and inflammatory tuning. The limitation is equally important: several of these sources emphasize mucins, sialic acids, O-glycans, or lectin receptors rather than N-glycosylation enzymes. They should support the interface-layer framing while gene-level claims remain tied to N-glycosylation-specific evidence.
 
 ## Population Genetics
 
@@ -71,11 +83,15 @@ For this project, network features should be broader than centrality alone: path
 Key papers already tracked:
 
 - Barabasi and Oltvai, "Network biology: understanding the cell's functional organization".
+- Csete and Doyle, "Bow ties, metabolism and disease".
+- Friedlander et al., "Evolution of Bow-Tie Architectures in Biology".
 - Jeong et al., "Lethality and centrality in protein networks".
 - Hahn and Kern, "Comparative genomics of centrality and essentiality in three eukaryotic protein-interaction networks".
 - Vitkup, Kharchenko, and Wagner, "Influence of metabolic network structure and function on enzyme evolution".
 - Kim, Lee, and Jeong, "Centralized Modularity of N-Linked Glycosylation Pathways in Mammalian Cells".
 - Goh et al., "The human disease network".
+
+Bow-tie architecture is a promising analogy for the paper, but it needs discipline. N-glycosylation is not obviously a textbook bow tie in the same way as central metabolism, because its upstream LLO synthesis and downstream Golgi processing are both constrained by biochemical specificity and compartmentalization. The useful contribution of the bow-tie literature is conceptual: architectures can combine robust cores with diverse outputs and characteristic fragilities. The manuscript should translate that idea into measurable N-glycosylation features rather than using "bow tie" as a decorative label.
 
 ## Disease, Constraint, and Human Variation
 
@@ -104,6 +120,9 @@ Key papers already tracked:
 - Felix and Wagner, "Pervasive robustness in biological systems".
 - Payne and Wagner, "The causes of evolvability and their evolution".
 - Edelman and Gally, "Degeneracy and complexity in biological systems".
+- Daniels et al., "Sloppiness, robustness, and evolvability in systems biology".
+
+The sloppiness literature adds an important alternative explanation: apparent robustness can arise from model geometry and insensitive parameter combinations, not only from directly selected buffering. This is useful for the devil's-advocate side of the paper. If upstream genes are strongly constrained, that result should not automatically be described as an evolved robustness design; it may reflect biochemical indispensability, annotation, or generic network sensitivity.
 
 ## Immediate Reading Priorities
 
@@ -115,7 +134,7 @@ Key papers already tracked:
 
 ## Open Gaps
 
-- Need a fuller set of primary studies on sialic acid evolution, glycosyltransferase family evolution, and host-pathogen glycan conflict.
+- Need deeper extraction from the new sialic-acid evolution, glycosyltransferase evolution, and mucosal glycan interface papers.
 - Need direct sources for GlyGen/Reactome pathway curation and stable gene identifiers.
-- Need comparator-pathway references for MHC, olfactory receptors, ER folding, and ribosome/translation if the paper generalizes beyond N-glycosylation.
+- Need fuller comparator-pathway extraction if the paper generalizes beyond N-glycosylation. Initial anchors now exist for MHC/HLA, olfactory receptors, and ER protein-folding quality control, but not yet for ribosome/translation or central metabolism controls.
 - Need full-text extraction from high-priority papers into the matrix before writing manuscript prose.
