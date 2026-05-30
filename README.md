@@ -25,6 +25,28 @@ Key planning files:
 - `docs/concept/concept-memo.md`: short conceptual framing.
 - `docs/methods/analysis-plan.md`: initial analysis principles.
 
+## Agentic Workflow Commands
+
+The repository includes a lightweight Makefile interface for running the paper's agentic workflow checks from the local workspace.
+
+```bash
+make agentic-inspect
+```
+
+Prints the full agentic workflow registry: the available research-agent roles, their expected inputs and outputs, the quality gates, and the current near-term backlog. Use this when you want to understand how the paper implementation is organized.
+
+```bash
+make agentic-check
+```
+
+Runs a basic validation pass. It compiles `scripts/inspect_agentic_system.py` and then runs the inspector against `workflow/agentic_paper_system.json`. Use this after editing the agent registry, Makefile, or inspector script.
+
+```bash
+make agentic-next
+```
+
+Prints only the near-term backlog section from the registry inspection. Use this when you want to choose the next ready agentic work unit without reading the full registry output.
+
 ## Repository Layout
 
 - `STUDY.md`: live project checklist and decision tracker.
