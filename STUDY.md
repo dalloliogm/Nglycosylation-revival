@@ -272,6 +272,7 @@ Expected outputs:
 - `[x]` Define an agentic-system plan for implementing the paper as supervised research workflows.
 - `[x]` Create a machine-readable agent and gate registry.
 - `[x]` Create a lightweight registry inspection script.
+- `[x]` Create Makefile targets for inspecting and checking the agentic workflow.
 - `[ ]` Draft `docs/concept/paper-thesis.md` using the hypothesis agent role.
 - `[ ]` Draft `docs/concept/claims-register.md` using the critic and hypothesis agent roles.
 - `[ ]` Draft `docs/methods/architecture-metrics.md` using the architecture agent role.
@@ -282,6 +283,7 @@ Expected outputs:
 - `docs/methods/agentic-system-plan.md`
 - `workflow/agentic_paper_system.json`
 - `scripts/inspect_agentic_system.py`
+- `Makefile`
 
 ## Active Decisions
 
@@ -302,3 +304,4 @@ Expected outputs:
 - 2026-05-21: Added source provenance columns to `data/processed/nglyco_gene_gene_edges.tsv` and documented edge abstraction rules in `docs/methods/pathway-edge-curation.md`.
 - 2026-05-22: Adapted manuscript planning to the `academic-research-suite` `academic-paper` conventions. Added `docs/manuscript/paper-configuration.md`, `docs/manuscript/outline.md`, `docs/manuscript/argument-blueprint.md`, and `docs/manuscript/figure-plan.md`.
 - 2026-05-30: Added an agentic paper implementation plan, machine-readable agent/gate registry, and inspection script so future work can be organized as small supervised research-agent tasks.
+- 2026-05-30: Added Makefile targets for inspecting, checking, and listing ready agentic workflow tasks.
