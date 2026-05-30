@@ -46,7 +46,7 @@ Key files:
 - `[~]` Expand pathway/network biology references.
 - `[ ]` Expand comparator-pathway references.
 - `[ ]` Extract structured notes from high-priority papers.
-- `[ ]` Write `docs/concept/paper-thesis.md`.
+- `[x]` Write `docs/concept/paper-thesis.md`.
 - `[ ]` Create a claims register distinguishing what the paper shows, suggests, and does not show.
 - `[ ]` Create a reviewer-risk checklist from the original paper criticisms.
 - `[ ]` Decide the paper type: primary analysis, conceptual synthesis plus analysis, or perspective with computational case study.
@@ -274,7 +274,7 @@ Expected outputs:
 - `[x]` Create a lightweight registry inspection script.
 - `[x]` Create Makefile targets for inspecting and checking the agentic workflow.
 - `[x]` Create a prompt generator that turns a backlog item into an executable Codex task packet.
-- `[ ]` Draft `docs/concept/paper-thesis.md` using the hypothesis agent role.
+- `[x]` Draft `docs/concept/paper-thesis.md` using the hypothesis agent role.
 - `[ ]` Draft `docs/concept/claims-register.md` using the critic and hypothesis agent roles.
 - `[ ]` Draft `docs/methods/architecture-metrics.md` using the architecture agent role.
 - `[ ]` Use the registry to choose and commit small agentic work units.
@@ -309,3 +309,4 @@ Expected outputs:
 - 2026-05-30: Added an agentic paper implementation plan, machine-readable agent/gate registry, and inspection script so future work can be organized as small supervised research-agent tasks.
 - 2026-05-30: Added Makefile targets for inspecting, checking, and listing ready agentic workflow tasks.
 - 2026-05-30: Added a prompt generator and `make agentic-prompt` target to turn registry backlog items into concrete Codex work instructions.
+- 2026-05-30: Completed agentic work unit `draft_paper_thesis` with `docs/concept/paper-thesis.md`, formalizing the robustness/evolvability thesis as a testable model with competing hypotheses, prediction-to-evidence mapping, claim levels, and critic safeguards.
