@@ -78,6 +78,22 @@ Post-2010 anchors identified in the 2026-05-31 search:
 - Suhre et al., fine-mapping the human plasma N-glycome onto the proteome.
 - Sharapov and colleagues' large plasma N-glycome GWAS linking glycome traits to liver disease and anti-inflammatory proteins.
 
+### Newly Tracked Paper Summaries
+
+The 2026-05-31 tracker update added structured summaries for the following papers to `docs/concept/literature-matrix.tsv`.
+
+- Montanucci et al. (2011): direct predecessor on primate N-glycosylation evolution; relevant because strong coding conservation and network-associated purifying constraint push the new paper away from a simple coding-adaptation model.
+- Zoldos, Grgurevic, and Lauc (2010): review on epigenetic regulation of glyco-genes; relevant because it supports the distinction between essential core N-glycosylation and variable antenna/terminal glycan outputs.
+- Lauc and Zoldos (2010): conceptual review of glycosylation as a gene-environment interface; relevant because it supports regulatory and environmental responsiveness as the likely evolvability layer.
+- Lauc et al. (2010): early evidence for complex genetic regulation of protein glycosylation; relevant because it motivates glycan-output phenotypes as measurable downstream consequences of genetic and regulatory variation.
+- Huffman et al. (2011): first plasma N-glycome GWAS; relevant because it shows that plasma glycan-output variation can be genetically mapped and includes regulatory loci such as HNF1A.
+- Lauc, Kristic, and Zoldos (2014): broad evolutionary argument for glycans as a distinct biological information layer; relevant as conceptual support, but not direct evidence for N-glycosylation pathway-region gradients.
+- Lauc et al. (2013): IgG N-glycosylation GWAS with autoimmune and hematological cancer pleiotropy; relevant because antibody glycan variation links downstream glycosylation traits to immune disease architecture.
+- Sharapov et al. (2019): expanded plasma N-glycome GWAS; relevant because it strengthens the regulatory and glycan-output evidence stream beyond early small studies.
+- Suhre et al. (2019): protein-resolved plasma N-glycome mapping; relevant because it helps interpret bulk plasma glycan signals in relation to specific glycoproteins.
+- Shadrina et al. (2021): multivariate IgG N-glycosylation GWAS; relevant because it reinforces distributed genetic control of antibody glycan-output traits.
+- Sharapov et al. (2025): large plasma N-glycome GWAS linking glycan traits to liver disease and anti-inflammatory proteins; relevant because it gives a current, high-powered trait/disease evidence layer for regulatory evolvability.
+
 ## Population Genetics
 
 Population genetics should remain supporting evidence, not the center of the paper. The original 2012 paper is useful historically because it framed a pathway-level contrast, but modern interpretation needs stronger controls for demography, LD, recombination, background selection, gene boundaries, SNP density, and local genomic context.
