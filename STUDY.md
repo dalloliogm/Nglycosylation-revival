@@ -48,7 +48,7 @@ Key files:
 - `[ ]` Expand comparator-pathway references.
 - `[ ]` Extract structured notes from high-priority papers.
 - `[x]` Write `docs/concept/paper-thesis.md`.
-- `[ ]` Create a claims register distinguishing what the paper shows, suggests, and does not show.
+- `[x]` Create a claims register distinguishing what the paper shows, suggests, and does not show.
 - `[ ]` Create a reviewer-risk checklist from the original paper criticisms.
 - `[ ]` Decide the paper type: primary analysis, conceptual synthesis plus analysis, or perspective with computational case study.
 
@@ -277,7 +277,7 @@ Expected outputs:
 - `[x]` Create Makefile targets for inspecting and checking the agentic workflow.
 - `[x]` Create a prompt generator that turns a backlog item into an executable Codex task packet.
 - `[x]` Draft `docs/concept/paper-thesis.md` using the hypothesis agent role.
-- `[ ]` Draft `docs/concept/claims-register.md` using the critic and hypothesis agent roles.
+- `[x]` Draft `docs/concept/claims-register.md` using the critic and hypothesis agent roles.
 - `[ ]` Draft `docs/methods/architecture-metrics.md` using the architecture agent role.
 - `[ ]` Use the registry to choose and commit small agentic work units.
 
@@ -316,3 +316,4 @@ Expected outputs:
 - 2026-05-31: Updated the thesis, project plan, and literature review to position Montanucci et al. and Zoldos/Lauc glyco-regulation work as direct predecessors, and to shift the expected evolvability signal toward regulatory, glycan-output, tissue, disease, and trait layers rather than coding-sequence acceleration.
 - 2026-05-31: Added structured literature-matrix summaries for direct-predecessor, glyco-gene regulation, and glycome/IgG N-glycome GWAS papers, with relevance and limitations recorded for each.
 - 2026-05-31: Added one standalone paper-summary file per priority glycome regulation/evolution paper in `docs/concept/paper-summaries/`.
+- 2026-05-31: Added `docs/concept/claims-register.md` to control claim strength across thesis, prior art, constraint, disease, regulatory/glycome-output, population-genetic, and comparator-pathway claims.
