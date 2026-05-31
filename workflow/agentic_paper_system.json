@@ -1,0 +1,277 @@
+{
+  "version": "0.1.0",
+  "project": "N-glycosylation evolutionary architecture paper",
+  "controller": {
+    "source_of_truth": "STUDY.md",
+    "selection_rule": "Pick the earliest in-progress or unstarted task whose prerequisites are complete and whose output artifact is missing or stale.",
+    "commit_rule": "Commit one reviewable unit at a time after updating STUDY.md."
+  },
+  "agents": [
+    {
+      "id": "literature_agent",
+      "role": "Expand and extract the literature foundation.",
+      "inputs": [
+        "docs/concept/literature-search-plan.md",
+        "docs/concept/literature-matrix.tsv"
+      ],
+      "outputs": [
+        "docs/concept/literature-matrix.tsv",
+        "docs/concept/literature-review.md"
+      ],
+      "gates": [
+        "concept_gate",
+        "critic_gate"
+      ]
+    },
+    {
+      "id": "hypothesis_agent",
+      "role": "Formalize the robustness/evolvability thesis into predictions, competing hypotheses, and claim levels.",
+      "inputs": [
+        "docs/concept/concept-memo.md",
+        "docs/concept/project-plan.md",
+        "docs/concept/literature-review.md"
+      ],
+      "outputs": [
+        "docs/concept/paper-thesis.md",
+        "docs/concept/claims-register.md"
+      ],
+      "gates": [
+        "concept_gate",
+        "critic_gate"
+      ]
+    },
+    {
+      "id": "pathway_curation_agent",
+      "role": "Maintain the pathway gene table, edge tables, pathway-region labels, and ambiguity flags.",
+      "inputs": [
+        "docs/methods/pathway-curation.md",
+        "docs/methods/pathway-edge-curation.md",
+        "data/processed/nglyco_gene_table.tsv",
+        "data/processed/nglyco_gene_gene_edges.tsv"
+      ],
+      "outputs": [
+        "data/processed/nglyco_gene_table.tsv",
+        "data/processed/nglyco_gene_gene_edges.tsv",
+        "docs/methods/pathway-curation.md"
+      ],
+      "gates": [
+        "curation_gate",
+        "critic_gate"
+      ]
+    },
+    {
+      "id": "data_provenance_agent",
+      "role": "Document dataset versions, access paths, genome builds, filters, and inclusion rules before analysis.",
+      "inputs": [
+        "docs/methods/analysis-plan.md",
+        "data/README.md"
+      ],
+      "outputs": [
+        "docs/methods/constraint-analysis.md",
+        "docs/methods/disease-annotation.md",
+        "docs/methods/interface-layer-analysis.md",
+        "docs/methods/popgen-decision.md"
+      ],
+      "gates": [
+        "provenance_gate"
+      ]
+    },
+    {
+      "id": "architecture_agent",
+      "role": "Compute architecture features such as pathway depth, branch status, checkpoint proximity, redundancy, and graph metrics.",
+      "inputs": [
+        "data/processed/nglyco_gene_table.tsv",
+        "data/processed/nglyco_gene_gene_edges.tsv",
+        "docs/methods/architecture-metrics.md"
+      ],
+      "outputs": [
+        "data/processed/nglyco_architecture_features.tsv",
+        "results/tables/architecture_feature_summary.tsv"
+      ],
+      "gates": [
+        "curation_gate",
+        "analysis_gate",
+        "critic_gate"
+      ]
+    },
+    {
+      "id": "constraint_agent",
+      "role": "Analyze constraint and standing-variation gradients across pathway regions.",
+      "inputs": [
+        "data/processed/nglyco_gene_table.tsv",
+        "data/processed/nglyco_architecture_features.tsv",
+        "docs/methods/constraint-analysis.md"
+      ],
+      "outputs": [
+        "results/tables/constraint_summary.tsv",
+        "results/figures/constraint_gradient.png"
+      ],
+      "gates": [
+        "provenance_gate",
+        "analysis_gate",
+        "critic_gate"
+      ]
+    },
+    {
+      "id": "disease_agent",
+      "role": "Compare Mendelian, ClinVar, CDG, GWAS, and trait-category evidence across pathway regions.",
+      "inputs": [
+        "data/processed/nglyco_gene_table.tsv",
+        "docs/methods/disease-annotation.md"
+      ],
+      "outputs": [
+        "data/processed/nglyco_disease_annotations.tsv",
+        "results/tables/disease_architecture_summary.tsv",
+        "results/figures/disease_architecture.png"
+      ],
+      "gates": [
+        "provenance_gate",
+        "analysis_gate",
+        "critic_gate"
+      ]
+    },
+    {
+      "id": "critic_agent",
+      "role": "Audit claim strength, provenance, confounding, sensitivity analysis, and original-paper failure modes.",
+      "inputs": [
+        "docs/concept/project-plan.md",
+        "docs/concept/claims-register.md",
+        "docs/methods/analysis-plan.md",
+        "results/tables"
+      ],
+      "outputs": [
+        "docs/manuscript/evidence-matrix.md"
+      ],
+      "gates": [
+        "critic_gate"
+      ]
+    },
+    {
+      "id": "manuscript_agent",
+      "role": "Draft manuscript sections from approved evidence artifacts.",
+      "inputs": [
+        "docs/manuscript/outline.md",
+        "docs/manuscript/argument-blueprint.md",
+        "docs/manuscript/evidence-matrix.md",
+        "docs/concept/claims-register.md"
+      ],
+      "outputs": [
+        "docs/manuscript/draft.md"
+      ],
+      "gates": [
+        "manuscript_gate"
+      ]
+    }
+  ],
+  "gates": [
+    {
+      "id": "concept_gate",
+      "requires": [
+        "Thesis is stated as a testable model.",
+        "Competing hypotheses are listed.",
+        "Predictions are mapped to evidence streams.",
+        "Unsupported mechanistic claims are labeled as hypotheses."
+      ]
+    },
+    {
+      "id": "curation_gate",
+      "requires": [
+        "Gene identifiers and symbols are stable and source-documented.",
+        "Pathway-region label has a decision rule.",
+        "Ambiguous or multi-role genes are flagged.",
+        "Sensitivity labels are available for disputed genes."
+      ]
+    },
+    {
+      "id": "provenance_gate",
+      "requires": [
+        "Dataset version and source URL or accession are recorded.",
+        "Genome build and coordinate system are recorded.",
+        "Filters and inclusion criteria are recorded.",
+        "Access date and software version are recorded."
+      ]
+    },
+    {
+      "id": "analysis_gate",
+      "requires": [
+        "Output table is machine-readable.",
+        "Method is reproducible from a script or documented notebook.",
+        "Effect sizes and uncertainty are reported where applicable.",
+        "At least one sensitivity or limitation statement is included."
+      ]
+    },
+    {
+      "id": "critic_gate",
+      "requires": [
+        "Claim strength matches evidence strength.",
+        "Population-genetic outliers are not described as proven adaptation.",
+        "Nearby-gene and local-context risks are acknowledged for loci.",
+        "Original-paper failure modes are checked."
+      ]
+    },
+    {
+      "id": "manuscript_gate",
+      "requires": [
+        "Every results claim maps to a table, figure, or literature row.",
+        "Limitations are explicit.",
+        "Gene examples support, rather than replace, architecture-level claims.",
+        "Claims register is current."
+      ]
+    }
+  ],
+  "near_term_backlog": [
+    {
+      "id": "draft_paper_thesis",
+      "agent": "hypothesis_agent",
+      "outputs": [
+        "docs/concept/paper-thesis.md"
+      ],
+      "prerequisites": [
+        "docs/concept/concept-memo.md",
+        "docs/concept/project-plan.md"
+      ]
+    },
+    {
+      "id": "draft_claims_register",
+      "agent": "hypothesis_agent",
+      "outputs": [
+        "docs/concept/claims-register.md"
+      ],
+      "prerequisites": [
+        "docs/concept/project-plan.md",
+        "docs/concept/literature-review.md"
+      ]
+    },
+    {
+      "id": "define_architecture_metrics",
+      "agent": "architecture_agent",
+      "outputs": [
+        "docs/methods/architecture-metrics.md"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_gene_table.tsv",
+        "data/processed/nglyco_gene_gene_edges.tsv"
+      ]
+    },
+    {
+      "id": "crosscheck_gene_table",
+      "agent": "pathway_curation_agent",
+      "outputs": [
+        "data/processed/nglyco_gene_table.tsv"
+      ],
+      "prerequisites": [
+        "docs/methods/pathway-curation.md"
+      ]
+    },
+    {
+      "id": "scope_constraint_dataset",
+      "agent": "data_provenance_agent",
+      "outputs": [
+        "docs/methods/constraint-analysis.md"
+      ],
+      "prerequisites": [
+        "docs/methods/analysis-plan.md"
+      ]
+    }
+  ]
+}

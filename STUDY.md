@@ -41,7 +41,7 @@ Key files:
 - `[x]` Seed the literature matrix with high-priority papers.
 - `[~]` Expand robustness/evolvability theory references.
 - `[~]` Expand glycan evolution and Golgi diversification references.
-- `[~]` Expand glycoimmunology and host-pathogen interface references.
+- `[~]` Expand glycoimmunology, mucosal, microbiome, and host-pathogen interface references.
 - `[~]` Expand disease architecture and CDG references.
 - `[~]` Expand pathway/network biology references.
 - `[ ]` Expand comparator-pathway references.
@@ -61,7 +61,7 @@ Key files:
 Immediate next tasks:
 
 1. Extract structured notes from the highest-priority pathway-core papers into `docs/concept/literature-matrix.tsv`.
-2. Add missing primary papers on sialic acid evolution, glycosyltransferase family evolution, and host-pathogen glycan conflict.
+2. Read and extract the new sialic-acid evolution, glycosyltransferase evolution, mucosal glycan interface, and comparator-anchor papers added on 2026-05-28.
 3. Draft the core paper thesis in one page.
 
 ## Phase 2: Pathway Curation
@@ -267,6 +267,26 @@ Expected outputs:
 - reproducible repository release
 - submission package
 
+## Phase 11: Agentic Paper Implementation
+
+- `[x]` Define an agentic-system plan for implementing the paper as supervised research workflows.
+- `[x]` Create a machine-readable agent and gate registry.
+- `[x]` Create a lightweight registry inspection script.
+- `[x]` Create Makefile targets for inspecting and checking the agentic workflow.
+- `[x]` Create a prompt generator that turns a backlog item into an executable Codex task packet.
+- `[ ]` Draft `docs/concept/paper-thesis.md` using the hypothesis agent role.
+- `[ ]` Draft `docs/concept/claims-register.md` using the critic and hypothesis agent roles.
+- `[ ]` Draft `docs/methods/architecture-metrics.md` using the architecture agent role.
+- `[ ]` Use the registry to choose and commit small agentic work units.
+
+Expected outputs:
+
+- `docs/methods/agentic-system-plan.md`
+- `workflow/agentic_paper_system.json`
+- `scripts/inspect_agentic_system.py`
+- `scripts/create_agentic_task_prompt.py`
+- `Makefile`
+
 ## Active Decisions
 
 - `[!]` Decide whether the first paper should include comparator pathways or stay focused on N-glycosylation.
@@ -285,3 +305,7 @@ Expected outputs:
 - 2026-05-21: Re-scoped the pathway visualization from component nodes to gene nodes. Added `data/processed/nglyco_gene_gene_edges.tsv`, where each edge connects source and target genes and carries a metabolite, glycoprotein intermediate, donor substrate, quality-control, or complex-context label.
 - 2026-05-21: Added source provenance columns to `data/processed/nglyco_gene_gene_edges.tsv` and documented edge abstraction rules in `docs/methods/pathway-edge-curation.md`.
 - 2026-05-22: Adapted manuscript planning to the `academic-research-suite` `academic-paper` conventions. Added `docs/manuscript/paper-configuration.md`, `docs/manuscript/outline.md`, `docs/manuscript/argument-blueprint.md`, and `docs/manuscript/figure-plan.md`.
+- 2026-05-28: Continued ARS deep-research literature expansion. Added new references on bow-tie/sloppiness theory, sialic-acid and SIGLEC evolution, vertebrate glycan diversity, glycosyltransferase phylogenetic profiling, fucosyltransferase evolution, mucosal/gut glycan interface biology, and initial comparator anchors for MHC/HLA, olfactory receptors, and ER quality control to `docs/concept/literature-matrix.tsv`; updated `docs/concept/literature-review.md` with synthesis notes and revised immediate next tasks.
+- 2026-05-30: Added an agentic paper implementation plan, machine-readable agent/gate registry, and inspection script so future work can be organized as small supervised research-agent tasks.
+- 2026-05-30: Added Makefile targets for inspecting, checking, and listing ready agentic workflow tasks.
+- 2026-05-30: Added a prompt generator and `make agentic-prompt` target to turn registry backlog items into concrete Codex work instructions.
