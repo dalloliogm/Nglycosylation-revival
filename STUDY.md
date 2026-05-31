@@ -206,6 +206,7 @@ Population genetics should support or challenge the architecture hypothesis. It 
 
 - `[~]` Decide whether comparator pathways are necessary for the target paper.
 - `[x]` Record deferred cross-pathway expansion idea and candidate linear comparators.
+- `[x]` Document optional 1-3 pathway comparator module for the first paper.
 - `[ ]` Create `docs/methods/comparator-pathways.md`.
 - `[ ]` Select one constrained-core comparator pathway.
 - `[ ]` Select one adaptive-interface comparator pathway.
@@ -310,3 +311,4 @@ Expected outputs:
 - 2026-05-30: Added Makefile targets for inspecting, checking, and listing ready agentic workflow tasks.
 - 2026-05-30: Added a prompt generator and `make agentic-prompt` target to turn registry backlog items into concrete Codex work instructions.
 - 2026-05-30: Completed agentic work unit `draft_paper_thesis` with `docs/concept/paper-thesis.md`, formalizing the robustness/evolvability thesis as a testable model with competing hypotheses, prediction-to-evidence mapping, claim levels, and critic safeguards.
+- 2026-05-31: Documented an optional first-paper comparator module using 1-3 pathways as a specificity check, with heme biosynthesis, CoQ / ubiquinone biosynthesis, and GPI-anchor biosynthesis as the recommended minimal candidates.

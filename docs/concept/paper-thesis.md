@@ -70,6 +70,16 @@ Avoid: "selection event", "adaptive mutation", "population-specific adaptation",
 6. General-interface model: N-glycosylation is not special; similar core/interface gradients should appear in many pathways with conserved cores and environmentally exposed outputs.
 7. Null model: pathway region does not predict constraint, disease, variation, or trait evidence once measurement noise and covariates are considered.
 
+## Optional Comparator-Pathway Module
+
+The paper may include 1-3 comparator pathways as a specificity check, while keeping N-glycosylation as the main case study. The comparator question should be narrow: does N-glycosylation show a stronger core-to-interface gradient than conserved linear pathways mostly involved in essential biochemical production?
+
+Recommended first-pass comparators are heme biosynthesis as a clean conserved linear pathway, CoQ / ubiquinone biosynthesis as a compact mitochondrial constrained-core pathway, and GPI-anchor biosynthesis as an optional positive comparator with a glycan/cell-surface interface component.
+
+This module should be lightweight: curated gene lists, broad pathway-position labels, constraint summaries, severe Mendelian disease burden, and limited trait/interface evidence. It should not expand into a broad pathway survey or add full population-genetic scans for comparator pathways.
+
+Allowed claim level: "specificity check" or "comparative context". Avoid claiming that 1-3 pathways prove a universal architecture principle.
+
 ## Predictions and Evidence Streams
 
 | Prediction | Primary evidence streams | Required controls or caveats | Claim level if supported |
