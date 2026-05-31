@@ -10,12 +10,20 @@ The target contribution is a systems/evolutionary biology paper arguing that bio
 
 Biological pathways may localize evolvability away from catastrophic failure points. In N-glycosylation, upstream core machinery is expected to behave like a robustness layer, while downstream branching and terminal modification machinery behaves more like an evolvable interface layer.
 
+This thesis must be positioned as a formalization and modern empirical test of an existing conceptual thread, not as a claim that the glycosylation/evolvability connection is entirely new. Prior work on N-glycosylation evolution across primates found strong protein-coding conservation and no clear positive-selection signal, while also showing that network structure relates to evolutionary constraint. Prior work on epigenetic and genetic regulation of protein glycosylation argued that glycan diversity can arise from regulated glyco-gene networks and environmental responsiveness rather than from direct genetic templates for glycan structures.
+
+Revised novelty claim:
+
+The paper should test whether conserved core machinery and variable interface-facing glycan outputs occupy different pathway regions and evidence layers. The expected evolvability signal may be regulatory, phenotypic, tissue-specific, or trait-associated rather than simple acceleration of coding-sequence evolution.
+
 The paper should test this as an architectural hypothesis using multiple evidence streams:
 
 - pathway position and topology
 - evolutionary constraint
 - human standing variation
 - disease architecture
+- glycome and IgG N-glycome genetic architecture
+- regulatory and epigenetic evidence
 - tissue specificity
 - trait associations
 - population differentiation or selection signals, if useful
@@ -51,6 +59,19 @@ Defense:
 - Use terms such as "candidate signal", "outlier", or "consistent with" unless there is strong causal evidence.
 - Require replication across methods or datasets before highlighting a candidate locus.
 - Do not build the main paper around individual selection-scan hits.
+
+### F2b: Coding-sequence evolvability expected in the wrong layer
+
+Risk:
+
+The paper could predict downstream coding-sequence acceleration even though prior primate work found strong conservation across the pathway and no clear protein-coding positive-selection signal.
+
+Defense:
+
+- Treat prior dN/dS conservation as a constraint benchmark.
+- Reframe evolvability as potentially regulatory, glycan-output, tissue-specific, disease-architecture, or trait-association variation.
+- Use coding-sequence evolution as historical context, not as the primary test of downstream evolvability.
+- State explicitly that downstream/interface evolvability does not require most downstream enzyme coding sequences to evolve rapidly.
 
 ### F3: Crude population categories and demographic confounding
 
@@ -203,6 +224,7 @@ Deliverables:
 - `docs/concept/concept-memo.md` refined into a paper-facing concept note
 - one-page thesis statement
 - list of claims the paper will and will not make
+- prior-art positioning note covering primate N-glycosylation evolution and glyco-gene regulatory/epigenetic work
 - target journal category: conceptual systems biology, evolutionary genomics, or computational biology
 
 Key decisions:
@@ -336,7 +358,16 @@ Candidate evidence:
 - epithelial/barrier-tissue expression
 - GTEx-style tissue expression
 - GWAS category mapping
+- glycome and IgG N-glycome GWAS evidence
+- eQTL, TWAS, methylation, or other regulatory evidence where available
 - microbiome, infection, inflammation, autoimmunity, cancer, and cell-surface biology annotations
+
+Key tests:
+
+- whether downstream/interface genes are enriched for relevant trait categories
+- whether tissue-specific deployment is stronger downstream
+- whether glycan-output variation and regulatory loci map preferentially to downstream/interface or trans-regulatory control layers
+- whether upstream genes mostly map to severe Mendelian disease rather than broad complex-trait associations
 
 Output files:
 

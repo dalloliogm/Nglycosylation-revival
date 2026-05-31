@@ -18,6 +18,22 @@ For N-glycosylation, the working model is:
 
 This is a hypothesis to be evaluated, not a conclusion. The paper should ask whether pathway position and architecture predict evolutionary constraint, tolerated variation, disease architecture, tissue or trait associations, and optional population-genetic signals after accounting for obvious confounders.
 
+## Position Relative To Prior Work
+
+The paper should treat earlier N-glycosylation evolution and glycan-regulation papers as predecessors, not as incidental background.
+
+Montanucci, Laayouni, Dall'Olio, and Bertranpetit (2011) directly studied molecular evolution and network position in the N-glycosylation pathway across primates. Their result is important for this project because they found strong conservation and no clear protein-coding positive selection signal across primate divergence, while network structure and connectivity were related to purifying constraint. This argues against a simple model in which downstream evolvability is expected to appear as faster coding-sequence evolution.
+
+Zoldos, Grgurevic, and Lauc (2010), together with related work by Lauc and Zoldos, framed protein glycosylation as a dynamic system in which glycan structures are not template-encoded by single genes but arise from a regulated network of glyco-genes. That work also emphasized the contrast between essential core N-glycan biology and variable antenna or terminal modifications that can affect immunity, cancer, inflammation, pathogens, and environmental response.
+
+The revised novelty claim is therefore not "glycosylation is evolvable" or "network topology matters"; those claims already have foundations. The contribution should be a formal and modern test of whether robustness and evolvability occupy different regions and layers of the pathway.
+
+Refined thesis:
+
+> N-glycosylation may preserve protein-coding robustness in core machinery while exposing evolvability through downstream glycan-output diversity, regulatory control, tissue deployment, and interface-facing phenotypes.
+
+This refinement makes coding-sequence conservation compatible with the evolvability model. It also means that disease architecture, constraint, expression, regulatory genetics, glycome GWAS, tissue specificity, and trait associations are more central than classic dN/dS or selection-scan evidence.
+
 ## Central Claim Levels
 
 ### Claim 1: Conceptual Claim
@@ -42,7 +58,7 @@ Avoid: "all downstream genes are adaptive", "downstream genes are under positive
 
 ### Claim 3: Empirical Architecture Claim
 
-Upstream and downstream pathway regions should differ in constraint, disease burden, standing variation, and trait-association profiles.
+Upstream and downstream pathway regions should differ in constraint, disease burden, standing variation, regulatory architecture, tissue deployment, glycan-output effects, and trait-association profiles.
 
 Current status: primary empirical hypothesis.
 
@@ -88,6 +104,7 @@ Allowed claim level: "specificity check" or "comparative context". Avoid claimin
 | Upstream genes are enriched for severe Mendelian disease and CDG-like phenotypes. | GeneReviews/CDG curation, OMIM-style annotations, ClinVar pathogenic/likely pathogenic evidence. | Separate causal disease genes from broad association evidence; control for ascertainment and clinical-study intensity. | Supported disease-architecture gradient if effect is robust. |
 | Downstream branching and terminal-modification genes show more tolerated standing variation or weaker constraint. | Population allele-frequency summaries, constraint metrics, rare-variant burden summaries where available. | Do not equate tolerance with positive selection; test sensitivity to low-specificity terminal-modification genes. | Consistent with evolvability/interface model. |
 | Downstream/interface genes have richer links to immune, infection, inflammatory, cancer, microbiome, and tissue-identity phenotypes. | GWAS Catalog categories, ClinVar context, expression and tissue-specificity resources, glycoimmunology literature. | Gene assignment in GWAS is uncertain; distinguish nearby-locus evidence from causal-gene evidence. | Hypothesis-supporting trait profile, unless causal evidence is strong. |
+| Evolvability is more visible in regulatory and glycan-output layers than in coding-sequence acceleration. | Glycome and IgG N-glycome GWAS, eQTL/TWAS, methylation studies, protein-specific glycoproteomics, tissue expression, glycan trait associations. | Regulatory loci may act through trans effects, immune-cell composition, liver secretion, or nearby genes; do not assume direct enzyme adaptation. | Core refinement of the model if supported. |
 | Catastrophic network positions are depleted for tolerated functional variation. | Curated pathway graph, depth, checkpoint proximity, branch-point status, redundancy/paralogy, essentiality, constraint. | Centrality alone is exploratory; graph construction and alternative encodings must be documented. | Supported network-safety pattern if robust across encodings. |
 | Redundant, branching, terminal, or tissue-specific regions are enriched for innovation-zone signals. | Architecture features, tissue specificity, constraint, trait categories, optional population-genetic outliers. | Define "innovation-zone signal" operationally; avoid adaptive language unless independently supported. | Consistent with model; mechanism remains hypothetical. |
 | Population differentiation, if analyzed, is more interpretable as a supporting layer than as the main result. | Pairwise FST, PBS or branch-aware statistics, optional iHS/nSL/XP-EHH/XP-CLR with modern data. | Explicit population definitions; regional inspection; LD, nearby genes, recombination, and replication checks. | Candidate or hypothesis-generating only. |
@@ -99,7 +116,7 @@ The paper should not require a successful selection scan. The minimum viable emp
 1. A defensible pathway-region and architecture-feature table.
 2. A constraint or tolerated-variation gradient across regions.
 3. A disease-architecture comparison separating severe Mendelian evidence from broader trait associations.
-4. A trait or tissue profile testing whether downstream genes are more interface-facing.
+4. A regulatory, trait, glycome, or tissue profile testing whether downstream/interface machinery is more connected to variable glycan outputs and environment-facing phenotypes.
 5. A limitations and claims framework that prevents outlier or gene-example storytelling from replacing the architecture-level test.
 
 Population genetics can be included only if it clarifies or challenges the architecture model with modern controls. If the signals are weak or hard to assign to genes, they should be moved to supplemental or omitted.

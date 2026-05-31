@@ -44,6 +44,7 @@ Key files:
 - `[~]` Expand glycoimmunology, mucosal, microbiome, and host-pathogen interface references.
 - `[~]` Expand disease architecture and CDG references.
 - `[~]` Expand pathway/network biology references.
+- `[~]` Expand glycome genetics and glyco-gene regulatory references.
 - `[ ]` Expand comparator-pathway references.
 - `[ ]` Extract structured notes from high-priority papers.
 - `[x]` Write `docs/concept/paper-thesis.md`.
@@ -61,8 +62,8 @@ Key files:
 Immediate next tasks:
 
 1. Extract structured notes from the highest-priority pathway-core papers into `docs/concept/literature-matrix.tsv`.
-2. Read and extract the new sialic-acid evolution, glycosyltransferase evolution, mucosal glycan interface, and comparator-anchor papers added on 2026-05-28.
-3. Draft the core paper thesis in one page.
+2. Extract Montanucci et al., Zoldos et al., Lauc and Zoldos, and post-2010 glycome/IgG N-glycome GWAS papers into `docs/concept/literature-matrix.tsv`.
+3. Read and extract the new sialic-acid evolution, glycosyltransferase evolution, mucosal glycan interface, and comparator-anchor papers added on 2026-05-28.
 
 ## Phase 2: Pathway Curation
 
@@ -312,3 +313,4 @@ Expected outputs:
 - 2026-05-30: Added a prompt generator and `make agentic-prompt` target to turn registry backlog items into concrete Codex work instructions.
 - 2026-05-30: Completed agentic work unit `draft_paper_thesis` with `docs/concept/paper-thesis.md`, formalizing the robustness/evolvability thesis as a testable model with competing hypotheses, prediction-to-evidence mapping, claim levels, and critic safeguards.
 - 2026-05-31: Documented an optional first-paper comparator module using 1-3 pathways as a specificity check, with heme biosynthesis, CoQ / ubiquinone biosynthesis, and GPI-anchor biosynthesis as the recommended minimal candidates.
+- 2026-05-31: Updated the thesis, project plan, and literature review to position Montanucci et al. and Zoldos/Lauc glyco-regulation work as direct predecessors, and to shift the expected evolvability signal toward regulatory, glycan-output, tissue, disease, and trait layers rather than coding-sequence acceleration.
