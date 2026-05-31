@@ -315,3 +315,4 @@ Expected outputs:
 - 2026-05-31: Documented an optional first-paper comparator module using 1-3 pathways as a specificity check, with heme biosynthesis, CoQ / ubiquinone biosynthesis, and GPI-anchor biosynthesis as the recommended minimal candidates.
 - 2026-05-31: Updated the thesis, project plan, and literature review to position Montanucci et al. and Zoldos/Lauc glyco-regulation work as direct predecessors, and to shift the expected evolvability signal toward regulatory, glycan-output, tissue, disease, and trait layers rather than coding-sequence acceleration.
 - 2026-05-31: Added structured literature-matrix summaries for direct-predecessor, glyco-gene regulation, and glycome/IgG N-glycome GWAS papers, with relevance and limitations recorded for each.
+- 2026-05-31: Added one standalone paper-summary file per priority glycome regulation/evolution paper in `docs/concept/paper-summaries/`.

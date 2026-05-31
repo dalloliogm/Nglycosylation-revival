@@ -87,12 +87,17 @@ The 2026-05-31 tracker update added structured summaries for the following paper
 - Lauc and Zoldos (2010): conceptual review of glycosylation as a gene-environment interface; relevant because it supports regulatory and environmental responsiveness as the likely evolvability layer.
 - Lauc et al. (2010): early evidence for complex genetic regulation of protein glycosylation; relevant because it motivates glycan-output phenotypes as measurable downstream consequences of genetic and regulatory variation.
 - Huffman et al. (2011): first plasma N-glycome GWAS; relevant because it shows that plasma glycan-output variation can be genetically mapped and includes regulatory loci such as HNF1A.
+- Varki (2011): review of evolutionary forces shaping Golgi glycosylation; relevant because it supports the downstream glycan machinery as an organism-environment interface layer.
 - Lauc, Kristic, and Zoldos (2014): broad evolutionary argument for glycans as a distinct biological information layer; relevant as conceptual support, but not direct evidence for N-glycosylation pathway-region gradients.
+- Shen et al. (2017): multivariate IgG N-glycosylation GWAS; relevant because it identifies antibody glycan-output loci and supports multivariate glycan traits as a structured phenotype set.
+- Klaric et al. (2020): large IgG glycosylation GWAS; relevant because it links distributed glycan regulation with inflammatory disease pleiotropy.
 - Lauc et al. (2013): IgG N-glycosylation GWAS with autoimmune and hematological cancer pleiotropy; relevant because antibody glycan variation links downstream glycosylation traits to immune disease architecture.
 - Sharapov et al. (2019): expanded plasma N-glycome GWAS; relevant because it strengthens the regulatory and glycan-output evidence stream beyond early small studies.
 - Suhre et al. (2019): protein-resolved plasma N-glycome mapping; relevant because it helps interpret bulk plasma glycan signals in relation to specific glycoproteins.
 - Shadrina et al. (2021): multivariate IgG N-glycosylation GWAS; relevant because it reinforces distributed genetic control of antibody glycan-output traits.
 - Sharapov et al. (2025): large plasma N-glycome GWAS linking glycan traits to liver disease and anti-inflammatory proteins; relevant because it gives a current, high-powered trait/disease evidence layer for regulatory evolvability.
+
+Standalone summaries for these papers are stored in `docs/concept/paper-summaries/`.
 
 ## Population Genetics
 
