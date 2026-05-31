@@ -100,8 +100,8 @@ Immediate next tasks:
 
 ## Phase 3: Architecture Metrics
 
-- `[ ]` Define architecture features.
-- `[ ]` Create `docs/methods/architecture-metrics.md`.
+- `[x]` Define architecture features.
+- `[x]` Create `docs/methods/architecture-metrics.md`.
 - `[ ]` Compute or curate pathway depth.
 - `[ ]` Annotate branch point status.
 - `[ ]` Annotate terminal modification status.
@@ -278,7 +278,7 @@ Expected outputs:
 - `[x]` Create a prompt generator that turns a backlog item into an executable Codex task packet.
 - `[x]` Draft `docs/concept/paper-thesis.md` using the hypothesis agent role.
 - `[x]` Draft `docs/concept/claims-register.md` using the critic and hypothesis agent roles.
-- `[ ]` Draft `docs/methods/architecture-metrics.md` using the architecture agent role.
+- `[x]` Draft `docs/methods/architecture-metrics.md` using the architecture agent role.
 - `[ ]` Use the registry to choose and commit small agentic work units.
 
 Expected outputs:
@@ -317,3 +317,4 @@ Expected outputs:
 - 2026-05-31: Added structured literature-matrix summaries for direct-predecessor, glyco-gene regulation, and glycome/IgG N-glycome GWAS papers, with relevance and limitations recorded for each.
 - 2026-05-31: Added one standalone paper-summary file per priority glycome regulation/evolution paper in `docs/concept/paper-summaries/`.
 - 2026-05-31: Added `docs/concept/claims-register.md` to control claim strength across thesis, prior art, constraint, disease, regulatory/glycome-output, population-genetic, and comparator-pathway claims.
+- 2026-05-31: Added `docs/methods/architecture-metrics.md` defining planned gene-level architecture features, graph encodings, sensitivity analyses, and claim limits before computing architecture tables.
