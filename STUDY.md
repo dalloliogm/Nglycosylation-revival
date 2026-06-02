@@ -121,8 +121,8 @@ Expected outputs:
 
 ## Phase 4: Constraint and Human Variation
 
-- `[ ]` Identify current best constraint datasets.
-- `[ ]` Create `docs/methods/constraint-analysis.md`.
+- `[x]` Identify current best constraint datasets.
+- `[x]` Create `docs/methods/constraint-analysis.md`.
 - `[ ]` Add gene-level constraint metrics.
 - `[ ]` Add loss-of-function intolerance metrics.
 - `[ ]` Add missense constraint metrics.
@@ -318,3 +318,4 @@ Expected outputs:
 - 2026-05-31: Added one standalone paper-summary file per priority glycome regulation/evolution paper in `docs/concept/paper-summaries/`.
 - 2026-05-31: Added `docs/concept/claims-register.md` to control claim strength across thesis, prior art, constraint, disease, regulatory/glycome-output, population-genetic, and comparator-pathway claims.
 - 2026-05-31: Added `docs/methods/architecture-metrics.md` defining planned gene-level architecture features, graph encodings, sensitivity analyses, and claim limits before computing architecture tables.
+- 2026-06-02: Added `docs/methods/constraint-analysis.md` scoping gnomAD v4.1.1 constraint metrics, join rules, covariates, matched-null strategy, sensitivity analyses, and claim limits for the constraint work package.
