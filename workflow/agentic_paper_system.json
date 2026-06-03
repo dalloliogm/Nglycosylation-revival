@@ -363,6 +363,19 @@
         "docs/methods/disease-annotation.md",
         "data/processed/nglyco_architecture_features.tsv"
       ]
+    },
+    {
+      "id": "add_clinvar_plp_layer",
+      "agent": "disease_agent",
+      "outputs": [
+        "results/tables/clinvar_plp_gene_counts.tsv",
+        "data/processed/nglyco_disease_annotations.tsv",
+        "results/tables/disease_architecture_summary.tsv"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_disease_annotations.tsv",
+        "docs/methods/disease-annotation.md"
+      ]
     }
   ]
 }

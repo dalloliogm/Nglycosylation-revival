@@ -257,6 +257,47 @@ manual_curation_rule: encode only CDG-N-linked and multiple-pathway rows from Ge
 
 This implementation is intentionally conservative. It captures curated CDG-N-linked and multiple-pathway disorders from GeneReviews, but it does not yet add ClinVar pathogenic/likely pathogenic counts, OMIM-style disease breadth, or GWAS trait categories. The summary table should therefore be interpreted as a high-confidence Mendelian/CDG seed layer, not as the final disease architecture analysis.
 
+## ClinVar P/LP Layer Implementation Record
+
+Date implemented: 2026-06-03
+
+Agentic work unit: `add_clinvar_plp_layer`
+
+Script:
+
+- `scripts/add_nglyco_clinvar_layer.py`
+
+Local input:
+
+- `data/external/clinvar/variant_summary.txt.gz`
+
+Tracked outputs:
+
+- `results/tables/clinvar_plp_gene_counts.tsv`
+- `data/processed/nglyco_disease_annotations.tsv`
+- `results/tables/disease_architecture_summary.tsv`
+
+Dataset record:
+
+```text
+dataset_name: ClinVar variant summary
+dataset_version_or_release_date: current NCBI FTP file downloaded 2026-06-03
+source_url: https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.gz
+download_or_access_date: 2026-06-03
+file_name_or_api_endpoint: variant_summary.txt.gz
+genome_build: GRCh38 rows only
+filters_applied: Assembly == GRCh38; OriginSimple == germline; ClinicalSignificance contains pathogenic and excludes benign, uncertain, conflicting, not provided, association, risk factor, protective, affects, and drug response labels
+join_key: ClinVar GeneSymbol matched to pathway HGNC gene symbol
+number_of_genes_input: 101
+number_of_genes_with_cdg_evidence: 33
+number_of_genes_with_clinvar_plp_evidence: 55
+number_of_genes_with_gwas_trait_evidence: not assessed in this version
+missingness_notes: ClinVar variant counts reflect submission density, gene length, disease ascertainment, and curation history; counts are evidence features, not direct severity scores
+manual_curation_rule: count unique GRCh38 germline P/LP VariationID values per pathway gene and unique non-empty phenotype labels
+```
+
+The ClinVar layer broadens the disease evidence beyond the curated CDG seed set. It should be used to identify genes with pathogenic-variant evidence that were not part of the conservative GeneReviews seed table, especially substrate-support genes and ER quality-control genes. It should not be used alone to declare a gene a CDG gene.
+
 ## Next Implementation Step
 
-Add ClinVar pathogenic/likely pathogenic counts for the same 101 genes, keeping counts separate from curated causal-disease status.
+Add GWAS Catalog and glycome-GWAS trait categories for the same 101 genes, keeping mapped-gene evidence separate from causal trait evidence.

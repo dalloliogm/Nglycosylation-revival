@@ -16,6 +16,7 @@ venv/
 data/raw/*
 data/interim/*
 data/processed/*
+data/external/clinvar/*.gz
 data/external/gnomad/*.tsv
 results/figures/*
 results/tables/*
@@ -46,6 +47,7 @@ results/reports/*
 !results/tables/constraint_summary.tsv
 !results/tables/constraint_group_comparisons.tsv
 !results/tables/disease_architecture_summary.tsv
+!results/tables/clinvar_plp_gene_counts.tsv
 !results/reports/.gitkeep
 !results/reports/constraint-gradient-interpretation.md
 
