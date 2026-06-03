@@ -221,6 +221,42 @@ missingness_notes
 manual_curation_rule
 ```
 
+## Current Implementation Record
+
+Date implemented: 2026-06-03
+
+Agentic work unit: `curate_cdg_seed_table`
+
+Script:
+
+- `scripts/build_nglyco_disease_seed_table.py`
+
+Outputs:
+
+- `data/processed/nglyco_disease_annotations.tsv`
+- `results/tables/disease_architecture_summary.tsv`
+
+Dataset record:
+
+```text
+dataset_name: GeneReviews CDG N-linked and multiple-pathway overview
+dataset_version_or_release_date: last updated 2017-01-12 on source page
+source_url: https://www.ncbi.nlm.nih.gov/books/NBK1332/
+download_or_access_date: 2026-06-03
+file_name_or_api_endpoint: NCBI Bookshelf HTML page, Table 1 and surrounding clinical overview text
+genome_build: not applicable for curated disease table
+filters_applied: retained only GeneReviews CDG genes present in data/processed/nglyco_architecture_features.tsv
+join_key: HGNC gene symbol
+number_of_genes_input: 101
+number_of_genes_with_cdg_evidence: 33
+number_of_genes_with_clinvar_plp_evidence: not assessed in this version
+number_of_genes_with_gwas_trait_evidence: not assessed in this version
+missingness_notes: genes not listed in this GeneReviews seed curation are labeled not_cdg_gene only for this first-pass source; this does not mean absence of disease relevance
+manual_curation_rule: encode only CDG-N-linked and multiple-pathway rows from GeneReviews Table 1 that match the current pathway gene symbols
+```
+
+This implementation is intentionally conservative. It captures curated CDG-N-linked and multiple-pathway disorders from GeneReviews, but it does not yet add ClinVar pathogenic/likely pathogenic counts, OMIM-style disease breadth, or GWAS trait categories. The summary table should therefore be interpreted as a high-confidence Mendelian/CDG seed layer, not as the final disease architecture analysis.
+
 ## Next Implementation Step
 
-Create a first curated CDG/Mendelian seed table from GeneReviews and the current pathway gene list. Keep it deliberately conservative: record only high-confidence CDG or overlapping multiple-pathway genes with source notes. Add ClinVar and GWAS layers only after the curated Mendelian seed table is stable.
+Add ClinVar pathogenic/likely pathogenic counts for the same 101 genes, keeping counts separate from curated causal-disease status.

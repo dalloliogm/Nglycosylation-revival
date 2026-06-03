@@ -1,0 +1,8 @@
+disease_annotation_version	analysis_group	primary_region	gene_count	primary_gene_count	cdg_seed_gene_count	known_cdg_gene_count	multiple_pathway_cdg_gene_count	high_severe_mendelian_burden_count	moderate_or_high_severe_mendelian_burden_count	cdg_seed_fraction
+cdg_seed_genereviews_v0.1_2026-06-03	checkpoint_layer	er_quality_control	17	13	2	1	1	1	2	0.1176
+cdg_seed_genereviews_v0.1_2026-06-03	downstream_diversification	golgi_branching	5	5	0	0	0	0	0	0.0
+cdg_seed_genereviews_v0.1_2026-06-03	downstream_diversification	golgi_core_processing	7	7	1	1	0	1	1	0.1429
+cdg_seed_genereviews_v0.1_2026-06-03	downstream_diversification	terminal_modification	16	16	1	1	0	0	1	0.0625
+cdg_seed_genereviews_v0.1_2026-06-03	substrate_support	substrate_biosynthesis	30	0	13	9	4	10	13	0.4333
+cdg_seed_genereviews_v0.1_2026-06-03	upstream_core	llo_assembly	15	15	11	11	0	11	11	0.7333
+cdg_seed_genereviews_v0.1_2026-06-03	upstream_core	ost_transfer	11	11	5	5	0	3	5	0.4545

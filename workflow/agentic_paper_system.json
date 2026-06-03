@@ -356,7 +356,8 @@
       "id": "curate_cdg_seed_table",
       "agent": "disease_agent",
       "outputs": [
-        "data/processed/nglyco_disease_annotations.tsv"
+        "data/processed/nglyco_disease_annotations.tsv",
+        "results/tables/disease_architecture_summary.tsv"
       ],
       "prerequisites": [
         "docs/methods/disease-annotation.md",

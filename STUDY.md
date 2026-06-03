@@ -154,13 +154,13 @@ Expected outputs:
 
 - `[x]` Identify disease annotation sources.
 - `[x]` Create `docs/methods/disease-annotation.md`.
-- `[ ]` Curate known Congenital Disorders of Glycosylation genes.
+- `[x]` Curate known Congenital Disorders of Glycosylation genes.
 - `[ ]` Add OMIM-style Mendelian annotations.
 - `[ ]` Add ClinVar pathogenic/likely pathogenic evidence.
 - `[ ]` Add GWAS Catalog associations.
-- `[ ]` Classify disease evidence by severity and confidence.
-- `[ ]` Separate high-confidence causal disease genes from broad or weak association evidence.
-- `[ ]` Compare severe Mendelian burden across pathway regions.
+- `[~]` Classify disease evidence by severity and confidence.
+- `[~]` Separate high-confidence causal disease genes from broad or weak association evidence.
+- `[~]` Compare severe Mendelian burden across pathway regions.
 - `[ ]` Compare complex/context-dependent trait burden across pathway regions.
 - `[ ]` Create disease architecture figure.
 
@@ -326,6 +326,7 @@ Expected outputs:
 - 2026-06-03: Added `analyze_constraint_gradient` and `scripts/analyze_constraint_gradient.py`, generating provisional LOEUF/missense-Z comparison effect sizes and `constraint_gradient` figures for the gnomAD v4.1 constraint run.
 - 2026-06-03: Added a written constraint-gradient interpretation note and full pathway network plots colored by LOEUF and missense Z to make the provisional constraint result inspectable gene by gene.
 - 2026-06-03: Started the disease-architecture work package by adding `docs/methods/disease-annotation.md`, defining GeneReviews CDG, ClinVar P/LP, and GWAS Catalog evidence tiers plus disease output schemas and claim limits.
+- 2026-06-03: Completed the first conservative CDG seed curation from GeneReviews Table 1 using `scripts/build_nglyco_disease_seed_table.py`. Generated `data/processed/nglyco_disease_annotations.tsv` for 101 pathway genes and `results/tables/disease_architecture_summary.tsv`; ClinVar, OMIM-style breadth, and GWAS layers remain pending.
 - 2026-05-30: Completed agentic work unit `draft_paper_thesis` with `docs/concept/paper-thesis.md`, formalizing the robustness/evolvability thesis as a testable model with competing hypotheses, prediction-to-evidence mapping, claim levels, and critic safeguards.
 - 2026-05-31: Documented an optional first-paper comparator module using 1-3 pathways as a specificity check, with heme biosynthesis, CoQ / ubiquinone biosynthesis, and GPI-anchor biosynthesis as the recommended minimal candidates.
 - 2026-05-31: Updated the thesis, project plan, and literature review to position Montanucci et al. and Zoldos/Lauc glyco-regulation work as direct predecessors, and to shift the expected evolvability signal toward regulatory, glycan-output, tissue, disease, and trait layers rather than coding-sequence acceleration.

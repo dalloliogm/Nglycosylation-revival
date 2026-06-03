@@ -1,4 +1,4 @@
-.PHONY: help agentic-inspect agentic-check agentic-next agentic-prompt architecture-features constraint-summary constraint-gradient constraint-network-plots ti
+.PHONY: help agentic-inspect agentic-check agentic-next agentic-prompt architecture-features constraint-summary constraint-gradient constraint-network-plots disease-seed-table ti
 
 PYTHON ?= uv run python
 AGENTIC_REGISTRY ?= workflow/agentic_paper_system.json
@@ -16,6 +16,7 @@ help:
 	@printf "  %-18s %s\n" "constraint-summary" "Join a local constraint TSV and summarize by pathway region."
 	@printf "  %-18s %s\n" "constraint-gradient" "Analyze and plot provisional constraint gradients."
 	@printf "  %-18s %s\n" "constraint-network-plots" "Plot full pathway network colored by LOEUF and missense Z."
+	@printf "  %-18s %s\n" "disease-seed-table" "Build first-pass CDG seed annotations from GeneReviews."
 	@printf "  %-18s %s\n" "ti" "Alias for agentic-inspect."
 
 agentic-inspect:
@@ -28,6 +29,7 @@ agentic-check:
 	$(PYTHON) -m py_compile scripts/build_nglyco_constraint_summary.py
 	$(PYTHON) -m py_compile scripts/analyze_constraint_gradient.py
 	$(PYTHON) -m py_compile scripts/plot_nglyco_constraint_network.py
+	$(PYTHON) -m py_compile scripts/build_nglyco_disease_seed_table.py
 	$(PYTHON) scripts/inspect_agentic_system.py --registry $(AGENTIC_REGISTRY)
 
 agentic-next:
@@ -49,5 +51,8 @@ constraint-gradient:
 constraint-network-plots:
 	$(PYTHON) scripts/plot_nglyco_constraint_network.py --metric loeuf --output-png results/figures/nglyco_pathway_constraint_loeuf.png --output-svg results/figures/nglyco_pathway_constraint_loeuf.svg
 	$(PYTHON) scripts/plot_nglyco_constraint_network.py --metric mis_z --output-png results/figures/nglyco_pathway_constraint_mis_z.png --output-svg results/figures/nglyco_pathway_constraint_mis_z.svg
+
+disease-seed-table:
+	$(PYTHON) scripts/build_nglyco_disease_seed_table.py
 
 ti: agentic-inspect

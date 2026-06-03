@@ -30,6 +30,7 @@ results/reports/*
 !data/processed/nglyco_gene_gene_edges.tsv
 !data/processed/nglyco_architecture_features.tsv
 !data/processed/nglyco_constraint_metrics.tsv
+!data/processed/nglyco_disease_annotations.tsv
 !results/figures/.gitkeep
 !results/figures/nglyco_pathway_network.png
 !results/figures/nglyco_pathway_network.svg
@@ -44,6 +45,7 @@ results/reports/*
 !results/tables/constraint_join_audit.tsv
 !results/tables/constraint_summary.tsv
 !results/tables/constraint_group_comparisons.tsv
+!results/tables/disease_architecture_summary.tsv
 !results/reports/.gitkeep
 !results/reports/constraint-gradient-interpretation.md
 
