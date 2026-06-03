@@ -35,3 +35,51 @@ make constraint-summary \
   CONSTRAINT_METRICS=data/external/gnomad/gnomad.v4.1.constraint_metrics.tsv \
   CONSTRAINT_DATASET_VERSION=gnomAD_v4.1
 ```
+
+## ClinVar Variant Summary
+
+The disease architecture run uses the public ClinVar tab-delimited variant summary:
+
+```text
+data/external/clinvar/variant_summary.txt.gz
+```
+
+Download command:
+
+```bash
+mkdir -p data/external/clinvar
+curl -L \
+  -o data/external/clinvar/variant_summary.txt.gz \
+  https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.gz
+```
+
+The file is about 419 MB locally and is not committed. Rebuild the ClinVar layer with:
+
+```bash
+make clinvar-disease-layer \
+  CLINVAR_VARIANT_SUMMARY=data/external/clinvar/variant_summary.txt.gz
+```
+
+## GWAS Catalog Associations
+
+The complex-trait layer uses the NHGRI-EBI GWAS Catalog v1.0.2 associations download:
+
+```text
+data/external/gwas_catalog/gwas_catalog_v1.0.2-associations_e115_r2026-06-01_split.zip
+```
+
+Download command:
+
+```bash
+mkdir -p data/external/gwas_catalog
+curl -L \
+  -o data/external/gwas_catalog/gwas_catalog_v1.0.2-associations_e115_r2026-06-01_split.zip \
+  'https://www.ebi.ac.uk/gwas/api/search/downloads/associations/v1.0.2'
+```
+
+The archive is about 63 MB locally and is not committed. Rebuild the GWAS trait layer with:
+
+```bash
+make gwas-trait-layer \
+  GWAS_CATALOG_ASSOCIATIONS=data/external/gwas_catalog/gwas_catalog_v1.0.2-associations_e115_r2026-06-01_split.zip
+```

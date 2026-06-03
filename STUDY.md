@@ -157,11 +157,11 @@ Expected outputs:
 - `[x]` Curate known Congenital Disorders of Glycosylation genes.
 - `[ ]` Add OMIM-style Mendelian annotations.
 - `[x]` Add ClinVar pathogenic/likely pathogenic evidence.
-- `[ ]` Add GWAS Catalog associations.
-- `[~]` Classify disease evidence by severity and confidence.
-- `[~]` Separate high-confidence causal disease genes from broad or weak association evidence.
+- `[x]` Add GWAS Catalog associations.
+- `[x]` Classify disease evidence by severity and confidence.
+- `[x]` Separate high-confidence causal disease genes from broad or weak association evidence.
 - `[~]` Compare severe Mendelian burden across pathway regions.
-- `[ ]` Compare complex/context-dependent trait burden across pathway regions.
+- `[~]` Compare complex/context-dependent trait burden across pathway regions.
 - `[ ]` Create disease architecture figure.
 
 Expected outputs:
@@ -179,7 +179,7 @@ Expected outputs:
 - `[ ]` Add tissue specificity.
 - `[ ]` Add epithelial/barrier tissue signal.
 - `[ ]` Add immune-cell expression signal.
-- `[ ]` Map GWAS traits to broad categories.
+- `[x]` Map GWAS traits to broad categories.
 - `[ ]` Test enrichment of immune, infection, inflammation, cancer, microbiome, and tissue-identity traits downstream.
 - `[ ]` Create interface-layer trait profile figure.
 
@@ -328,6 +328,7 @@ Expected outputs:
 - 2026-06-03: Started the disease-architecture work package by adding `docs/methods/disease-annotation.md`, defining GeneReviews CDG, ClinVar P/LP, and GWAS Catalog evidence tiers plus disease output schemas and claim limits.
 - 2026-06-03: Completed the first conservative CDG seed curation from GeneReviews Table 1 using `scripts/build_nglyco_disease_seed_table.py`. Generated `data/processed/nglyco_disease_annotations.tsv` for 101 pathway genes and `results/tables/disease_architecture_summary.tsv`; ClinVar, OMIM-style breadth, and GWAS layers remain pending.
 - 2026-06-03: Added the ClinVar germline pathogenic/likely pathogenic layer with `scripts/add_nglyco_clinvar_layer.py`, filtering the 2026-06-03 `variant_summary.txt.gz` download to GRCh38 germline P/LP records and counting unique VariationIDs per pathway gene. Updated the disease annotation table, added `results/tables/clinvar_plp_gene_counts.tsv`, and refreshed the disease architecture summary; GWAS and OMIM-style breadth remain pending.
+- 2026-06-03: Added the GWAS Catalog and glycome/trait-category layer with `scripts/add_nglyco_gwas_trait_layer.py`, using the NHGRI-EBI GWAS Catalog v1.0.2 associations archive `e115_r2026-06-01`. Generated per-gene GWAS trait counts, a matched-association audit table, broad trait-category flags, and an updated disease architecture summary. GWAS mapped/reported gene evidence is explicitly treated as hypothesis-generating and non-causal.
 - 2026-05-30: Completed agentic work unit `draft_paper_thesis` with `docs/concept/paper-thesis.md`, formalizing the robustness/evolvability thesis as a testable model with competing hypotheses, prediction-to-evidence mapping, claim levels, and critic safeguards.
 - 2026-05-31: Documented an optional first-paper comparator module using 1-3 pathways as a specificity check, with heme biosynthesis, CoQ / ubiquinone biosynthesis, and GPI-anchor biosynthesis as the recommended minimal candidates.
 - 2026-05-31: Updated the thesis, project plan, and literature review to position Montanucci et al. and Zoldos/Lauc glyco-regulation work as direct predecessors, and to shift the expected evolvability signal toward regulatory, glycan-output, tissue, disease, and trait layers rather than coding-sequence acceleration.

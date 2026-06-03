@@ -17,6 +17,7 @@ data/raw/*
 data/interim/*
 data/processed/*
 data/external/clinvar/*.gz
+data/external/gwas_catalog/*.zip
 data/external/gnomad/*.tsv
 results/figures/*
 results/tables/*
@@ -48,6 +49,8 @@ results/reports/*
 !results/tables/constraint_group_comparisons.tsv
 !results/tables/disease_architecture_summary.tsv
 !results/tables/clinvar_plp_gene_counts.tsv
+!results/tables/gwas_catalog_gene_trait_counts.tsv
+!results/tables/gwas_catalog_nglyco_matched_associations.tsv
 !results/reports/.gitkeep
 !results/reports/constraint-gradient-interpretation.md
 

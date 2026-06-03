@@ -376,6 +376,20 @@
         "data/processed/nglyco_disease_annotations.tsv",
         "docs/methods/disease-annotation.md"
       ]
+    },
+    {
+      "id": "add_gwas_trait_layer",
+      "agent": "disease_agent",
+      "outputs": [
+        "results/tables/gwas_catalog_gene_trait_counts.tsv",
+        "results/tables/gwas_catalog_nglyco_matched_associations.tsv",
+        "data/processed/nglyco_disease_annotations.tsv",
+        "results/tables/disease_architecture_summary.tsv"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_disease_annotations.tsv",
+        "docs/methods/disease-annotation.md"
+      ]
     }
   ]
 }

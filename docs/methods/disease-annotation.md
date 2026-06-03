@@ -298,6 +298,48 @@ manual_curation_rule: count unique GRCh38 germline P/LP VariationID values per p
 
 The ClinVar layer broadens the disease evidence beyond the curated CDG seed set. It should be used to identify genes with pathogenic-variant evidence that were not part of the conservative GeneReviews seed table, especially substrate-support genes and ER quality-control genes. It should not be used alone to declare a gene a CDG gene.
 
+## GWAS Catalog Trait Layer Implementation Record
+
+Date implemented: 2026-06-03
+
+Agentic work unit: `add_gwas_trait_layer`
+
+Script:
+
+- `scripts/add_nglyco_gwas_trait_layer.py`
+
+Local input:
+
+- `data/external/gwas_catalog/gwas_catalog_v1.0.2-associations_e115_r2026-06-01_split.zip`
+
+Tracked outputs:
+
+- `results/tables/gwas_catalog_gene_trait_counts.tsv`
+- `results/tables/gwas_catalog_nglyco_matched_associations.tsv`
+- `data/processed/nglyco_disease_annotations.tsv`
+- `results/tables/disease_architecture_summary.tsv`
+
+Dataset record:
+
+```text
+dataset_name: NHGRI-EBI GWAS Catalog associations
+dataset_version_or_release_date: v1.0.2 associations e115 r2026-06-01 split archive
+source_url: https://www.ebi.ac.uk/gwas/api/search/downloads/associations/v1.0.2
+download_or_access_date: 2026-06-03
+file_name_or_api_endpoint: gwas_catalog_v1.0.2-associations_e115_r2026-06-01_split.zip
+genome_build: mixed study-specific GWAS Catalog associations; no coordinate filtering in this gene-symbol layer
+filters_applied: retained associations where REPORTED GENE(S) or MAPPED_GENE contains one of the 101 pathway HGNC symbols
+join_key: GWAS Catalog reported or mapped gene symbol matched to pathway HGNC gene symbol
+number_of_genes_input: 101
+number_of_genes_with_cdg_evidence: 33
+number_of_genes_with_clinvar_plp_evidence: 55
+number_of_genes_with_gwas_trait_evidence: 99
+missingness_notes: GWAS mapped/reported genes are association annotations, not causal gene assignments; association counts are dense and should be interpreted by trait category and curated examples rather than as direct burden scores
+manual_curation_rule: classify disease/trait, mapped trait, and study text into broad glycome, immune/inflammation, infection, cancer, tissue-identity, and metabolism categories using explicit keyword rules
+```
+
+The GWAS layer is intentionally broad and hypothesis-generating. It is useful for identifying trait-category profiles, especially glycome and interface-related traits, but it should not be treated as evidence that a mapped gene is causal without fine mapping, colocalization, coding, eQTL, or functional support. The matched-association table is retained so candidate genes can be audited before being used in manuscript examples.
+
 ## Next Implementation Step
 
-Add GWAS Catalog and glycome-GWAS trait categories for the same 101 genes, keeping mapped-gene evidence separate from causal trait evidence.
+Create a disease/trait architecture figure that separates severe Mendelian/CDG, ClinVar P/LP, and GWAS trait-category layers.

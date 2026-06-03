@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 from collections import defaultdict
 from pathlib import Path
 
@@ -14,6 +15,10 @@ CLINVAR_LAYER_VERSION = "cdg_seed_plus_clinvar_plp_v0.1_2026-06-03"
 CLINVAR_SOURCE_URL = "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.gz"
 CLINVAR_ACCESS_DATE = "2026-06-03"
 CLINVAR_ASSEMBLY = "GRCh38"
+CLINVAR_NOTE_PATTERN = re.compile(
+    r"( ClinVar P/LP layer: \d+ unique GRCh38 germline P/LP VariationID\(s\), "
+    r"accessed \d{4}-\d{2}-\d{2}\.)+"
+)
 
 USE_COLUMNS = [
     "#AlleleID",
@@ -176,7 +181,7 @@ def add_clinvar_layer(annotations: pd.DataFrame, counts: pd.DataFrame) -> pd.Dat
     merged["disease_annotation_version"] = CLINVAR_LAYER_VERSION
     merged["disease_annotation_notes"] = merged.apply(
         lambda row: (
-            f"{row['disease_annotation_notes']} ClinVar P/LP layer: "
+            f"{CLINVAR_NOTE_PATTERN.sub('', row['disease_annotation_notes'])} ClinVar P/LP layer: "
             f"{row['clinvar_plp_variant_count']} unique GRCh38 germline P/LP "
             f"VariationID(s), accessed {CLINVAR_ACCESS_DATE}."
         ),
