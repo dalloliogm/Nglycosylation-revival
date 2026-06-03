@@ -324,6 +324,22 @@
         "results/tables/constraint_summary.tsv",
         "docs/methods/constraint-analysis.md"
       ]
+    },
+    {
+      "id": "plot_constraint_network",
+      "agent": "constraint_agent",
+      "outputs": [
+        "results/figures/nglyco_pathway_constraint_loeuf.png",
+        "results/figures/nglyco_pathway_constraint_loeuf.svg",
+        "results/figures/nglyco_pathway_constraint_mis_z.png",
+        "results/figures/nglyco_pathway_constraint_mis_z.svg",
+        "results/reports/constraint-gradient-interpretation.md"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_constraint_metrics.tsv",
+        "data/processed/nglyco_gene_gene_edges.tsv",
+        "results/tables/constraint_group_comparisons.tsv"
+      ]
     }
   ]
 }
