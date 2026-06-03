@@ -16,6 +16,7 @@ venv/
 data/raw/*
 data/interim/*
 data/processed/*
+data/external/gnomad/*.tsv
 results/figures/*
 results/tables/*
 results/reports/*

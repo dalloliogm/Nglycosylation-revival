@@ -27,6 +27,8 @@ def normalize_constraint_metrics(metrics: pd.DataFrame) -> pd.DataFrame:
             columns, ("gene_id", "ensg", "ensembl_gene_id")
         ),
         "constraint_transcript": first_existing_column(columns, ("transcript", "transcript_id")),
+        "constraint_canonical": first_existing_column(columns, ("canonical", "is_canonical")),
+        "constraint_mane_select": first_existing_column(columns, ("mane_select", "is_mane_select")),
         "constraint_flags": first_existing_column(columns, ("constraint_flags", "flags")),
         "gene_flags": first_existing_column(columns, ("gene_flags",)),
         "cds_length": first_existing_column(columns, ("cds_length", "cds_len")),
@@ -81,8 +83,25 @@ def normalize_constraint_metrics(metrics: pd.DataFrame) -> pd.DataFrame:
     ]:
         normalized[column] = pd.to_numeric(normalized[column], errors="coerce")
 
+    for column in ["constraint_canonical", "constraint_mane_select"]:
+        normalized[column] = (
+            normalized[column]
+            .fillna(False)
+            .astype(str)
+            .str.lower()
+            .isin({"true", "1", "yes"})
+        )
+
     normalized = normalized.sort_values(
-        ["constraint_ensembl_gene_id", "constraint_transcript"], na_position="last"
+        [
+            "constraint_ensembl_gene_id",
+            "constraint_mane_select",
+            "constraint_canonical",
+            "cds_length",
+            "constraint_transcript",
+        ],
+        ascending=[True, False, False, False, True],
+        na_position="last",
     )
     return normalized.drop_duplicates("constraint_ensembl_gene_id", keep="first")
 
@@ -160,6 +179,8 @@ def write_constraint_table(joined: pd.DataFrame, output_path: Path) -> None:
         "constraint_metric_available",
         "constraint_symbol",
         "constraint_transcript",
+        "constraint_canonical",
+        "constraint_mane_select",
         "constraint_flags",
         "gene_flags",
         "cds_length",

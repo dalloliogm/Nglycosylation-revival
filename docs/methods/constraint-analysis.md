@@ -42,6 +42,10 @@ Implementation note, 2026-06-03:
 
 The importer in `scripts/build_nglyco_constraint_summary.py` intentionally requires an explicit local constraint metrics file path. The gnomAD v4.1.1 release note states that updated gene constraint metrics are available for download, and the older public TSV path for `gnomad.v4.1.constraint_metrics.tsv` is reachable. However, guessed v4.1.1-specific TSV paths were not reachable during this implementation pass. Do not silently treat the v4.1 public TSV as v4.1.1. When the exact v4.1.1 metrics file or API export is identified, run the importer with `CONSTRAINT_DATASET_VERSION=gnomAD_v4.1.1` and record the exact URL, file name, access date, and checksum.
 
+Provisional implementation, 2026-06-03:
+
+The first constraint tables were generated from `data/external/gnomad/gnomad.v4.1.constraint_metrics.tsv`, downloaded from `https://storage.googleapis.com/gcp-public-data--gnomad/release/4.1/constraint/gnomad.v4.1.constraint_metrics.tsv`, and labeled `gnomAD_v4.1`. The importer matched 95 of 101 N-glycosylation genes by Ensembl gene ID. Six genes lacked matched metrics in this file: `GNPNAT1`, `ALG13`, `RPN2`, `MAGT1`, `CANX`, and `MGAT4B`. The results should be treated as provisional until the exact v4.1.1 constraint export is identified or the v4.1 choice is formally accepted.
+
 ## Metrics To Extract
 
 Extract gene-level metrics where available:
