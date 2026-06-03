@@ -124,6 +124,7 @@ Expected outputs:
 
 - `[x]` Identify current best constraint datasets.
 - `[x]` Create `docs/methods/constraint-analysis.md`.
+- `[x]` Create constraint metric importer and join-audit script.
 - `[ ]` Add gene-level constraint metrics.
 - `[ ]` Add loss-of-function intolerance metrics.
 - `[ ]` Add missense constraint metrics.
@@ -139,6 +140,9 @@ Expected outputs:
 Expected outputs:
 
 - `docs/methods/constraint-analysis.md`
+- `scripts/build_nglyco_constraint_summary.py`
+- `data/processed/nglyco_constraint_metrics.tsv`
+- `results/tables/constraint_join_audit.tsv`
 - `results/tables/constraint_summary.tsv`
 - `results/figures/constraint_gradient.*`
 
@@ -313,6 +317,7 @@ Expected outputs:
 - 2026-05-30: Added Makefile targets for inspecting, checking, and listing ready agentic workflow tasks.
 - 2026-05-30: Added a prompt generator and `make agentic-prompt` target to turn registry backlog items into concrete Codex work instructions.
 - 2026-06-03: Added `compute_architecture_features` to the agentic backlog and implemented `scripts/build_nglyco_architecture_features.py`, producing first-pass architecture features and a summary table from the curated gene and edge tables.
+- 2026-06-03: Added `build_constraint_importer` and `compute_constraint_summary` agentic backlog tasks plus `scripts/build_nglyco_constraint_summary.py`, a reproducible importer for local gnomAD-style constraint metric TSVs with Ensembl-ID joins, symbol-mismatch audit, LOEUF threshold labeling, and pathway-region summaries.
 - 2026-05-30: Completed agentic work unit `draft_paper_thesis` with `docs/concept/paper-thesis.md`, formalizing the robustness/evolvability thesis as a testable model with competing hypotheses, prediction-to-evidence mapping, claim levels, and critic safeguards.
 - 2026-05-31: Documented an optional first-paper comparator module using 1-3 pathways as a specificity check, with heme biosynthesis, CoQ / ubiquinone biosynthesis, and GPI-anchor biosynthesis as the recommended minimal candidates.
 - 2026-05-31: Updated the thesis, project plan, and literature review to position Montanucci et al. and Zoldos/Lauc glyco-regulation work as direct predecessors, and to shift the expected evolvability signal toward regulatory, glycan-output, tissue, disease, and trait layers rather than coding-sequence acceleration.

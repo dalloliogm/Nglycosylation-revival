@@ -38,6 +38,10 @@ gnomAD v4.1.1 is the current gnomAD release as of 2026-06-02. The release note s
 
 Use gnomAD v2.1.1 only as a legacy sensitivity comparison if needed, especially when interpreting results against older literature. Do not mix v2.1.1 and v4.1.1 metrics in the same primary model because their reference builds, sample sizes, and LOEUF distributions differ.
 
+Implementation note, 2026-06-03:
+
+The importer in `scripts/build_nglyco_constraint_summary.py` intentionally requires an explicit local constraint metrics file path. The gnomAD v4.1.1 release note states that updated gene constraint metrics are available for download, and the older public TSV path for `gnomad.v4.1.constraint_metrics.tsv` is reachable. However, guessed v4.1.1-specific TSV paths were not reachable during this implementation pass. Do not silently treat the v4.1 public TSV as v4.1.1. When the exact v4.1.1 metrics file or API export is identified, run the importer with `CONSTRAINT_DATASET_VERSION=gnomAD_v4.1.1` and record the exact URL, file name, access date, and checksum.
+
 ## Metrics To Extract
 
 Extract gene-level metrics where available:

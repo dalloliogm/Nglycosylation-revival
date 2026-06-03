@@ -285,6 +285,31 @@
         "data/processed/nglyco_gene_gene_edges.tsv",
         "docs/methods/architecture-metrics.md"
       ]
+    },
+    {
+      "id": "build_constraint_importer",
+      "agent": "constraint_agent",
+      "outputs": [
+        "scripts/build_nglyco_constraint_summary.py"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_architecture_features.tsv",
+        "docs/methods/constraint-analysis.md"
+      ]
+    },
+    {
+      "id": "compute_constraint_summary",
+      "agent": "constraint_agent",
+      "outputs": [
+        "data/processed/nglyco_constraint_metrics.tsv",
+        "results/tables/constraint_join_audit.tsv",
+        "results/tables/constraint_summary.tsv"
+      ],
+      "prerequisites": [
+        "scripts/build_nglyco_constraint_summary.py",
+        "data/processed/nglyco_architecture_features.tsv",
+        "docs/methods/constraint-analysis.md"
+      ]
     }
   ]
 }
