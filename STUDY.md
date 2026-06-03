@@ -129,13 +129,13 @@ Expected outputs:
 - `[x]` Add loss-of-function intolerance metrics.
 - `[x]` Add missense constraint metrics.
 - `[ ]` Add standing variation metrics.
-- `[~]` Compare upstream/core vs downstream/interface regions.
+- `[x]` Compare upstream/core vs downstream/interface regions.
 - `[ ]` Build matched-null controls.
-- `[ ]` Test sensitivity to gene-region labels.
+- `[x]` Test sensitivity to gene-region labels.
 - `[ ]` Test sensitivity to covariates such as gene length and expression breadth.
-- `[ ]` Report effect sizes and uncertainty, not only p-values.
+- `[x]` Report effect sizes and uncertainty, not only p-values.
 - `[ ]` Test whether architecture features add information beyond a simple upstream/downstream binary.
-- `[ ]` Create constraint-gradient figure.
+- `[x]` Create constraint-gradient figure.
 
 Expected outputs:
 
@@ -144,6 +144,7 @@ Expected outputs:
 - `data/processed/nglyco_constraint_metrics.tsv`
 - `results/tables/constraint_join_audit.tsv`
 - `results/tables/constraint_summary.tsv`
+- `results/tables/constraint_group_comparisons.tsv`
 - `results/figures/constraint_gradient.*`
 
 ## Phase 5: Disease Architecture
@@ -319,6 +320,7 @@ Expected outputs:
 - 2026-06-03: Added `compute_architecture_features` to the agentic backlog and implemented `scripts/build_nglyco_architecture_features.py`, producing first-pass architecture features and a summary table from the curated gene and edge tables.
 - 2026-06-03: Added `build_constraint_importer` and `compute_constraint_summary` agentic backlog tasks plus `scripts/build_nglyco_constraint_summary.py`, a reproducible importer for local gnomAD-style constraint metric TSVs with Ensembl-ID joins, symbol-mismatch audit, LOEUF threshold labeling, and pathway-region summaries.
 - 2026-06-03: Ran the provisional gnomAD v4.1 constraint summary from `data/external/gnomad/gnomad.v4.1.constraint_metrics.tsv`. Generated per-gene constraint metrics, a join audit, and group summaries; 95 of 101 genes matched by Ensembl ID, with six missing constraint metrics in this file.
+- 2026-06-03: Added `analyze_constraint_gradient` and `scripts/analyze_constraint_gradient.py`, generating provisional LOEUF/missense-Z comparison effect sizes and `constraint_gradient` figures for the gnomAD v4.1 constraint run.
 - 2026-05-30: Completed agentic work unit `draft_paper_thesis` with `docs/concept/paper-thesis.md`, formalizing the robustness/evolvability thesis as a testable model with competing hypotheses, prediction-to-evidence mapping, claim levels, and critic safeguards.
 - 2026-05-31: Documented an optional first-paper comparator module using 1-3 pathways as a specificity check, with heme biosynthesis, CoQ / ubiquinone biosynthesis, and GPI-anchor biosynthesis as the recommended minimal candidates.
 - 2026-05-31: Updated the thesis, project plan, and literature review to position Montanucci et al. and Zoldos/Lauc glyco-regulation work as direct predecessors, and to shift the expected evolvability signal toward regulatory, glycan-output, tissue, disease, and trait layers rather than coding-sequence acceleration.

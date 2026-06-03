@@ -46,6 +46,10 @@ Provisional implementation, 2026-06-03:
 
 The first constraint tables were generated from `data/external/gnomad/gnomad.v4.1.constraint_metrics.tsv`, downloaded from `https://storage.googleapis.com/gcp-public-data--gnomad/release/4.1/constraint/gnomad.v4.1.constraint_metrics.tsv`, and labeled `gnomAD_v4.1`. The importer matched 95 of 101 N-glycosylation genes by Ensembl gene ID. Six genes lacked matched metrics in this file: `GNPNAT1`, `ALG13`, `RPN2`, `MAGT1`, `CANX`, and `MGAT4B`. The results should be treated as provisional until the exact v4.1.1 constraint export is identified or the v4.1 choice is formally accepted.
 
+Constraint-gradient implementation, 2026-06-03:
+
+`scripts/analyze_constraint_gradient.py` compares LOEUF and missense Z across architecture groups using medians, IQRs, median differences, Mann-Whitney U with a normal approximation, and rank-biserial/common-language effect sizes. The primary contrast is `upstream_core` versus `downstream_diversification`, with sensitivities that merge `checkpoint_layer` into the upstream side, test `checkpoint_layer` separately, and exclude low-specificity terminal-modification genes from the downstream side. The first provisional result does not simply confirm the predicted upstream-core constraint gradient: upstream-core genes have higher median LOEUF than downstream-diversification genes in the primary contrast, while checkpoint-layer genes have lower median LOEUF than downstream genes. Missense Z is also higher downstream in the primary contrast. Treat this as a useful negative or complicating result that motivates disease, essentiality, expression, and gene-label sensitivity analyses before making architecture-level claims.
+
 ## Metrics To Extract
 
 Extract gene-level metrics where available:

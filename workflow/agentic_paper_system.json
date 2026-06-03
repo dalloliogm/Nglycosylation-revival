@@ -310,6 +310,20 @@
         "data/processed/nglyco_architecture_features.tsv",
         "docs/methods/constraint-analysis.md"
       ]
+    },
+    {
+      "id": "analyze_constraint_gradient",
+      "agent": "constraint_agent",
+      "outputs": [
+        "results/tables/constraint_group_comparisons.tsv",
+        "results/figures/constraint_gradient.png",
+        "results/figures/constraint_gradient.svg"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_constraint_metrics.tsv",
+        "results/tables/constraint_summary.tsv",
+        "docs/methods/constraint-analysis.md"
+      ]
     }
   ]
 }

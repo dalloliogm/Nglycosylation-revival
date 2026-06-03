@@ -33,10 +33,13 @@ results/reports/*
 !results/figures/.gitkeep
 !results/figures/nglyco_pathway_network.png
 !results/figures/nglyco_pathway_network.svg
+!results/figures/constraint_gradient.png
+!results/figures/constraint_gradient.svg
 !results/tables/.gitkeep
 !results/tables/architecture_feature_summary.tsv
 !results/tables/constraint_join_audit.tsv
 !results/tables/constraint_summary.tsv
+!results/tables/constraint_group_comparisons.tsv
 !results/reports/.gitkeep
 
 # OS/editor files
