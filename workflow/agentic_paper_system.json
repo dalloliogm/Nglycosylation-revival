@@ -340,6 +340,28 @@
         "data/processed/nglyco_gene_gene_edges.tsv",
         "results/tables/constraint_group_comparisons.tsv"
       ]
+    },
+    {
+      "id": "scope_disease_annotation",
+      "agent": "data_provenance_agent",
+      "outputs": [
+        "docs/methods/disease-annotation.md"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_architecture_features.tsv",
+        "docs/concept/claims-register.md"
+      ]
+    },
+    {
+      "id": "curate_cdg_seed_table",
+      "agent": "disease_agent",
+      "outputs": [
+        "data/processed/nglyco_disease_annotations.tsv"
+      ],
+      "prerequisites": [
+        "docs/methods/disease-annotation.md",
+        "data/processed/nglyco_architecture_features.tsv"
+      ]
     }
   ]
 }
