@@ -1,0 +1,8 @@
+architecture_version	analysis_group	primary_region	gene_count	primary_gene_count	mean_depth_scaled	high_catastrophic_prior_count	high_or_moderate_interface_prior_count	paralog_family_count	low_specificity_terminal_count
+architecture_features_v0.1_2026-06-03	checkpoint_layer	er_quality_control	17	13	0.5	17	0	6	0
+architecture_features_v0.1_2026-06-03	downstream_diversification	golgi_branching	5	5	0.8333	0	5	5	0
+architecture_features_v0.1_2026-06-03	downstream_diversification	golgi_core_processing	7	7	0.6667	0	7	7	0
+architecture_features_v0.1_2026-06-03	downstream_diversification	terminal_modification	16	16	1.0	0	16	10	10
+architecture_features_v0.1_2026-06-03	substrate_support	substrate_biosynthesis	30	0	0.0	0	0	11	0
+architecture_features_v0.1_2026-06-03	upstream_core	llo_assembly	15	15	0.1667	15	0	13	0
+architecture_features_v0.1_2026-06-03	upstream_core	ost_transfer	11	11	0.3333	11	0	2	0

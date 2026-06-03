@@ -27,10 +27,12 @@ results/reports/*
 !data/processed/nglyco_gene_table.tsv
 !data/processed/nglyco_pathway_edges.tsv
 !data/processed/nglyco_gene_gene_edges.tsv
+!data/processed/nglyco_architecture_features.tsv
 !results/figures/.gitkeep
 !results/figures/nglyco_pathway_network.png
 !results/figures/nglyco_pathway_network.svg
 !results/tables/.gitkeep
+!results/tables/architecture_feature_summary.tsv
 !results/reports/.gitkeep
 
 # OS/editor files

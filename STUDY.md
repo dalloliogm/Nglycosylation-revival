@@ -102,22 +102,23 @@ Immediate next tasks:
 
 - `[x]` Define architecture features.
 - `[x]` Create `docs/methods/architecture-metrics.md`.
-- `[ ]` Compute or curate pathway depth.
-- `[ ]` Annotate branch point status.
-- `[ ]` Annotate terminal modification status.
-- `[ ]` Annotate checkpoint proximity.
-- `[ ]` Annotate substrate biosynthesis involvement.
-- `[ ]` Annotate redundancy or paralog family membership.
-- `[ ]` Compute graph metrics.
+- `[x]` Compute or curate pathway depth.
+- `[x]` Annotate branch point status.
+- `[x]` Annotate terminal modification status.
+- `[x]` Annotate checkpoint proximity.
+- `[x]` Annotate substrate biosynthesis involvement.
+- `[x]` Annotate redundancy or paralog family membership.
+- `[x]` Compute graph metrics.
 - `[ ]` Test whether centrality metrics are robust across graph encodings before using them in the manuscript.
 - `[ ]` Add expression breadth and tissue specificity metrics.
 - `[ ]` Add essentiality metrics.
-- `[ ]` Create combined architecture feature table.
+- `[x]` Create combined architecture feature table.
 
 Expected outputs:
 
 - `docs/methods/architecture-metrics.md`
 - `data/processed/nglyco_architecture_features.tsv`
+- `results/tables/architecture_feature_summary.tsv`
 
 ## Phase 4: Constraint and Human Variation
 
@@ -311,6 +312,7 @@ Expected outputs:
 - 2026-05-30: Added an agentic paper implementation plan, machine-readable agent/gate registry, and inspection script so future work can be organized as small supervised research-agent tasks.
 - 2026-05-30: Added Makefile targets for inspecting, checking, and listing ready agentic workflow tasks.
 - 2026-05-30: Added a prompt generator and `make agentic-prompt` target to turn registry backlog items into concrete Codex work instructions.
+- 2026-06-03: Added `compute_architecture_features` to the agentic backlog and implemented `scripts/build_nglyco_architecture_features.py`, producing first-pass architecture features and a summary table from the curated gene and edge tables.
 - 2026-05-30: Completed agentic work unit `draft_paper_thesis` with `docs/concept/paper-thesis.md`, formalizing the robustness/evolvability thesis as a testable model with competing hypotheses, prediction-to-evidence mapping, claim levels, and critic safeguards.
 - 2026-05-31: Documented an optional first-paper comparator module using 1-3 pathways as a specificity check, with heme biosynthesis, CoQ / ubiquinone biosynthesis, and GPI-anchor biosynthesis as the recommended minimal candidates.
 - 2026-05-31: Updated the thesis, project plan, and literature review to position Montanucci et al. and Zoldos/Lauc glyco-regulation work as direct predecessors, and to shift the expected evolvability signal toward regulatory, glycan-output, tissue, disease, and trait layers rather than coding-sequence acceleration.

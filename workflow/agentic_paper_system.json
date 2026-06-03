@@ -272,6 +272,19 @@
       "prerequisites": [
         "docs/methods/analysis-plan.md"
       ]
+    },
+    {
+      "id": "compute_architecture_features",
+      "agent": "architecture_agent",
+      "outputs": [
+        "data/processed/nglyco_architecture_features.tsv",
+        "results/tables/architecture_feature_summary.tsv"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_gene_table.tsv",
+        "data/processed/nglyco_gene_gene_edges.tsv",
+        "docs/methods/architecture-metrics.md"
+      ]
     }
   ]
 }

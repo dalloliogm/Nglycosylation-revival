@@ -1,4 +1,4 @@
-.PHONY: help agentic-inspect agentic-check agentic-next agentic-prompt ti
+.PHONY: help agentic-inspect agentic-check agentic-next agentic-prompt architecture-features ti
 
 PYTHON ?= uv run python
 AGENTIC_REGISTRY ?= workflow/agentic_paper_system.json
@@ -10,6 +10,7 @@ help:
 	@printf "  %-18s %s\n" "agentic-check" "Compile the inspector and validate the agentic registry."
 	@printf "  %-18s %s\n" "agentic-next" "Show the next ready agentic paper tasks."
 	@printf "  %-18s %s\n" "agentic-prompt" "Create a Codex prompt for TASK=<task id>, or the first ready task."
+	@printf "  %-18s %s\n" "architecture-features" "Build first-pass N-glycosylation architecture feature tables."
 	@printf "  %-18s %s\n" "ti" "Alias for agentic-inspect."
 
 agentic-inspect:
@@ -18,6 +19,7 @@ agentic-inspect:
 agentic-check:
 	$(PYTHON) -m py_compile scripts/inspect_agentic_system.py
 	$(PYTHON) -m py_compile scripts/create_agentic_task_prompt.py
+	$(PYTHON) -m py_compile scripts/build_nglyco_architecture_features.py
 	$(PYTHON) scripts/inspect_agentic_system.py --registry $(AGENTIC_REGISTRY)
 
 agentic-next:
@@ -25,5 +27,8 @@ agentic-next:
 
 agentic-prompt:
 	$(PYTHON) scripts/create_agentic_task_prompt.py --registry $(AGENTIC_REGISTRY) $(if $(TASK),--task $(TASK),)
+
+architecture-features:
+	$(PYTHON) scripts/build_nglyco_architecture_features.py
 
 ti: agentic-inspect
