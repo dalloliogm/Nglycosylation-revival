@@ -42,6 +42,8 @@ results/reports/*
 !results/figures/nglyco_pathway_constraint_loeuf.svg
 !results/figures/nglyco_pathway_constraint_mis_z.png
 !results/figures/nglyco_pathway_constraint_mis_z.svg
+!results/figures/disease_architecture.png
+!results/figures/disease_architecture.svg
 !results/tables/.gitkeep
 !results/tables/architecture_feature_summary.tsv
 !results/tables/constraint_join_audit.tsv
@@ -53,6 +55,7 @@ results/reports/*
 !results/tables/gwas_catalog_nglyco_matched_associations.tsv
 !results/reports/.gitkeep
 !results/reports/constraint-gradient-interpretation.md
+!results/reports/disease-architecture-interpretation.md
 
 # OS/editor files
 .DS_Store

@@ -390,6 +390,19 @@
         "data/processed/nglyco_disease_annotations.tsv",
         "docs/methods/disease-annotation.md"
       ]
+    },
+    {
+      "id": "plot_disease_architecture",
+      "agent": "disease_agent",
+      "outputs": [
+        "results/figures/disease_architecture.png",
+        "results/figures/disease_architecture.svg",
+        "results/reports/disease-architecture-interpretation.md"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_disease_annotations.tsv",
+        "results/tables/disease_architecture_summary.tsv"
+      ]
     }
   ]
 }

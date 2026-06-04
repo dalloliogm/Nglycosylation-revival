@@ -1,4 +1,4 @@
-.PHONY: help agentic-inspect agentic-check agentic-next agentic-prompt architecture-features constraint-summary constraint-gradient constraint-network-plots disease-seed-table clinvar-disease-layer gwas-trait-layer ti
+.PHONY: help agentic-inspect agentic-check agentic-next agentic-prompt architecture-features constraint-summary constraint-gradient constraint-network-plots disease-seed-table clinvar-disease-layer gwas-trait-layer disease-architecture-plot ti
 
 PYTHON ?= uv run python
 AGENTIC_REGISTRY ?= workflow/agentic_paper_system.json
@@ -21,6 +21,7 @@ help:
 	@printf "  %-18s %s\n" "disease-seed-table" "Build first-pass CDG seed annotations from GeneReviews."
 	@printf "  %-18s %s\n" "clinvar-disease-layer" "Add ClinVar germline P/LP counts to disease annotations."
 	@printf "  %-18s %s\n" "gwas-trait-layer" "Add GWAS Catalog mapped/reported gene trait categories."
+	@printf "  %-18s %s\n" "disease-architecture-plot" "Plot CDG, ClinVar, and GWAS trait evidence layers."
 	@printf "  %-18s %s\n" "ti" "Alias for agentic-inspect."
 
 agentic-inspect:
@@ -36,6 +37,7 @@ agentic-check:
 	$(PYTHON) -m py_compile scripts/build_nglyco_disease_seed_table.py
 	$(PYTHON) -m py_compile scripts/add_nglyco_clinvar_layer.py
 	$(PYTHON) -m py_compile scripts/add_nglyco_gwas_trait_layer.py
+	$(PYTHON) -m py_compile scripts/plot_disease_architecture.py
 	$(PYTHON) scripts/inspect_agentic_system.py --registry $(AGENTIC_REGISTRY)
 
 agentic-next:
@@ -68,5 +70,8 @@ clinvar-disease-layer:
 gwas-trait-layer:
 	@test -f "$(GWAS_CATALOG_ASSOCIATIONS)" || (printf "%s\n" "Set GWAS_CATALOG_ASSOCIATIONS=/path/to/gwas_catalog_associations.zip"; exit 2)
 	$(PYTHON) scripts/add_nglyco_gwas_trait_layer.py --gwas-catalog-zip "$(GWAS_CATALOG_ASSOCIATIONS)"
+
+disease-architecture-plot:
+	$(PYTHON) scripts/plot_disease_architecture.py
 
 ti: agentic-inspect

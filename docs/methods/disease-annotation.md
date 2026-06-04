@@ -340,6 +340,28 @@ manual_curation_rule: classify disease/trait, mapped trait, and study text into 
 
 The GWAS layer is intentionally broad and hypothesis-generating. It is useful for identifying trait-category profiles, especially glycome and interface-related traits, but it should not be treated as evidence that a mapped gene is causal without fine mapping, colocalization, coding, eQTL, or functional support. The matched-association table is retained so candidate genes can be audited before being used in manuscript examples.
 
+## Disease Architecture Figure Implementation Record
+
+Date implemented: 2026-06-04
+
+Agentic work unit: `plot_disease_architecture`
+
+Script:
+
+- `scripts/plot_disease_architecture.py`
+
+Inputs:
+
+- `results/tables/disease_architecture_summary.tsv`
+
+Outputs:
+
+- `results/figures/disease_architecture.png`
+- `results/figures/disease_architecture.svg`
+- `results/reports/disease-architecture-interpretation.md`
+
+The figure has two layers. The upper panel plots curated CDG and ClinVar P/LP gene fractions by pathway region, emphasizing severe Mendelian/pathogenic-variant burden. The lower panel plots GWAS Catalog trait-category fractions, emphasizing broad complex-trait, glycome, and interface-related evidence. The figure intentionally avoids raw GWAS association counts because GWAS Catalog density and mapped-gene practices make raw counts poor burden scores.
+
 ## Next Implementation Step
 
-Create a disease/trait architecture figure that separates severe Mendelian/CDG, ClinVar P/LP, and GWAS trait-category layers.
+Audit the strongest downstream glycome/interface GWAS examples against the matched-association table before using individual genes in manuscript text.
