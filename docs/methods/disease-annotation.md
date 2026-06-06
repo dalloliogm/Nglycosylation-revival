@@ -393,6 +393,39 @@ Audit rule:
 
 The audit ranks candidate examples for manuscript use. It does not validate causal locus-to-gene assignment; strong candidates still need locus-level review before causal wording.
 
+## Downstream GWAS Locus Review Implementation Record
+
+Date implemented: 2026-06-06
+
+Agentic work unit: `review_downstream_gwas_loci`
+
+Script:
+
+- `scripts/review_downstream_gwas_loci.py`
+
+Inputs:
+
+- `results/tables/downstream_gwas_candidate_audit.tsv`
+- `data/external/gwas_catalog/gwas_catalog_v1.0.2-associations_e115_r2026-06-01_split.zip`
+
+Outputs:
+
+- `results/tables/downstream_gwas_locus_review.tsv`
+- `results/tables/downstream_gwas_locus_review_summary.tsv`
+- `results/reports/downstream-gwas-locus-review.md`
+
+Review rule:
+
+- Restrict to strong downstream candidates from the candidate audit.
+- Keep only direct glycome or glycosylation association rows.
+- Extract GWAS Catalog SNP, region, chromosome, position, reported genes, mapped genes, context, intergenic flag, and upstream/downstream gene fields.
+- Assign a provisional locus-assignment risk label:
+  - lower risk: reported-gene match in a non-intergenic row;
+  - moderate risk: reported-but-intergenic or simple mapped-gene match;
+  - higher risk: mapped multi-gene, intergenic, or unclear assignment.
+
+This is still a triage artifact. Even lower-risk rows remain association evidence and should not be converted into causal gene claims without fine-mapping, colocalization, eQTL, coding, or functional evidence.
+
 ## Next Implementation Step
 
-Perform locus-level review for the strongest downstream candidates before using individual genes in manuscript text.
+Select two or three downstream examples for manuscript text and write an evidence-matrix entry that states exactly what each example supports and what it does not support.

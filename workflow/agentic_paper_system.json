@@ -417,6 +417,18 @@
         "results/tables/gwas_catalog_nglyco_matched_associations.tsv",
         "data/processed/nglyco_disease_annotations.tsv"
       ]
+    },
+    {
+      "id": "review_downstream_gwas_loci",
+      "agent": "disease_agent",
+      "outputs": [
+        "results/tables/downstream_gwas_locus_review.tsv",
+        "results/tables/downstream_gwas_locus_review_summary.tsv",
+        "results/reports/downstream-gwas-locus-review.md"
+      ],
+      "prerequisites": [
+        "results/tables/downstream_gwas_candidate_audit.tsv"
+      ]
     }
   ]
 }

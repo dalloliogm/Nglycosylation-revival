@@ -1,4 +1,4 @@
-.PHONY: help agentic-inspect agentic-check agentic-next agentic-prompt architecture-features constraint-summary constraint-gradient constraint-network-plots disease-seed-table clinvar-disease-layer gwas-trait-layer disease-architecture-plot downstream-gwas-audit ti
+.PHONY: help agentic-inspect agentic-check agentic-next agentic-prompt architecture-features constraint-summary constraint-gradient constraint-network-plots disease-seed-table clinvar-disease-layer gwas-trait-layer disease-architecture-plot downstream-gwas-audit downstream-gwas-locus-review ti
 
 PYTHON ?= uv run python
 AGENTIC_REGISTRY ?= workflow/agentic_paper_system.json
@@ -23,6 +23,7 @@ help:
 	@printf "  %-18s %s\n" "gwas-trait-layer" "Add GWAS Catalog mapped/reported gene trait categories."
 	@printf "  %-18s %s\n" "disease-architecture-plot" "Plot CDG, ClinVar, and GWAS trait evidence layers."
 	@printf "  %-18s %s\n" "downstream-gwas-audit" "Audit downstream GWAS/glycome candidate examples."
+	@printf "  %-18s %s\n" "downstream-gwas-locus-review" "Extract locus context for strong downstream GWAS candidates."
 	@printf "  %-18s %s\n" "ti" "Alias for agentic-inspect."
 
 agentic-inspect:
@@ -40,6 +41,7 @@ agentic-check:
 	$(PYTHON) -m py_compile scripts/add_nglyco_gwas_trait_layer.py
 	$(PYTHON) -m py_compile scripts/plot_disease_architecture.py
 	$(PYTHON) -m py_compile scripts/audit_downstream_gwas_candidates.py
+	$(PYTHON) -m py_compile scripts/review_downstream_gwas_loci.py
 	$(PYTHON) scripts/inspect_agentic_system.py --registry $(AGENTIC_REGISTRY)
 
 agentic-next:
@@ -78,5 +80,9 @@ disease-architecture-plot:
 
 downstream-gwas-audit:
 	$(PYTHON) scripts/audit_downstream_gwas_candidates.py
+
+downstream-gwas-locus-review:
+	@test -f "$(GWAS_CATALOG_ASSOCIATIONS)" || (printf "%s\n" "Set GWAS_CATALOG_ASSOCIATIONS=/path/to/gwas_catalog_associations.zip"; exit 2)
+	$(PYTHON) scripts/review_downstream_gwas_loci.py --gwas-catalog-zip "$(GWAS_CATALOG_ASSOCIATIONS)"
 
 ti: agentic-inspect
