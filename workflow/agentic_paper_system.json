@@ -429,6 +429,19 @@
       "prerequisites": [
         "results/tables/downstream_gwas_candidate_audit.tsv"
       ]
+    },
+    {
+      "id": "draft_evidence_matrix",
+      "agent": "critic_agent",
+      "outputs": [
+        "docs/manuscript/evidence-matrix.md"
+      ],
+      "prerequisites": [
+        "docs/concept/claims-register.md",
+        "results/reports/constraint-gradient-interpretation.md",
+        "results/reports/disease-architecture-interpretation.md",
+        "results/reports/downstream-gwas-locus-review.md"
+      ]
     }
   ]
 }
