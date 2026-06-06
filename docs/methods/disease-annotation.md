@@ -362,6 +362,37 @@ Outputs:
 
 The figure has two layers. The upper panel plots curated CDG and ClinVar P/LP gene fractions by pathway region, emphasizing severe Mendelian/pathogenic-variant burden. The lower panel plots GWAS Catalog trait-category fractions, emphasizing broad complex-trait, glycome, and interface-related evidence. The figure intentionally avoids raw GWAS association counts because GWAS Catalog density and mapped-gene practices make raw counts poor burden scores.
 
+## Downstream GWAS Candidate Audit Implementation Record
+
+Date implemented: 2026-06-06
+
+Agentic work unit: `audit_downstream_gwas_candidates`
+
+Script:
+
+- `scripts/audit_downstream_gwas_candidates.py`
+
+Inputs:
+
+- `data/processed/nglyco_disease_annotations.tsv`
+- `results/tables/gwas_catalog_gene_trait_counts.tsv`
+- `results/tables/gwas_catalog_nglyco_matched_associations.tsv`
+
+Outputs:
+
+- `results/tables/downstream_gwas_candidate_audit.tsv`
+- `results/tables/downstream_gwas_candidate_associations.tsv`
+- `results/reports/downstream-gwas-candidate-audit.md`
+
+Audit rule:
+
+- Restrict to primary downstream genes in Golgi core processing, Golgi branching, and terminal modification.
+- Prioritize direct glycome or glycosylation trait text.
+- Treat reported-gene direct glycome matches as stronger than mapped-gene-only matches.
+- Count broad immune, infection, cancer, tissue-identity, and protein-level traits as interface evidence, not as causal glycosylation evidence.
+
+The audit ranks candidate examples for manuscript use. It does not validate causal locus-to-gene assignment; strong candidates still need locus-level review before causal wording.
+
 ## Next Implementation Step
 
-Audit the strongest downstream glycome/interface GWAS examples against the matched-association table before using individual genes in manuscript text.
+Perform locus-level review for the strongest downstream candidates before using individual genes in manuscript text.

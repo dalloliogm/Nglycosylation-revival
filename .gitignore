@@ -53,9 +53,12 @@ results/reports/*
 !results/tables/clinvar_plp_gene_counts.tsv
 !results/tables/gwas_catalog_gene_trait_counts.tsv
 !results/tables/gwas_catalog_nglyco_matched_associations.tsv
+!results/tables/downstream_gwas_candidate_audit.tsv
+!results/tables/downstream_gwas_candidate_associations.tsv
 !results/reports/.gitkeep
 !results/reports/constraint-gradient-interpretation.md
 !results/reports/disease-architecture-interpretation.md
+!results/reports/downstream-gwas-candidate-audit.md
 
 # OS/editor files
 .DS_Store

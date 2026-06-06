@@ -403,6 +403,20 @@
         "data/processed/nglyco_disease_annotations.tsv",
         "results/tables/disease_architecture_summary.tsv"
       ]
+    },
+    {
+      "id": "audit_downstream_gwas_candidates",
+      "agent": "disease_agent",
+      "outputs": [
+        "results/tables/downstream_gwas_candidate_audit.tsv",
+        "results/tables/downstream_gwas_candidate_associations.tsv",
+        "results/reports/downstream-gwas-candidate-audit.md"
+      ],
+      "prerequisites": [
+        "results/tables/gwas_catalog_gene_trait_counts.tsv",
+        "results/tables/gwas_catalog_nglyco_matched_associations.tsv",
+        "data/processed/nglyco_disease_annotations.tsv"
+      ]
     }
   ]
 }
