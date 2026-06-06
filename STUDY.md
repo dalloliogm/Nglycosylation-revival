@@ -238,7 +238,7 @@ Expected outputs:
 - `[x]` Create ARS-style argument blueprint.
 - `[x]` Create figure plan.
 - `[x]` Create evidence matrix separating robust architecture-level findings from hypothesis-generating candidate signals.
-- `[ ]` Draft introduction.
+- `[x]` Draft introduction.
 - `[ ]` Draft methods.
 - `[ ]` Draft results.
 - `[ ]` Draft discussion.
@@ -333,6 +333,7 @@ Expected outputs:
 - 2026-06-06: Added `scripts/audit_downstream_gwas_candidates.py` and generated downstream GWAS candidate audit tables plus `results/reports/downstream-gwas-candidate-audit.md`. The audit prioritizes primary downstream genes with direct glycome/glycosylation trait text and reported-gene support, while labeling mapped-gene-only and broad interface associations as weaker evidence.
 - 2026-06-06: Added `scripts/review_downstream_gwas_loci.py` and generated `results/tables/downstream_gwas_locus_review.tsv`, `results/tables/downstream_gwas_locus_review_summary.tsv`, and `results/reports/downstream-gwas-locus-review.md`. The locus review extracts SNP, region, context, reported-gene, mapped-gene, and nearby-gene fields for strong downstream glycome candidates and labels provisional locus-assignment risk.
 - 2026-06-06: Added `docs/manuscript/evidence-matrix.md`, linking current architecture, constraint, disease, ClinVar, GWAS, candidate-audit, and locus-review artifacts to safe manuscript claims, claim limits, candidate gene examples, and remaining gaps.
+- 2026-06-06: Started `docs/manuscript/draft.md` with a first-pass Introduction using the manuscript outline, argument blueprint, claims register, evidence matrix, and literature matrix; added `draft_introduction` to the agentic workflow registry.
 - 2026-05-30: Completed agentic work unit `draft_paper_thesis` with `docs/concept/paper-thesis.md`, formalizing the robustness/evolvability thesis as a testable model with competing hypotheses, prediction-to-evidence mapping, claim levels, and critic safeguards.
 - 2026-05-31: Documented an optional first-paper comparator module using 1-3 pathways as a specificity check, with heme biosynthesis, CoQ / ubiquinone biosynthesis, and GPI-anchor biosynthesis as the recommended minimal candidates.
 - 2026-05-31: Updated the thesis, project plan, and literature review to position Montanucci et al. and Zoldos/Lauc glyco-regulation work as direct predecessors, and to shift the expected evolvability signal toward regulatory, glycan-output, tissue, disease, and trait layers rather than coding-sequence acceleration.

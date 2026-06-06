@@ -442,6 +442,20 @@
         "results/reports/disease-architecture-interpretation.md",
         "results/reports/downstream-gwas-locus-review.md"
       ]
+    },
+    {
+      "id": "draft_introduction",
+      "agent": "manuscript_agent",
+      "outputs": [
+        "docs/manuscript/draft.md"
+      ],
+      "prerequisites": [
+        "docs/manuscript/outline.md",
+        "docs/manuscript/argument-blueprint.md",
+        "docs/manuscript/evidence-matrix.md",
+        "docs/concept/claims-register.md",
+        "docs/concept/literature-matrix.tsv"
+      ]
     }
   ]
 }
