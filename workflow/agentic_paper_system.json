@@ -456,6 +456,22 @@
         "docs/concept/claims-register.md",
         "docs/concept/literature-matrix.tsv"
       ]
+    },
+    {
+      "id": "draft_methods",
+      "agent": "manuscript_agent",
+      "outputs": [
+        "docs/manuscript/draft.md"
+      ],
+      "prerequisites": [
+        "docs/manuscript/draft.md",
+        "docs/methods/pathway-curation.md",
+        "docs/methods/pathway-edge-curation.md",
+        "docs/methods/architecture-metrics.md",
+        "docs/methods/constraint-analysis.md",
+        "docs/methods/disease-annotation.md",
+        "docs/manuscript/evidence-matrix.md"
+      ]
     }
   ]
 }
