@@ -472,6 +472,25 @@
         "docs/methods/disease-annotation.md",
         "docs/manuscript/evidence-matrix.md"
       ]
+    },
+    {
+      "id": "draft_results",
+      "agent": "manuscript_agent",
+      "outputs": [
+        "docs/manuscript/draft.md"
+      ],
+      "prerequisites": [
+        "docs/manuscript/draft.md",
+        "docs/manuscript/evidence-matrix.md",
+        "results/tables/architecture_feature_summary.tsv",
+        "results/tables/constraint_group_comparisons.tsv",
+        "results/tables/constraint_summary.tsv",
+        "results/tables/disease_architecture_summary.tsv",
+        "results/tables/downstream_gwas_locus_review_summary.tsv",
+        "results/reports/constraint-gradient-interpretation.md",
+        "results/reports/disease-architecture-interpretation.md",
+        "results/reports/downstream-gwas-locus-review.md"
+      ]
     }
   ]
 }
