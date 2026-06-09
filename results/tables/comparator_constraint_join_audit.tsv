@@ -1,0 +1,23 @@
+symbol	ensembl_gene_id	pathway_name	primary_region	constraint_join_status	loeuf	missense_z
+ALAS1	ENSG00000023330	heme_biosynthesis	core_sequential	matched	0.649	1.9652
+ALAS2	ENSG00000158578	heme_biosynthesis	core_sequential	unmatched		
+ALAD	ENSG00000148218	heme_biosynthesis	core_sequential	matched	0.63	2.4257
+HMBS	ENSG00000256269	heme_biosynthesis	core_sequential	matched	0.546	1.3249
+UROS	ENSG00000188690	heme_biosynthesis	core_sequential	matched	0.758	0.73448
+UROD	ENSG00000126088	heme_biosynthesis	core_sequential	matched	0.914	1.9357
+CPOX	ENSG00000080819	heme_biosynthesis	core_sequential	matched	0.8	0.24182
+PPOX	ENSG00000143224	heme_biosynthesis	core_sequential	matched	0.581	1.8134
+FECH	ENSG00000066926	heme_biosynthesis	core_sequential	matched	0.859	1.6367
+PDSS1	ENSG00000148459	coq_biosynthesis	core_sequential	matched	1.163	1.1942
+PDSS2	ENSG00000164494	coq_biosynthesis	core_sequential	matched	0.818	1.0961
+COQ2	ENSG00000173085	coq_biosynthesis	core_sequential	matched	1.032	-1.2344
+COQ3	ENSG00000132423	coq_biosynthesis	core_sequential	matched	1.045	0.38176
+COQ4	ENSG00000167113	coq_biosynthesis	core_sequential	matched	1.645	-0.084373
+COQ5	ENSG00000110871	coq_biosynthesis	late_modification	matched	0.811	0.41323
+COQ6	ENSG00000119723	coq_biosynthesis	late_modification	matched	0.972	0.9797
+COQ7	ENSG00000167186	coq_biosynthesis	late_modification	matched	1.247	0.079609
+COQ8A	ENSG00000163050	coq_biosynthesis	late_modification	matched	0.999	-0.50193
+COQ8B	ENSG00000123815	coq_biosynthesis	late_modification	matched	0.923	1.1205
+COQ9	ENSG00000088682	coq_biosynthesis	late_modification	matched	1.035	0.3419
+COQ10A	ENSG00000135469	coq_biosynthesis	late_modification	matched	1.524	0.20247
+COQ10B	ENSG00000115520	coq_biosynthesis	late_modification	matched	1.147	-0.027309

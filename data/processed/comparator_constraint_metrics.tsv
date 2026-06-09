@@ -1,0 +1,23 @@
+symbol	ensembl_gene_id	pathway_name	primary_region	pathway_step_order	pathway_step	constraint_join_status	loeuf	missense_z	loeuf_constrained
+ALAS1	ENSG00000023330	heme_biosynthesis	core_sequential	1	ala_synthesis_ubiquitous	matched	0.649	1.9652	no
+ALAS2	ENSG00000158578	heme_biosynthesis	core_sequential	1	ala_synthesis_erythroid	unmatched			
+ALAD	ENSG00000148218	heme_biosynthesis	core_sequential	2	pbg_synthesis	matched	0.63	2.4257	no
+HMBS	ENSG00000256269	heme_biosynthesis	core_sequential	3	hydroxymethylbilane_synthesis	matched	0.546	1.3249	yes
+UROS	ENSG00000188690	heme_biosynthesis	core_sequential	4	uro_iii_synthesis	matched	0.758	0.73448	no
+UROD	ENSG00000126088	heme_biosynthesis	core_sequential	5	copro_synthesis	matched	0.914	1.9357	no
+CPOX	ENSG00000080819	heme_biosynthesis	core_sequential	6	protoporphyrinogen_synthesis	matched	0.8	0.24182	no
+PPOX	ENSG00000143224	heme_biosynthesis	core_sequential	7	protoporphyrin_synthesis	matched	0.581	1.8134	yes
+FECH	ENSG00000066926	heme_biosynthesis	core_sequential	8	heme_synthesis	matched	0.859	1.6367	no
+PDSS1	ENSG00000148459	coq_biosynthesis	core_sequential	1	decaprenyl_diphosphate	matched	1.163	1.1942	no
+PDSS2	ENSG00000164494	coq_biosynthesis	core_sequential	1	decaprenyl_diphosphate	matched	0.818	1.0961	no
+COQ2	ENSG00000173085	coq_biosynthesis	core_sequential	2	ring_attachment	matched	1.032	-1.2344	no
+COQ3	ENSG00000132423	coq_biosynthesis	core_sequential	3	ring_methylation	matched	1.045	0.38176	no
+COQ4	ENSG00000167113	coq_biosynthesis	core_sequential	4	ring_scaffold	matched	1.645	-0.084373	no
+COQ5	ENSG00000110871	coq_biosynthesis	late_modification	5	ring_methylation_2	matched	0.811	0.41323	no
+COQ6	ENSG00000119723	coq_biosynthesis	late_modification	6	ring_hydroxylation	matched	0.972	0.9797	no
+COQ7	ENSG00000167186	coq_biosynthesis	late_modification	7	ring_hydroxylation_2	matched	1.247	0.079609	no
+COQ8A	ENSG00000163050	coq_biosynthesis	late_modification	8	kinase_atpase	matched	0.999	-0.50193	no
+COQ8B	ENSG00000123815	coq_biosynthesis	late_modification	8	kinase_atpase	matched	0.923	1.1205	no
+COQ9	ENSG00000088682	coq_biosynthesis	late_modification	9	lipid_binding	matched	1.035	0.3419	no
+COQ10A	ENSG00000135469	coq_biosynthesis	late_modification	10	transport	matched	1.524	0.20247	no
+COQ10B	ENSG00000115520	coq_biosynthesis	late_modification	10	transport	matched	1.147	-0.027309	no

@@ -71,3 +71,6 @@ results/reports/*
 !data/processed/nglyco_conservation_metrics.tsv
 !data/processed/comparator_gene_table.tsv
 !data/raw/popgen/1000g_phase3_panel.tsv
+!data/processed/comparator_constraint_metrics.tsv
+!results/tables/comparator_constraint_join_audit.tsv
+!results/tables/comparator_constraint_summary.tsv

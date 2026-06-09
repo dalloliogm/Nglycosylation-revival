@@ -3,9 +3,9 @@
 
 Step 1: Liftover gene coordinates from GRCh38 to GRCh37 (hg19) using the
         Ensembl REST API liftover endpoint.
-Step 2: Fetch targeted VCF slices from the 1000 Genomes Phase 3 FTP using
-        tabix (requires tabix to be installed).
-Step 3: Download the 1000G population panel file.
+Step 2: Download the 1000G population panel file.
+Step 3: Fetch targeted VCF slices from the 1000 Genomes Phase 3 FTP using
+        pysam (which bundles htslib/tabix — no separate tabix binary needed).
 
 This script prepares the data needed for FST/PBS computation
 (scripts/compute_fst_pbs.py) and iHS extraction (scripts/extract_pophuman_ihs.py).
@@ -13,12 +13,12 @@ This script prepares the data needed for FST/PBS computation
 Usage
 -----
     python scripts/fetch_popgen_data.py [--flank 10000] [--skip-vcf]
+    python scripts/fetch_popgen_data.py --skip-liftover  # if hg19 table exists
 
 Requirements
 ------------
-- tabix (htslib) in PATH for VCF fetching
+- pysam (pip install pysam — bundles htslib)
 - Network access to rest.ensembl.org and ftp.1000genomes.ebi.ac.uk
-- ~2–5 GB disk space for per-gene VCF slices (compressed)
 
 Run from the repository root.
 """
@@ -26,8 +26,8 @@ Run from the repository root.
 from __future__ import annotations
 
 import argparse
+import gzip
 import json
-import subprocess
 import time
 from pathlib import Path
 from typing import Any
@@ -42,9 +42,7 @@ KG_VCF_PATTERN = (
     "{base}/ALL.chr{chrom}.phase3_shapeit2_mvncall_integrated_v5b"
     ".20130502.genotypes.vcf.gz"
 )
-KG_PANEL_URL = (
-    f"{KG_FTP_BASE}/integrated_call_samples_v3.20130502.ALL.panel"
-)
+KG_PANEL_URL = f"{KG_FTP_BASE}/integrated_call_samples_v3.20130502.ALL.panel"
 
 SUPERPOPULATIONS = ["AFR", "AMR", "EAS", "EUR", "SAS"]
 
@@ -75,7 +73,6 @@ def _get_json(url: str, timeout: int = 30, retries: int = 3) -> Any:
 
 
 def _download(url: str, dest: Path, timeout: int = 120) -> None:
-    """Download a URL to dest using urllib."""
     req = Request(url)
     with urlopen(req, timeout=timeout) as resp, open(dest, "wb") as fh:
         while True:
@@ -90,7 +87,6 @@ def _download(url: str, dest: Path, timeout: int = 120) -> None:
 # ---------------------------------------------------------------------------
 
 def liftover_one(chrom: str, start: int, end: int, symbol: str) -> dict | None:
-    """Liftover one region from GRCh38 to GRCh37. Returns dict or None."""
     chrom_str = str(chrom)
     region = f"{chrom_str}:{start}..{end}"
     url = (
@@ -103,7 +99,6 @@ def liftover_one(chrom: str, start: int, end: int, symbol: str) -> dict | None:
         if not mappings:
             print(f"  [{symbol}] No liftover result")
             return None
-        # Take first mapping (should be one-to-one for most genes)
         m = mappings[0]["mapped"]
         return {
             "symbol": symbol,
@@ -118,11 +113,10 @@ def liftover_one(chrom: str, start: int, end: int, symbol: str) -> dict | None:
 
 
 def liftover_all(gene_table: pd.DataFrame, flank: int) -> pd.DataFrame:
-    """Liftover all genes from hg38 to hg19 with flanks applied."""
     records = []
     n = len(gene_table)
     for i, row in enumerate(gene_table.itertuples(), start=1):
-        print(f"  Liftover [{i}/{n}] {row.symbol}  chr{row.grch38_chr}:{row.grch38_start}-{row.grch38_end}")
+        print(f"  Liftover [{i}/{n}] {row.symbol}")
         result = liftover_one(
             row.grch38_chr,
             max(1, int(row.grch38_start) - flank),
@@ -139,108 +133,103 @@ def liftover_all(gene_table: pd.DataFrame, flank: int) -> pd.DataFrame:
             result["fetch_end"] = int(result["grch37_end"])
         else:
             result = {
-                "symbol": row.symbol,
-                "ensembl_gene_id": row.ensembl_gene_id,
+                "symbol": row.symbol, "ensembl_gene_id": row.ensembl_gene_id,
                 "grch38_chr": str(row.grch38_chr),
                 "grch38_start": int(row.grch38_start),
                 "grch38_end": int(row.grch38_end),
-                "grch37_chr": None,
-                "grch37_start": None,
-                "grch37_end": None,
-                "grch37_strand": None,
-                "flank_bp": flank,
-                "fetch_start": None,
-                "fetch_end": None,
+                "grch37_chr": None, "grch37_start": None,
+                "grch37_end": None, "grch37_strand": None,
+                "flank_bp": flank, "fetch_start": None, "fetch_end": None,
             }
         records.append(result)
-        time.sleep(0.1)   # be gentle on the REST API
-
+        time.sleep(0.1)
     return pd.DataFrame(records)
 
 
 # ---------------------------------------------------------------------------
-# Step 2: Download 1000G panel file
+# Step 2: 1000G panel
 # ---------------------------------------------------------------------------
 
 def fetch_panel(out_dir: Path) -> Path:
-    """Download the 1000G Phase 3 population panel file."""
     dest = out_dir / "1000g_phase3_panel.tsv"
     if dest.exists():
         print(f"  Panel already exists: {dest}")
         return dest
-    print(f"  Downloading 1000G panel to {dest}")
+    print(f"  Downloading 1000G panel → {dest}")
     _download(KG_PANEL_URL, dest)
     print(f"  Done ({dest.stat().st_size // 1024} KB)")
     return dest
 
 
 # ---------------------------------------------------------------------------
-# Step 3: Tabix-fetch per-gene VCF slices
+# Step 3: Per-gene VCF slices via pysam (htslib remote fetch)
 # ---------------------------------------------------------------------------
 
-def check_tabix() -> bool:
-    try:
-        subprocess.run(["tabix", "--version"], capture_output=True, check=True)
-        return True
-    except (FileNotFoundError, subprocess.CalledProcessError):
-        return False
+def fetch_gene_vcf_pysam(
+    symbol: str, chrom: str, start: int, end: int, out_dir: Path
+) -> Path | None:
+    """Fetch a VCF slice using pysam's remote tabix support.
 
+    pysam can open a remote tabix-indexed VCF over HTTPS and iterate over
+    records in a region, writing them to a local gzipped VCF file.
+    """
+    import pysam  # noqa: PLC0415
 
-def fetch_gene_vcf(symbol: str, chrom: str, start: int, end: int,
-                   out_dir: Path) -> Path | None:
-    """Fetch a VCF slice for one gene from the 1000G FTP using tabix."""
     out_path = out_dir / f"{symbol}.chr{chrom}_{start}_{end}.vcf.gz"
-    if out_path.exists() and out_path.stat().st_size > 1000:
-        print(f"  [{symbol}] VCF slice already exists, skipping")
+    if out_path.exists() and out_path.stat().st_size > 500:
+        print(f"  [{symbol}] Already exists, skipping")
         return out_path
 
     remote_vcf = KG_VCF_PATTERN.format(base=KG_FTP_BASE, chrom=chrom)
     region = f"{chrom}:{start}-{end}"
 
-    cmd = ["tabix", "-h", remote_vcf, region]
     try:
-        result = subprocess.run(cmd, capture_output=True, check=True)
-        # Compress output
-        bgzip_cmd = ["bgzip", "-c"]
-        gz_result = subprocess.run(
-            bgzip_cmd, input=result.stdout, capture_output=True
-        )
-        out_path.write_bytes(gz_result.stdout)
-        # Index
-        subprocess.run(["tabix", "-p", "vcf", str(out_path)], check=True)
-        n_bytes = out_path.stat().st_size
-        print(f"  [{symbol}] Fetched {n_bytes // 1024} KB → {out_path.name}")
+        vcf_in = pysam.VariantFile(remote_vcf)  # opens remote + .tbi index
+        header = vcf_in.header
+
+        with gzip.open(out_path, "wt") as fh_out:
+            # Write VCF header
+            fh_out.write(str(header))
+            n_records = 0
+            for rec in vcf_in.fetch(chrom, start - 1, end):  # pysam is 0-based
+                fh_out.write(str(rec))
+                n_records += 1
+
+        vcf_in.close()
+        size_kb = out_path.stat().st_size // 1024
+        print(f"  [{symbol}] {n_records} variants, {size_kb} KB → {out_path.name}")
         return out_path
-    except subprocess.CalledProcessError as exc:
-        stderr = exc.stderr.decode() if exc.stderr else ""
-        print(f"  [{symbol}] tabix error: {stderr[:200]}")
-        return None
+
     except Exception as exc:
-        print(f"  [{symbol}] Error: {exc}")
+        print(f"  [{symbol}] Error fetching {region}: {exc}")
+        if out_path.exists():
+            out_path.unlink()
         return None
 
 
 def fetch_all_vcfs(hg19_table: pd.DataFrame, vcf_dir: Path) -> pd.DataFrame:
-    """Fetch per-gene VCF slices for all genes with valid hg19 coordinates."""
     vcf_dir.mkdir(parents=True, exist_ok=True)
     records = []
+    autosomes = {str(i) for i in range(1, 23)}
+
     for row in hg19_table.itertuples():
         if not row.grch37_chr:
             records.append({"symbol": row.symbol, "vcf_path": None,
-                            "vcf_status": "no_hg19_coords"})
+                            "n_variants": 0, "vcf_status": "no_hg19_coords"})
             continue
-        # Skip non-autosomal / X/Y for now (1000G VCF naming differs)
         chrom = str(row.grch37_chr)
-        if chrom not in [str(i) for i in range(1, 23)] + ["X"]:
+        if chrom not in autosomes:
             records.append({"symbol": row.symbol, "vcf_path": None,
-                            "vcf_status": f"unsupported_chrom_{chrom}"})
+                            "n_variants": 0,
+                            "vcf_status": f"skipped_chrom_{chrom}"})
             continue
-        vcf_path = fetch_gene_vcf(
+        vcf_path = fetch_gene_vcf_pysam(
             row.symbol, chrom, int(row.fetch_start), int(row.fetch_end), vcf_dir
         )
         records.append({
             "symbol": row.symbol,
             "vcf_path": str(vcf_path) if vcf_path else None,
+            "n_variants": None,
             "vcf_status": "ok" if vcf_path else "fetch_failed",
         })
     return pd.DataFrame(records)
@@ -251,59 +240,47 @@ def fetch_all_vcfs(hg19_table: pd.DataFrame, vcf_dir: Path) -> pd.DataFrame:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Fetch population-genetics data for N-glycosylation genes."
-    )
+    parser = argparse.ArgumentParser()
     parser.add_argument("--gene-table", default="data/processed/nglyco_gene_table.tsv")
     parser.add_argument("--hg19-out", default="data/processed/nglyco_gene_table_hg19.tsv")
     parser.add_argument("--vcf-dir", default="data/raw/popgen/vcf_slices")
     parser.add_argument("--panel-dir", default="data/raw/popgen")
-    parser.add_argument("--flank", type=int, default=10000,
-                        help="Flanking bp to add on each side (default: 10000)")
-    parser.add_argument("--skip-liftover", action="store_true",
-                        help="Skip liftover if hg19 table already exists.")
-    parser.add_argument("--skip-vcf", action="store_true",
-                        help="Skip VCF fetching (liftover only).")
+    parser.add_argument("--flank", type=int, default=10000)
+    parser.add_argument("--skip-liftover", action="store_true")
+    parser.add_argument("--skip-vcf", action="store_true")
     args = parser.parse_args()
 
     gene_table = pd.read_csv(args.gene_table, sep="\t")
-    print(f"Loaded {len(gene_table)} genes from {args.gene_table}")
+    print(f"Loaded {len(gene_table)} genes")
 
     # Step 1: Liftover
     hg19_path = Path(args.hg19_out)
     if args.skip_liftover and hg19_path.exists():
-        print(f"\nLoading existing hg19 table from {hg19_path}")
+        print(f"Loading existing hg19 table: {hg19_path}")
         hg19_table = pd.read_csv(hg19_path, sep="\t")
     else:
-        print(f"\n--- Liftoving hg38 → hg19 (flank={args.flank} bp) ---")
+        print(f"\n--- Liftover hg38 → hg19 (flank={args.flank} bp) ---")
         hg19_table = liftover_all(gene_table, args.flank)
         hg19_path.parent.mkdir(parents=True, exist_ok=True)
         hg19_table.to_csv(hg19_path, sep="\t", index=False)
         n_ok = int(hg19_table["grch37_chr"].notna().sum())
-        print(f"\nLiftover complete: {n_ok}/{len(hg19_table)} genes mapped")
-        print(f"Wrote {hg19_path}")
+        print(f"Liftover: {n_ok}/{len(hg19_table)} mapped → {hg19_path}")
 
-    # Step 2: Panel file
+    # Step 2: Panel
     panel_dir = Path(args.panel_dir)
     panel_dir.mkdir(parents=True, exist_ok=True)
-    print(f"\n--- Downloading 1000G population panel ---")
+    print(f"\n--- 1000G population panel ---")
     fetch_panel(panel_dir)
 
     # Step 3: VCF slices
     if not args.skip_vcf:
-        if not check_tabix():
-            print(
-                "\nWARNING: tabix not found in PATH. Install htslib and re-run"
-                " without --skip-vcf to fetch VCF slices."
-            )
-        else:
-            print(f"\n--- Fetching per-gene VCF slices (flank={args.flank} bp) ---")
-            vcf_manifest = fetch_all_vcfs(hg19_table, Path(args.vcf_dir))
-            manifest_path = Path(args.vcf_dir) / "vcf_manifest.tsv"
-            vcf_manifest.to_csv(manifest_path, sep="\t", index=False)
-            n_ok = int((vcf_manifest["vcf_status"] == "ok").sum())
-            print(f"\nVCF slices: {n_ok}/{len(vcf_manifest)} fetched successfully")
-            print(f"Manifest: {manifest_path}")
+        print(f"\n--- Fetching per-gene VCF slices via pysam (flank={args.flank} bp) ---")
+        vcf_manifest = fetch_all_vcfs(hg19_table, Path(args.vcf_dir))
+        manifest_path = Path(args.vcf_dir) / "vcf_manifest.tsv"
+        vcf_manifest.to_csv(manifest_path, sep="\t", index=False)
+        n_ok = int((vcf_manifest["vcf_status"] == "ok").sum())
+        print(f"\nVCF slices: {n_ok}/{len(vcf_manifest)} fetched")
+        print(f"Manifest: {manifest_path}")
     else:
         print("\nSkipping VCF fetch (--skip-vcf).")
 
