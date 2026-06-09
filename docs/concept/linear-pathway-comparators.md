@@ -6,7 +6,7 @@ Date: 2026-05-21
 
 This note records a future direction discussed during project planning: whether the N-glycosylation robustness/evolvability framework could later be compared with other human pathways that have a strongly ordered, assembly-line-like core.
 
-Decision for now: defer broad cross-pathway expansion. Use this note only to preserve candidate comparators and design logic.
+Decision for now: defer broad cross-pathway expansion. Preserve a smaller option for the first paper: include 1-3 comparator pathways only as a controlled contrast to N-glycosylation, not as a Reactome-wide or multi-pathway survey.
 
 ## Why This Matters
 
@@ -123,16 +123,74 @@ For future comparator work, classify pathways into three buckets:
 - **Linear constrained core without obvious interface layer:** useful negative or contrastive comparators. Best candidates: heme biosynthesis, nucleotide biosynthesis, CoQ biosynthesis.
 - **Quasi-linear core with branching/modular outputs:** useful for testing whether branch points and redundancy alter constraint. Best candidates: cholesterol biosynthesis, glycosaminoglycan biosynthesis, folate/one-carbon metabolism.
 
+## Option For The Current Paper: 1-3 Comparator Pathways
+
+The current paper can include a small comparator module if it strengthens the central claim without diluting the N-glycosylation case study.
+
+The comparator question should be narrow:
+
+> Does N-glycosylation show a stronger internal core-to-interface gradient than conserved linear pathways whose main function is essential biochemical production?
+
+This module should test specificity, not replace the main analysis. N-glycosylation remains the primary case study; comparator pathways only help distinguish an N-glycosylation-specific architecture from generic properties of essential pathways.
+
+### Recommended Minimal Set
+
+Use no more than three comparator pathways:
+
+1. **Heme biosynthesis** as the cleanest conserved linear metabolic comparator.
+2. **CoQ / ubiquinone biosynthesis** as a compact mitochondrial constrained-core comparator.
+3. **GPI-anchor biosynthesis** as an optional positive comparator with a glycan/cell-surface interface component.
+
+If the scope must be even smaller, use heme biosynthesis alone as the negative comparator. If the paper needs one positive analogy, add GPI-anchor biosynthesis. CoQ is useful if a second conserved-process comparator is needed.
+
+### In-Scope Comparator Analyses
+
+The lightweight comparator module should use the same evidence categories as the N-glycosylation analysis, but at lower resolution:
+
+- curated pathway gene list and ordered pathway position
+- broad region labels such as early/core, late/output, branch/interface, or ambiguous
+- constraint and tolerated-variation summaries
+- severe Mendelian disease burden
+- broad trait-association or interface-phenotype evidence, only where gene assignment is clear
+
+The comparator module should not attempt full population-genetic scans, detailed network centrality, or extensive mechanistic storytelling for every pathway.
+
+### Decision Criteria
+
+Include the 1-3 pathway comparator module in the first paper if:
+
+- N-glycosylation shows an apparent gradient that needs a specificity check.
+- Comparator gene sets can be curated with clear source provenance.
+- The added analysis can be completed as one compact figure, table, or supplemental result.
+- The comparator result clarifies whether the observed pattern is generic essential-pathway constraint or a core/interface architecture signal.
+
+Defer comparator pathways to a second paper if:
+
+- pathway curation becomes ambiguous or slow;
+- comparator analysis delays the core N-glycosylation result;
+- the evidence would require extensive pathway-specific biological interpretation;
+- the first paper is better framed as a focused case study plus a future generalization agenda.
+
+### Claim Limits
+
+Even if included, the comparator module should only support claims such as:
+
+- "N-glycosylation was compared with selected conserved-process pathways as a specificity check."
+- "The comparator results suggest whether the observed gradient is generic to essential pathways or stronger in core/interface architectures."
+- "Broader pathway generalization remains a future test."
+
+It should not claim that 1-3 pathways prove a universal biological design principle.
+
 ## Implications For The Current Paper
 
-The current paper should remain centered on N-glycosylation. A small comparator section could mention one or two pathways only if it helps clarify the architecture framework.
+The current paper should remain centered on N-glycosylation. A small comparator section could include one to three pathways only if it helps clarify the architecture framework.
 
 Recommended immediate use:
 
 - Do not curate all comparator pathways now.
 - Use GPI-anchor biosynthesis as the strongest future positive comparator.
 - Use heme biosynthesis as the strongest future constrained-core contrast.
-- Mention broad cross-pathway analysis as a future framework, not a current deliverable.
+- Treat a 1-3 pathway comparison as optional scope for the first paper, with broad cross-pathway analysis left as a future framework.
 
 ## Possible Future Analysis
 
@@ -151,4 +209,3 @@ If this becomes a second paper or major extension:
 - Reactome: cholesterol biosynthesis.
 - Reactome / BioCyc / primary reviews: human CoQ10 biosynthesis.
 - Essentials of Glycobiology: GPI anchors and glycosaminoglycan biosynthesis chapters.
-

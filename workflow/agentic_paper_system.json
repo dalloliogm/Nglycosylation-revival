@@ -272,6 +272,264 @@
       "prerequisites": [
         "docs/methods/analysis-plan.md"
       ]
+    },
+    {
+      "id": "compute_architecture_features",
+      "agent": "architecture_agent",
+      "outputs": [
+        "data/processed/nglyco_architecture_features.tsv",
+        "results/tables/architecture_feature_summary.tsv"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_gene_table.tsv",
+        "data/processed/nglyco_gene_gene_edges.tsv",
+        "docs/methods/architecture-metrics.md"
+      ]
+    },
+    {
+      "id": "build_constraint_importer",
+      "agent": "constraint_agent",
+      "outputs": [
+        "scripts/build_nglyco_constraint_summary.py"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_architecture_features.tsv",
+        "docs/methods/constraint-analysis.md"
+      ]
+    },
+    {
+      "id": "compute_constraint_summary",
+      "agent": "constraint_agent",
+      "outputs": [
+        "data/processed/nglyco_constraint_metrics.tsv",
+        "results/tables/constraint_join_audit.tsv",
+        "results/tables/constraint_summary.tsv"
+      ],
+      "prerequisites": [
+        "scripts/build_nglyco_constraint_summary.py",
+        "data/processed/nglyco_architecture_features.tsv",
+        "docs/methods/constraint-analysis.md"
+      ]
+    },
+    {
+      "id": "analyze_constraint_gradient",
+      "agent": "constraint_agent",
+      "outputs": [
+        "results/tables/constraint_group_comparisons.tsv",
+        "results/figures/constraint_gradient.png",
+        "results/figures/constraint_gradient.svg"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_constraint_metrics.tsv",
+        "results/tables/constraint_summary.tsv",
+        "docs/methods/constraint-analysis.md"
+      ]
+    },
+    {
+      "id": "plot_constraint_network",
+      "agent": "constraint_agent",
+      "outputs": [
+        "results/figures/nglyco_pathway_constraint_loeuf.png",
+        "results/figures/nglyco_pathway_constraint_loeuf.svg",
+        "results/figures/nglyco_pathway_constraint_mis_z.png",
+        "results/figures/nglyco_pathway_constraint_mis_z.svg",
+        "results/reports/constraint-gradient-interpretation.md"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_constraint_metrics.tsv",
+        "data/processed/nglyco_gene_gene_edges.tsv",
+        "results/tables/constraint_group_comparisons.tsv"
+      ]
+    },
+    {
+      "id": "scope_disease_annotation",
+      "agent": "data_provenance_agent",
+      "outputs": [
+        "docs/methods/disease-annotation.md"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_architecture_features.tsv",
+        "docs/concept/claims-register.md"
+      ]
+    },
+    {
+      "id": "curate_cdg_seed_table",
+      "agent": "disease_agent",
+      "outputs": [
+        "data/processed/nglyco_disease_annotations.tsv",
+        "results/tables/disease_architecture_summary.tsv"
+      ],
+      "prerequisites": [
+        "docs/methods/disease-annotation.md",
+        "data/processed/nglyco_architecture_features.tsv"
+      ]
+    },
+    {
+      "id": "add_clinvar_plp_layer",
+      "agent": "disease_agent",
+      "outputs": [
+        "results/tables/clinvar_plp_gene_counts.tsv",
+        "data/processed/nglyco_disease_annotations.tsv",
+        "results/tables/disease_architecture_summary.tsv"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_disease_annotations.tsv",
+        "docs/methods/disease-annotation.md"
+      ]
+    },
+    {
+      "id": "add_gwas_trait_layer",
+      "agent": "disease_agent",
+      "outputs": [
+        "results/tables/gwas_catalog_gene_trait_counts.tsv",
+        "results/tables/gwas_catalog_nglyco_matched_associations.tsv",
+        "data/processed/nglyco_disease_annotations.tsv",
+        "results/tables/disease_architecture_summary.tsv"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_disease_annotations.tsv",
+        "docs/methods/disease-annotation.md"
+      ]
+    },
+    {
+      "id": "plot_disease_architecture",
+      "agent": "disease_agent",
+      "outputs": [
+        "results/figures/disease_architecture.png",
+        "results/figures/disease_architecture.svg",
+        "results/reports/disease-architecture-interpretation.md"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_disease_annotations.tsv",
+        "results/tables/disease_architecture_summary.tsv"
+      ]
+    },
+    {
+      "id": "audit_downstream_gwas_candidates",
+      "agent": "disease_agent",
+      "outputs": [
+        "results/tables/downstream_gwas_candidate_audit.tsv",
+        "results/tables/downstream_gwas_candidate_associations.tsv",
+        "results/reports/downstream-gwas-candidate-audit.md"
+      ],
+      "prerequisites": [
+        "results/tables/gwas_catalog_gene_trait_counts.tsv",
+        "results/tables/gwas_catalog_nglyco_matched_associations.tsv",
+        "data/processed/nglyco_disease_annotations.tsv"
+      ]
+    },
+    {
+      "id": "review_downstream_gwas_loci",
+      "agent": "disease_agent",
+      "outputs": [
+        "results/tables/downstream_gwas_locus_review.tsv",
+        "results/tables/downstream_gwas_locus_review_summary.tsv",
+        "results/reports/downstream-gwas-locus-review.md"
+      ],
+      "prerequisites": [
+        "results/tables/downstream_gwas_candidate_audit.tsv"
+      ]
+    },
+    {
+      "id": "draft_evidence_matrix",
+      "agent": "critic_agent",
+      "outputs": [
+        "docs/manuscript/evidence-matrix.md"
+      ],
+      "prerequisites": [
+        "docs/concept/claims-register.md",
+        "results/reports/constraint-gradient-interpretation.md",
+        "results/reports/disease-architecture-interpretation.md",
+        "results/reports/downstream-gwas-locus-review.md"
+      ]
+    },
+    {
+      "id": "draft_introduction",
+      "agent": "manuscript_agent",
+      "outputs": [
+        "docs/manuscript/draft.md"
+      ],
+      "prerequisites": [
+        "docs/manuscript/outline.md",
+        "docs/manuscript/argument-blueprint.md",
+        "docs/manuscript/evidence-matrix.md",
+        "docs/concept/claims-register.md",
+        "docs/concept/literature-matrix.tsv"
+      ]
+    },
+    {
+      "id": "draft_methods",
+      "agent": "manuscript_agent",
+      "outputs": [
+        "docs/manuscript/draft.md"
+      ],
+      "prerequisites": [
+        "docs/manuscript/draft.md",
+        "docs/methods/pathway-curation.md",
+        "docs/methods/pathway-edge-curation.md",
+        "docs/methods/architecture-metrics.md",
+        "docs/methods/constraint-analysis.md",
+        "docs/methods/disease-annotation.md",
+        "docs/manuscript/evidence-matrix.md"
+      ]
+    },
+    {
+      "id": "draft_results",
+      "agent": "manuscript_agent",
+      "outputs": [
+        "docs/manuscript/draft.md"
+      ],
+      "prerequisites": [
+        "docs/manuscript/draft.md",
+        "docs/manuscript/evidence-matrix.md",
+        "results/tables/architecture_feature_summary.tsv",
+        "results/tables/constraint_group_comparisons.tsv",
+        "results/tables/constraint_summary.tsv",
+        "results/tables/disease_architecture_summary.tsv",
+        "results/tables/downstream_gwas_locus_review_summary.tsv",
+        "results/reports/constraint-gradient-interpretation.md",
+        "results/reports/disease-architecture-interpretation.md",
+        "results/reports/downstream-gwas-locus-review.md"
+      ]
+    },
+    {
+      "id": "scope_conservation_analysis",
+      "agent": "data_provenance_agent",
+      "outputs": [
+        "docs/methods/conservation-analysis.md"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_gene_table.tsv",
+        "docs/methods/constraint-analysis.md"
+      ]
+    },
+    {
+      "id": "build_conservation_metrics",
+      "agent": "constraint_agent",
+      "outputs": [
+        "data/processed/nglyco_conservation_metrics.tsv",
+        "results/tables/conservation_join_audit.tsv",
+        "results/tables/conservation_summary.tsv"
+      ],
+      "prerequisites": [
+        "docs/methods/conservation-analysis.md",
+        "data/processed/nglyco_gene_table.tsv",
+        "scripts/build_nglyco_conservation_metrics.py"
+      ]
+    },
+    {
+      "id": "analyze_conservation_gradient",
+      "agent": "constraint_agent",
+      "outputs": [
+        "results/figures/conservation_gradient.png",
+        "results/figures/conservation_gradient.svg",
+        "results/reports/conservation-interpretation.md"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_conservation_metrics.tsv",
+        "results/tables/conservation_summary.tsv",
+        "data/processed/nglyco_architecture_features.tsv"
+      ]
     }
   ]
 }

@@ -44,10 +44,11 @@ Key files:
 - `[~]` Expand glycoimmunology, mucosal, microbiome, and host-pathogen interface references.
 - `[~]` Expand disease architecture and CDG references.
 - `[~]` Expand pathway/network biology references.
+- `[~]` Expand glycome genetics and glyco-gene regulatory references.
 - `[ ]` Expand comparator-pathway references.
 - `[ ]` Extract structured notes from high-priority papers.
-- `[ ]` Write `docs/concept/paper-thesis.md`.
-- `[ ]` Create a claims register distinguishing what the paper shows, suggests, and does not show.
+- `[x]` Write `docs/concept/paper-thesis.md`.
+- `[x]` Create a claims register distinguishing what the paper shows, suggests, and does not show.
 - `[ ]` Create a reviewer-risk checklist from the original paper criticisms.
 - `[ ]` Decide the paper type: primary analysis, conceptual synthesis plus analysis, or perspective with computational case study.
 
@@ -61,8 +62,8 @@ Key files:
 Immediate next tasks:
 
 1. Extract structured notes from the highest-priority pathway-core papers into `docs/concept/literature-matrix.tsv`.
-2. Read and extract the new sialic-acid evolution, glycosyltransferase evolution, mucosal glycan interface, and comparator-anchor papers added on 2026-05-28.
-3. Draft the core paper thesis in one page.
+2. Extract Montanucci et al., Zoldos et al., Lauc and Zoldos, and post-2010 glycome/IgG N-glycome GWAS papers into `docs/concept/literature-matrix.tsv`.
+3. Read and extract the new sialic-acid evolution, glycosyltransferase evolution, mucosal glycan interface, and comparator-anchor papers added on 2026-05-28.
 
 ## Phase 2: Pathway Curation
 
@@ -99,60 +100,69 @@ Immediate next tasks:
 
 ## Phase 3: Architecture Metrics
 
-- `[ ]` Define architecture features.
-- `[ ]` Create `docs/methods/architecture-metrics.md`.
-- `[ ]` Compute or curate pathway depth.
-- `[ ]` Annotate branch point status.
-- `[ ]` Annotate terminal modification status.
-- `[ ]` Annotate checkpoint proximity.
-- `[ ]` Annotate substrate biosynthesis involvement.
-- `[ ]` Annotate redundancy or paralog family membership.
-- `[ ]` Compute graph metrics.
+- `[x]` Define architecture features.
+- `[x]` Create `docs/methods/architecture-metrics.md`.
+- `[x]` Compute or curate pathway depth.
+- `[x]` Annotate branch point status.
+- `[x]` Annotate terminal modification status.
+- `[x]` Annotate checkpoint proximity.
+- `[x]` Annotate substrate biosynthesis involvement.
+- `[x]` Annotate redundancy or paralog family membership.
+- `[x]` Compute graph metrics.
 - `[ ]` Test whether centrality metrics are robust across graph encodings before using them in the manuscript.
 - `[ ]` Add expression breadth and tissue specificity metrics.
 - `[ ]` Add essentiality metrics.
-- `[ ]` Create combined architecture feature table.
+- `[x]` Create combined architecture feature table.
 
 Expected outputs:
 
 - `docs/methods/architecture-metrics.md`
 - `data/processed/nglyco_architecture_features.tsv`
+- `results/tables/architecture_feature_summary.tsv`
 
 ## Phase 4: Constraint and Human Variation
 
-- `[ ]` Identify current best constraint datasets.
-- `[ ]` Create `docs/methods/constraint-analysis.md`.
-- `[ ]` Add gene-level constraint metrics.
-- `[ ]` Add loss-of-function intolerance metrics.
-- `[ ]` Add missense constraint metrics.
+- `[x]` Identify current best constraint datasets.
+- `[x]` Create `docs/methods/constraint-analysis.md`.
+- `[x]` Create constraint metric importer and join-audit script.
+- `[x]` Add gene-level constraint metrics.
+- `[x]` Add loss-of-function intolerance metrics.
+- `[x]` Add missense constraint metrics.
 - `[ ]` Add standing variation metrics.
-- `[ ]` Compare upstream/core vs downstream/interface regions.
+- `[x]` Compare upstream/core vs downstream/interface regions.
 - `[ ]` Build matched-null controls.
-- `[ ]` Test sensitivity to gene-region labels.
+- `[x]` Test sensitivity to gene-region labels.
 - `[ ]` Test sensitivity to covariates such as gene length and expression breadth.
-- `[ ]` Report effect sizes and uncertainty, not only p-values.
+- `[x]` Report effect sizes and uncertainty, not only p-values.
 - `[ ]` Test whether architecture features add information beyond a simple upstream/downstream binary.
-- `[ ]` Create constraint-gradient figure.
+- `[x]` Create constraint-gradient figure.
+- `[x]` Create pathway network figures colored by constraint metrics.
 
 Expected outputs:
 
 - `docs/methods/constraint-analysis.md`
+- `scripts/build_nglyco_constraint_summary.py`
+- `data/processed/nglyco_constraint_metrics.tsv`
+- `results/tables/constraint_join_audit.tsv`
 - `results/tables/constraint_summary.tsv`
+- `results/tables/constraint_group_comparisons.tsv`
 - `results/figures/constraint_gradient.*`
+- `results/figures/nglyco_pathway_constraint_*.{png,svg}`
+- `results/reports/constraint-gradient-interpretation.md`
 
 ## Phase 5: Disease Architecture
 
-- `[ ]` Identify disease annotation sources.
-- `[ ]` Create `docs/methods/disease-annotation.md`.
-- `[ ]` Curate known Congenital Disorders of Glycosylation genes.
+- `[x]` Identify disease annotation sources.
+- `[x]` Create `docs/methods/disease-annotation.md`.
+- `[x]` Curate known Congenital Disorders of Glycosylation genes.
 - `[ ]` Add OMIM-style Mendelian annotations.
-- `[ ]` Add ClinVar pathogenic/likely pathogenic evidence.
-- `[ ]` Add GWAS Catalog associations.
-- `[ ]` Classify disease evidence by severity and confidence.
-- `[ ]` Separate high-confidence causal disease genes from broad or weak association evidence.
-- `[ ]` Compare severe Mendelian burden across pathway regions.
-- `[ ]` Compare complex/context-dependent trait burden across pathway regions.
-- `[ ]` Create disease architecture figure.
+- `[x]` Add ClinVar pathogenic/likely pathogenic evidence.
+- `[x]` Add GWAS Catalog associations.
+- `[x]` Classify disease evidence by severity and confidence.
+- `[x]` Separate high-confidence causal disease genes from broad or weak association evidence.
+- `[~]` Compare severe Mendelian burden across pathway regions.
+- `[~]` Compare complex/context-dependent trait burden across pathway regions.
+- `[x]` Create disease architecture figure.
 
 Expected outputs:
 
@@ -169,8 +179,8 @@ Expected outputs:
 - `[ ]` Add tissue specificity.
 - `[ ]` Add epithelial/barrier tissue signal.
 - `[ ]` Add immune-cell expression signal.
-- `[ ]` Map GWAS traits to broad categories.
-- `[ ]` Test enrichment of immune, infection, inflammation, cancer, microbiome, and tissue-identity traits downstream.
+- `[x]` Map GWAS traits to broad categories.
+- `[~]` Test enrichment of immune, infection, inflammation, cancer, microbiome, and tissue-identity traits downstream.
 - `[ ]` Create interface-layer trait profile figure.
 
 Expected outputs:
@@ -179,17 +189,50 @@ Expected outputs:
 - `results/tables/interface_trait_profile.tsv`
 - `results/figures/interface_trait_profile.*`
 
-## Phase 7: Population Genetics Decision
+## Phase 7: Cross-Species Conservation and Human Population Differentiation
 
-- `[ ]` Decide whether population genetics adds enough value.
+This phase now covers two complementary timescales: (1) cross-species evolutionary
+conservation, implemented as Tier 1 below; and (2) human population differentiation
+(FST, iHS, PBS), deferred to Tier 2 pending pre-computed data sources.
+
+### Tier 1: Cross-Species Conservation (in progress)
+
+- `[x]` Draft `docs/methods/conservation-analysis.md`.
+- `[x]` Write `scripts/build_nglyco_conservation_metrics.py`.
+- `[x]` Run script to fetch ortholog % identity, GOC, WGA (BioMart) and PhyloP100 (UCSC REST API). 97/101 BioMart; 51/101 PhyloP (network issues; re-run pending).
+- `[x]` Review join audit for missing genes. 3 genes missing BioMart orthologs (RPN2, CANX, MGAT4B) — IDs valid in REST but absent from BioMart ortholog table.
+- `[x]` Write `scripts/analyze_conservation_gradient.py` to compare metrics across pathway regions.
+- `[x]` Generate conservation gradient figures and interpretation report.
+
+Expected outputs:
+
+- `docs/methods/conservation-analysis.md`
+- `scripts/build_nglyco_conservation_metrics.py`
+- `scripts/analyze_conservation_gradient.py`
+- `data/processed/nglyco_conservation_metrics.tsv`
+- `results/tables/conservation_join_audit.tsv`
+- `results/tables/conservation_summary.tsv`
+- `results/figures/conservation_gradient.*`
+- `results/reports/conservation-interpretation.md`
+
+Immediate next tasks:
+
+1. Run `python scripts/build_nglyco_conservation_metrics.py` from the repository root.
+   Requires network access; ~25 minutes (dN/dS + PhyloP). Use `--skip-phylop` for a
+   faster first pass (~5 minutes, dN/dS only).
+2. Inspect `results/tables/conservation_join_audit.tsv` for missing genes.
+3. Write `scripts/analyze_conservation_gradient.py` using the same statistical
+   framework as `scripts/analyze_constraint_gradient.py`.
+
+### Tier 2: Human Population Differentiation (planned)
+
+- `[ ]` Decide whether population genetics adds enough value over Tier 1 plus disease and trait layers.
 - `[ ]` Create `docs/methods/popgen-decision.md`.
-- `[ ]` If useful, select modern data sources.
-- `[ ]` If useful, define population labels and comparisons.
-- `[ ]` If useful, run pairwise FST or PBS.
-- `[ ]` If useful, consider iHS, nSL, XP-EHH, or XP-CLR with strict caveats.
+- `[ ]` Identify pre-computed FST data source (PopHuman or 1000G Phase 3 summary).
+- `[ ]` Identify pre-computed iHS / PBS source (published scan paper or PopHuman).
+- `[ ]` Run pairwise FST across superpopulations once data is available.
+- `[ ]` Apply iHS and PBS with matched neutral null; require replication across methods.
 - `[ ]` Keep SNP-level, region-level, and gene-level claims distinct.
-- `[ ]` For candidate loci, inspect nearby genes, LD, recombination, regulatory annotations, and variant consequences.
-- `[ ]` Require replication across methods or datasets before highlighting any candidate locus.
 - `[ ]` Integrate only robust and interpretable signals into the manuscript.
 
 Expected outputs:
@@ -206,6 +249,7 @@ Population genetics should support or challenge the architecture hypothesis. It 
 
 - `[~]` Decide whether comparator pathways are necessary for the target paper.
 - `[x]` Record deferred cross-pathway expansion idea and candidate linear comparators.
+- `[x]` Document optional 1-3 pathway comparator module for the first paper.
 - `[ ]` Create `docs/methods/comparator-pathways.md`.
 - `[ ]` Select one constrained-core comparator pathway.
 - `[ ]` Select one adaptive-interface comparator pathway.
@@ -226,12 +270,12 @@ Expected outputs:
 - `[x]` Create manuscript outline.
 - `[x]` Create ARS-style argument blueprint.
 - `[x]` Create figure plan.
-- `[ ]` Create evidence matrix separating robust architecture-level findings from hypothesis-generating candidate signals.
-- `[ ]` Draft introduction.
-- `[ ]` Draft methods.
-- `[ ]` Draft results.
-- `[ ]` Draft discussion.
-- `[ ]` Draft limitations.
+- `[x]` Create evidence matrix separating robust architecture-level findings from hypothesis-generating candidate signals.
+- `[x]` Draft introduction.
+- `[x]` Draft methods.
+- `[x]` Draft results.
+- `[x]` Draft discussion.
+- `[x]` Draft limitations.
 - `[ ]` Check that individual gene examples do not dominate the architecture-level argument.
 - `[ ]` Assemble first complete manuscript draft.
 - `[ ]` Prepare supplementary tables.
@@ -274,9 +318,9 @@ Expected outputs:
 - `[x]` Create a lightweight registry inspection script.
 - `[x]` Create Makefile targets for inspecting and checking the agentic workflow.
 - `[x]` Create a prompt generator that turns a backlog item into an executable Codex task packet.
-- `[ ]` Draft `docs/concept/paper-thesis.md` using the hypothesis agent role.
-- `[ ]` Draft `docs/concept/claims-register.md` using the critic and hypothesis agent roles.
-- `[ ]` Draft `docs/methods/architecture-metrics.md` using the architecture agent role.
+- `[x]` Draft `docs/concept/paper-thesis.md` using the hypothesis agent role.
+- `[x]` Draft `docs/concept/claims-register.md` using the critic and hypothesis agent roles.
+- `[x]` Draft `docs/methods/architecture-metrics.md` using the architecture agent role.
 - `[ ]` Use the registry to choose and commit small agentic work units.
 
 Expected outputs:
@@ -309,3 +353,29 @@ Expected outputs:
 - 2026-05-30: Added an agentic paper implementation plan, machine-readable agent/gate registry, and inspection script so future work can be organized as small supervised research-agent tasks.
 - 2026-05-30: Added Makefile targets for inspecting, checking, and listing ready agentic workflow tasks.
 - 2026-05-30: Added a prompt generator and `make agentic-prompt` target to turn registry backlog items into concrete Codex work instructions.
+- 2026-06-03: Added `compute_architecture_features` to the agentic backlog and implemented `scripts/build_nglyco_architecture_features.py`, producing first-pass architecture features and a summary table from the curated gene and edge tables.
+- 2026-06-03: Added `build_constraint_importer` and `compute_constraint_summary` agentic backlog tasks plus `scripts/build_nglyco_constraint_summary.py`, a reproducible importer for local gnomAD-style constraint metric TSVs with Ensembl-ID joins, symbol-mismatch audit, LOEUF threshold labeling, and pathway-region summaries.
+- 2026-06-03: Ran the provisional gnomAD v4.1 constraint summary from `data/external/gnomad/gnomad.v4.1.constraint_metrics.tsv`. Generated per-gene constraint metrics, a join audit, and group summaries; 95 of 101 genes matched by Ensembl ID, with six missing constraint metrics in this file.
+- 2026-06-03: Added `analyze_constraint_gradient` and `scripts/analyze_constraint_gradient.py`, generating provisional LOEUF/missense-Z comparison effect sizes and `constraint_gradient` figures for the gnomAD v4.1 constraint run.
+- 2026-06-03: Added a written constraint-gradient interpretation note and full pathway network plots colored by LOEUF and missense Z to make the provisional constraint result inspectable gene by gene.
+- 2026-06-03: Started the disease-architecture work package by adding `docs/methods/disease-annotation.md`, defining GeneReviews CDG, ClinVar P/LP, and GWAS Catalog evidence tiers plus disease output schemas and claim limits.
+- 2026-06-03: Completed the first conservative CDG seed curation from GeneReviews Table 1 using `scripts/build_nglyco_disease_seed_table.py`. Generated `data/processed/nglyco_disease_annotations.tsv` for 101 pathway genes and `results/tables/disease_architecture_summary.tsv`; ClinVar, OMIM-style breadth, and GWAS layers remain pending.
+- 2026-06-03: Added the ClinVar germline pathogenic/likely pathogenic layer with `scripts/add_nglyco_clinvar_layer.py`, filtering the 2026-06-03 `variant_summary.txt.gz` download to GRCh38 germline P/LP records and counting unique VariationIDs per pathway gene. Updated the disease annotation table, added `results/tables/clinvar_plp_gene_counts.tsv`, and refreshed the disease architecture summary; GWAS and OMIM-style breadth remain pending.
+- 2026-06-03: Added the GWAS Catalog and glycome/trait-category layer with `scripts/add_nglyco_gwas_trait_layer.py`, using the NHGRI-EBI GWAS Catalog v1.0.2 associations archive `e115_r2026-06-01`. Generated per-gene GWAS trait counts, a matched-association audit table, broad trait-category flags, and an updated disease architecture summary. GWAS mapped/reported gene evidence is explicitly treated as hypothesis-generating and non-causal.
+- 2026-06-04: Added `scripts/plot_disease_architecture.py` and generated `results/figures/disease_architecture.{png,svg}` plus `results/reports/disease-architecture-interpretation.md`, separating curated CDG, ClinVar P/LP, and GWAS trait-category evidence layers.
+- 2026-06-06: Added `scripts/audit_downstream_gwas_candidates.py` and generated downstream GWAS candidate audit tables plus `results/reports/downstream-gwas-candidate-audit.md`. The audit prioritizes primary downstream genes with direct glycome/glycosylation trait text and reported-gene support, while labeling mapped-gene-only and broad interface associations as weaker evidence.
+- 2026-06-06: Added `scripts/review_downstream_gwas_loci.py` and generated `results/tables/downstream_gwas_locus_review.tsv`, `results/tables/downstream_gwas_locus_review_summary.tsv`, and `results/reports/downstream-gwas-locus-review.md`. The locus review extracts SNP, region, context, reported-gene, mapped-gene, and nearby-gene fields for strong downstream glycome candidates and labels provisional locus-assignment risk.
+- 2026-06-06: Added `docs/manuscript/evidence-matrix.md`, linking current architecture, constraint, disease, ClinVar, GWAS, candidate-audit, and locus-review artifacts to safe manuscript claims, claim limits, candidate gene examples, and remaining gaps.
+- 2026-06-06: Started `docs/manuscript/draft.md` with a first-pass Introduction using the manuscript outline, argument blueprint, claims register, evidence matrix, and literature matrix; added `draft_introduction` to the agentic workflow registry.
+- 2026-06-07: Added a first-pass Methods section to `docs/manuscript/draft.md`, covering pathway curation, architecture features, provisional constraint analysis, disease annotation tiers, GWAS trait mapping, downstream locus audit, and claim-control rules; added `draft_methods` to the agentic workflow registry.
+- 2026-06-08: Added a first-pass Results section to `docs/manuscript/draft.md`, synthesizing architecture, provisional constraint, disease, ClinVar, GWAS category, and downstream locus-review results with claim limits; added `draft_results` to the agentic workflow registry.
+- 2026-05-30: Completed agentic work unit `draft_paper_thesis` with `docs/concept/paper-thesis.md`, formalizing the robustness/evolvability thesis as a testable model with competing hypotheses, prediction-to-evidence mapping, claim levels, and critic safeguards.
+- 2026-05-31: Documented an optional first-paper comparator module using 1-3 pathways as a specificity check, with heme biosynthesis, CoQ / ubiquinone biosynthesis, and GPI-anchor biosynthesis as the recommended minimal candidates.
+- 2026-05-31: Updated the thesis, project plan, and literature review to position Montanucci et al. and Zoldos/Lauc glyco-regulation work as direct predecessors, and to shift the expected evolvability signal toward regulatory, glycan-output, tissue, disease, and trait layers rather than coding-sequence acceleration.
+- 2026-05-31: Added structured literature-matrix summaries for direct-predecessor, glyco-gene regulation, and glycome/IgG N-glycome GWAS papers, with relevance and limitations recorded for each.
+- 2026-05-31: Added one standalone paper-summary file per priority glycome regulation/evolution paper in `docs/concept/paper-summaries/`.
+- 2026-05-31: Added `docs/concept/claims-register.md` to control claim strength across thesis, prior art, constraint, disease, regulatory/glycome-output, population-genetic, and comparator-pathway claims.
+- 2026-05-31: Added `docs/methods/architecture-metrics.md` defining planned gene-level architecture features, graph encodings, sensitivity analyses, and claim limits before computing architecture tables.
+- 2026-06-02: Added `docs/methods/constraint-analysis.md` scoping gnomAD v4.1.1 constraint metrics, join rules, covariates, matched-null strategy, sensitivity analyses, and claim limits for the constraint work package.
+- 2026-06-09: Fixed BioMart multi-species query bug (separate queries per species; no hgnc_symbol mixing). Rewrote `scripts/build_nglyco_conservation_metrics.py`. Ran full conservation fetch: 97/101 BioMart orthologs for both mouse and chimp; 51/101 PhyloP (UCSC network intermittency). Generated `data/processed/nglyco_conservation_metrics.tsv`, `results/tables/conservation_join_audit.tsv`, `results/tables/conservation_summary.tsv`. Ran `scripts/analyze_conservation_gradient.py`: no significant upstream/downstream % identity contrast (p=0.90, r≈0); OST-transfer subgroup has highest mouse % identity (~99%). Added `results/tables/conservation_group_comparisons.tsv`, `results/figures/conservation_gradient.*`, `results/reports/conservation-interpretation.md`. Drafted Discussion and Limitations sections in `docs/manuscript/draft.md`; manuscript now has complete first-pass Introduction, Methods, Results, Discussion, and Limitations.
+- 2026-06-08: Added Tier 1 cross-species conservation analysis to Phase 7. Drafted `docs/methods/conservation-analysis.md` defining dN/dS (Ensembl REST API, human-mouse and human-chimp one-to-one orthologs) and PhyloP100 (UCSC REST API, gene-body mean/median/min/p5) metrics, join rules, claim limits, and output schema. Wrote `scripts/build_nglyco_conservation_metrics.py` to fetch and merge both metric streams. Registered `scope_conservation_analysis`, `build_conservation_metrics`, and `analyze_conservation_gradient` in the agentic workflow backlog. Tier 2 (FST, iHS, PBS) deferred until pre-computed data sources are identified.

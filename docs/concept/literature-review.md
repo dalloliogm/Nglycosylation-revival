@@ -28,8 +28,11 @@ Key papers already tracked:
 - Tomono et al., "Investigation of glycan evolution based on a comprehensive analysis of glycosyltransferases using phylogenetic profiling".
 - Kim, Lee, and Jeong, "Centralized Modularity of N-Linked Glycosylation Pathways in Mammalian Cells".
 - Dall'Olio et al., the 2012 BMC Evolutionary Biology paper, as historical context and hypothesis generator.
+- Montanucci et al., "Molecular Evolution and Network-Level Analysis of the N-Glycosylation Metabolic Pathway Across Primates".
 
 The new glycan-evolution additions strengthen a key distinction for the manuscript: ER-linked N-glycosylation supports conserved maturation and quality control, while later glycan elaboration and terminal modification are repeatedly implicated in lineage-specific and interface-facing diversity. Tomono et al. are especially useful because they analyze glycosyltransferases directly and argue that non-reducing terminal glycan synthesis is associated with more recently evolved enzymes. This should be treated as support for a downstream evolvability hypothesis, not as proof that every downstream N-glycosylation enzyme is adaptive.
+
+Montanucci et al. should be treated as a direct predecessor rather than a peripheral citation. Their primate comparative analysis found strong purifying selection across N-glycosylation genes and no clear positive-selection signal, while showing that pathway/network structure is associated with evolutionary constraint. This narrows the new paper's prediction: downstream/interface evolvability should not be framed primarily as faster protein-coding evolution. It should instead be tested in regulatory, glycan-output, tissue, disease, and trait layers.
 
 ## Glycans as an Organism-Environment Interface
 
@@ -54,6 +57,47 @@ Key papers already tracked:
 - Klaric et al., "Glycosylation of immunoglobulin G is regulated by a large network of genes pleiotropic with inflammatory diseases".
 
 The mucosal and sialic-acid papers broaden the organism-environment interface argument beyond generic immune recognition. They make clear that glycans participate in barrier integrity, host-microbiota crosstalk, pathogen binding or mimicry, Siglec-mediated self-recognition, and inflammatory tuning. The limitation is equally important: several of these sources emphasize mucins, sialic acids, O-glycans, or lectin receptors rather than N-glycosylation enzymes. They should support the interface-layer framing while gene-level claims remain tied to N-glycosylation-specific evidence.
+
+## Glyco-Gene Regulation and Glycome Genetics
+
+The Zoldos, Grgurevic, and Lauc review on epigenetic regulation of protein glycosylation is highly relevant because it makes a key distinction the manuscript should now adopt: core N-glycosylation is essential, while glycan antenna modification and terminal elaboration can contribute to individual variation and environmental response. The related Lauc and Zoldos review, "Protein glycosylation - an evolutionary crossroad between genes and environment", makes the same point in evolutionary terms: glycan structures are not directly template-encoded and can vary through the coordinated activity and regulation of many glyco-genes.
+
+Post-2010 glycome genetics gives this project a modern evidence layer that did not exist in the older evolutionary papers. Huffman et al. identified HNF1A and fucosyltransferase loci as regulators of plasma N-glycome variation. Later plasma N-glycome GWAS work expanded the number of replicated loci and showed overlap between total plasma protein and IgG glycosylation, including loci containing direct glycosylation enzymes and broader regulatory candidates. IgG N-glycome GWAS papers identified glycosyltransferase loci such as ST6GAL1, B4GALT1, FUT8, and MGAT3, as well as immune and inflammatory disease loci. Recent multivariate IgG work and large plasma N-glycome GWAS studies strengthen the link between glycan-output variation, immune function, liver biology, inflammatory disease, and regulatory architecture.
+
+These papers should reshape the evidence plan. They suggest that the strongest modern test of downstream/interface evolvability may be in glycan trait architecture, regulatory loci, tissue-specific expression, immune pleiotropy, and disease associations, not in coding-sequence acceleration.
+
+Post-2010 anchors identified in the 2026-05-31 search:
+
+- Lauc and Zoldos, "Protein glycosylation - an evolutionary crossroad between genes and environment".
+- Lauc, Kristic, and Zoldos, "Glycans - the third revolution in evolution".
+- Huffman et al., first glycome GWAS identifying HNF1A as a regulator of plasma protein fucosylation.
+- Lauc et al. and later reviews on complex genetic regulation of protein glycosylation.
+- Shen et al., IgG N-glycosylation GWAS and immune/inflammatory pleiotropy.
+- Klaric et al., large-network regulation of IgG glycosylation and inflammatory disease pleiotropy.
+- Shadrina et al., multivariate IgG N-glycosylation GWAS.
+- Suhre et al., fine-mapping the human plasma N-glycome onto the proteome.
+- Sharapov and colleagues' large plasma N-glycome GWAS linking glycome traits to liver disease and anti-inflammatory proteins.
+
+### Newly Tracked Paper Summaries
+
+The 2026-05-31 tracker update added structured summaries for the following papers to `docs/concept/literature-matrix.tsv`.
+
+- Montanucci et al. (2011): direct predecessor on primate N-glycosylation evolution; relevant because strong coding conservation and network-associated purifying constraint push the new paper away from a simple coding-adaptation model.
+- Zoldos, Grgurevic, and Lauc (2010): review on epigenetic regulation of glyco-genes; relevant because it supports the distinction between essential core N-glycosylation and variable antenna/terminal glycan outputs.
+- Lauc and Zoldos (2010): conceptual review of glycosylation as a gene-environment interface; relevant because it supports regulatory and environmental responsiveness as the likely evolvability layer.
+- Lauc et al. (2010): early evidence for complex genetic regulation of protein glycosylation; relevant because it motivates glycan-output phenotypes as measurable downstream consequences of genetic and regulatory variation.
+- Huffman et al. (2011): first plasma N-glycome GWAS; relevant because it shows that plasma glycan-output variation can be genetically mapped and includes regulatory loci such as HNF1A.
+- Varki (2011): review of evolutionary forces shaping Golgi glycosylation; relevant because it supports the downstream glycan machinery as an organism-environment interface layer.
+- Lauc, Kristic, and Zoldos (2014): broad evolutionary argument for glycans as a distinct biological information layer; relevant as conceptual support, but not direct evidence for N-glycosylation pathway-region gradients.
+- Shen et al. (2017): multivariate IgG N-glycosylation GWAS; relevant because it identifies antibody glycan-output loci and supports multivariate glycan traits as a structured phenotype set.
+- Klaric et al. (2020): large IgG glycosylation GWAS; relevant because it links distributed glycan regulation with inflammatory disease pleiotropy.
+- Lauc et al. (2013): IgG N-glycosylation GWAS with autoimmune and hematological cancer pleiotropy; relevant because antibody glycan variation links downstream glycosylation traits to immune disease architecture.
+- Sharapov et al. (2019): expanded plasma N-glycome GWAS; relevant because it strengthens the regulatory and glycan-output evidence stream beyond early small studies.
+- Suhre et al. (2019): protein-resolved plasma N-glycome mapping; relevant because it helps interpret bulk plasma glycan signals in relation to specific glycoproteins.
+- Shadrina et al. (2021): multivariate IgG N-glycosylation GWAS; relevant because it reinforces distributed genetic control of antibody glycan-output traits.
+- Sharapov et al. (2025): large plasma N-glycome GWAS linking glycan traits to liver disease and anti-inflammatory proteins; relevant because it gives a current, high-powered trait/disease evidence layer for regulatory evolvability.
+
+Standalone summaries for these papers are stored in `docs/concept/paper-summaries/`.
 
 ## Population Genetics
 
@@ -128,9 +172,11 @@ The sloppiness literature adds an important alternative explanation: apparent ro
 
 1. Read the pathway-core papers first: Stanley et al., Helenius and Aebi, Aebi, Varki, and Kim et al.
 2. Extract a gene/pathway-region vocabulary from pathway-core papers before expanding the bibliography much further.
-3. Read gnomAD, GeneReviews/CDG, ClinVar, and GWAS Catalog papers to design the disease/constraint evidence table.
-4. Read the population-genetics caution papers before deciding whether to run new selection or differentiation analyses.
-5. Read network biology papers with the specific aim of choosing measurable features and null models, not just adding centrality language.
+3. Read Montanucci et al. and the Zoldos/Lauc glyco-regulation papers as predecessor literature to refine the novelty claim.
+4. Read glycome and IgG N-glycome GWAS papers to design the regulatory/trait evidence table.
+5. Read gnomAD, GeneReviews/CDG, ClinVar, and GWAS Catalog papers to design the disease/constraint evidence table.
+6. Read the population-genetics caution papers before deciding whether to run new selection or differentiation analyses.
+7. Read network biology papers with the specific aim of choosing measurable features and null models, not just adding centrality language.
 
 ## Open Gaps
 
@@ -138,3 +184,4 @@ The sloppiness literature adds an important alternative explanation: apparent ro
 - Need direct sources for GlyGen/Reactome pathway curation and stable gene identifiers.
 - Need fuller comparator-pathway extraction if the paper generalizes beyond N-glycosylation. Initial anchors now exist for MHC/HLA, olfactory receptors, and ER protein-folding quality control, but not yet for ribosome/translation or central metabolism controls.
 - Need full-text extraction from high-priority papers into the matrix before writing manuscript prose.
+- Need structured extraction of post-2010 glycome GWAS and glyco-gene regulatory papers into `docs/concept/literature-matrix.tsv`.

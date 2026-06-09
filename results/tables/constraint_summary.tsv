@@ -1,0 +1,8 @@
+constraint_dataset_version	analysis_group	primary_region	gene_count	constraint_metric_available_count	median_loeuf	median_mis_z	loeuf_constrained_count	iqr_loeuf	loeuf_constrained_fraction
+gnomAD_v4.1	checkpoint_layer	er_quality_control	16	16	0.724	1.1639	3	0.4797	0.1875
+gnomAD_v4.1	downstream_diversification	golgi_branching	4	4	0.6245	2.059	1	0.1173	0.25
+gnomAD_v4.1	downstream_diversification	golgi_core_processing	7	7	0.722	1.1028	0	0.164	0.0
+gnomAD_v4.1	downstream_diversification	terminal_modification	16	16	0.8225	1.4778	1	0.2178	0.0625
+gnomAD_v4.1	substrate_support	substrate_biosynthesis	29	29	1.004	1.0147	2	0.398	0.069
+gnomAD_v4.1	upstream_core	llo_assembly	14	14	0.9085	0.8557	0	0.114	0.0
+gnomAD_v4.1	upstream_core	ost_transfer	9	9	0.958	0.8502	1	0.991	0.1111
