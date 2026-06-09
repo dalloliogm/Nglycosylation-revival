@@ -83,3 +83,4 @@ results/reports/*
 !results/tables/popgen_candidate_loci.tsv
 !results/figures/popgen_gradient_*.png
 !results/figures/popgen_gradient_*.svg
+*.tbi
