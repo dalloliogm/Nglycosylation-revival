@@ -1,0 +1,23 @@
+symbol	ensembl_gene_id	grch38_chr	grch38_start	grch38_end	pathway_name	pathway_step_order	pathway_step	primary_region	analysis_group	include_primary	include_sensitivity	curation_confidence	disease_omim	curation_notes
+ALAS1	ENSG00000023330	3	52198086	52214585	heme_biosynthesis	1	ala_synthesis_ubiquitous	core_sequential	core_sequential	yes	yes	high	OMIM:125290	5-ALA synthase, ubiquitous isoform. Step 1 committed step.
+ALAS2	ENSG00000158578	X	55009055	55030986	heme_biosynthesis	1	ala_synthesis_erythroid	core_sequential	core_sequential	yes	yes	high	OMIM:301300	5-ALA synthase, erythroid isoform. Tissue-specific paralog of ALAS1.
+ALAD	ENSG00000148218	9	113386304	113401356	heme_biosynthesis	2	pbg_synthesis	core_sequential	core_sequential	yes	yes	high	OMIM:125270	ALA dehydratase. Step 2.
+HMBS	ENSG00000256269	11	119084861	119093834	heme_biosynthesis	3	hydroxymethylbilane_synthesis	core_sequential	core_sequential	yes	yes	high	OMIM:609806	Hydroxymethylbilane synthase. Step 3. Acute intermittent porphyria.
+UROS	ENSG00000188690	10	125784980	125823288	heme_biosynthesis	4	uro_iii_synthesis	core_sequential	core_sequential	yes	yes	high	OMIM:606938	Uroporphyrinogen III synthase. Step 4. CEP.
+UROD	ENSG00000126088	1	45010950	45015575	heme_biosynthesis	5	copro_synthesis	core_sequential	core_sequential	yes	yes	high	OMIM:613521	Uroporphyrinogen decarboxylase. Step 5. PCT / HEP.
+CPOX	ENSG00000080819	3	98579446	98593707	heme_biosynthesis	6	protoporphyrinogen_synthesis	core_sequential	core_sequential	yes	yes	high	OMIM:121300	Coproporphyrinogen oxidase. Step 6. HCP.
+PPOX	ENSG00000143224	1	161165837	161178013	heme_biosynthesis	7	protoporphyrin_synthesis	core_sequential	core_sequential	yes	yes	high	OMIM:600923	Protoporphyrinogen oxidase. Step 7. VP.
+FECH	ENSG00000066926	18	57544377	57586761	heme_biosynthesis	8	heme_synthesis	core_sequential	core_sequential	yes	yes	high	OMIM:177000	Ferrochelatase. Step 8. EPP.
+PDSS1	ENSG00000148459	10	26697669	26746798	coq_biosynthesis	1	decaprenyl_diphosphate	core_sequential	core_sequential	yes	yes	high	OMIM:607429	Decaprenyl diphosphate synthase subunit 1. CoQ isoprenoid tail.
+PDSS2	ENSG00000164494	6	107152556	107459580	coq_biosynthesis	1	decaprenyl_diphosphate	core_sequential	core_sequential	yes	yes	high	OMIM:610564	Decaprenyl diphosphate synthase subunit 2. CoQ isoprenoid tail.
+COQ2	ENSG00000173085	4	83261536	83284914	coq_biosynthesis	2	ring_attachment	core_sequential	core_sequential	yes	yes	high	OMIM:609825	4-hydroxybenzoate polyprenyltransferase. Attaches tail to ring.
+COQ3	ENSG00000132423	6	99369401	99394207	coq_biosynthesis	3	ring_methylation	core_sequential	core_sequential	yes	yes	high	OMIM:614650	Polyprenyldihydroxybenzoate methyltransferase.
+COQ4	ENSG00000167113	9	128322515	128334072	coq_biosynthesis	4	ring_scaffold	core_sequential	core_sequential	yes	yes	high	OMIM:616276	Coenzyme Q4; structural/scaffold role.
+COQ5	ENSG00000110871	12	120503279	120534434	coq_biosynthesis	5	ring_methylation_2	late_modification	late_modification	yes	yes	medium	OMIM:616359	Methyltransferase, C-methylation. Less clinically penetrant.
+COQ6	ENSG00000119723	14	73949926	73963670	coq_biosynthesis	6	ring_hydroxylation	late_modification	late_modification	yes	yes	high	OMIM:614647	Monooxygenase, C5-hydroxylation.
+COQ7	ENSG00000167186	16	19067614	19080095	coq_biosynthesis	7	ring_hydroxylation_2	late_modification	late_modification	yes	yes	high	OMIM:616500	Monooxygenase, C6-hydroxylation. CABC1 domain.
+COQ8A	ENSG00000163050	1	226938143	226987569	coq_biosynthesis	8	kinase_atpase	late_modification	late_modification	yes	yes	high	OMIM:612016	ADCK3; atypical kinase/ATPase. Regulatory.
+COQ8B	ENSG00000123815	19	40691514	40725784	coq_biosynthesis	8	kinase_atpase	late_modification	late_modification	yes	yes	high	OMIM:616538	ADCK4; atypical kinase/ATPase. Regulatory.
+COQ9	ENSG00000088682	16	57447425	57461274	coq_biosynthesis	9	lipid_binding	late_modification	late_modification	yes	yes	high	OMIM:614647	COQ9; lipid-binding, late assembly.
+COQ10A	ENSG00000135469	12	56266846	56270966	coq_biosynthesis	10	transport	late_modification	late_modification	yes	yes	low		START domain, CoQ transport/delivery. Less studied.
+COQ10B	ENSG00000115520	2	197453493	197475310	coq_biosynthesis	10	transport	late_modification	late_modification	yes	yes	low		START domain, CoQ transport/delivery. Less studied.

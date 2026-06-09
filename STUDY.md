@@ -224,13 +224,22 @@ Immediate next tasks:
 3. Write `scripts/analyze_conservation_gradient.py` using the same statistical
    framework as `scripts/analyze_constraint_gradient.py`.
 
-### Tier 2: Human Population Differentiation (planned)
+### Tier 2: Human Population Differentiation (active — 2026-06-09)
 
-- `[ ]` Decide whether population genetics adds enough value over Tier 1 plus disease and trait layers.
-- `[ ]` Create `docs/methods/popgen-decision.md`.
-- `[ ]` Identify pre-computed FST data source (PopHuman or 1000G Phase 3 summary).
-- `[ ]` Identify pre-computed iHS / PBS source (published scan paper or PopHuman).
-- `[ ]` Run pairwise FST across superpopulations once data is available.
+**Decision: Include full pop-gen (FST, iHS, PBS) with matched null controls and explicit caveats.**
+
+- `[x]` Decide whether population genetics adds enough value over Tier 1 plus disease and trait layers.
+- `[x]` Create `docs/methods/popgen-decision.md`.
+- `[x]` Identify pre-computed FST data source: 1000G Phase 3 tabix-fetch per gene (VCF slices + vcftools).
+- `[x]` Identify pre-computed iHS source: PopHuman BigWig tracks (hg19, 10 kb windows).
+- `[x]` Liftover gene coordinates hg38 → hg19 (`data/processed/nglyco_gene_table_hg19.tsv`, 101/101 mapped).
+- `[x]` Download 1000G Phase 3 population panel (`data/raw/popgen/1000g_phase3_panel.tsv`).
+- `[x]` Write `scripts/fetch_popgen_data.py` for liftover + VCF slice fetching.
+- `[ ]` Fetch per-gene VCF slices via tabix (requires tabix in PATH; run `--skip-vcf` removed).
+- `[ ]` Write `scripts/compute_fst_pbs.py` — vcftools FST + PBS post-processing.
+- `[ ]` Write `scripts/extract_pophuman_ihs.py` — download and intersect PopHuman iHS BigWigs.
+- `[ ]` Write `scripts/analyze_popgen_gradient.py` — region-level group comparisons.
+- `[ ]` Run pairwise FST across superpopulations once VCF slices are fetched.
 - `[ ]` Apply iHS and PBS with matched neutral null; require replication across methods.
 - `[ ]` Keep SNP-level, region-level, and gene-level claims distinct.
 - `[ ]` Integrate only robust and interpretable signals into the manuscript.
@@ -247,13 +256,14 @@ Population genetics should support or challenge the architecture hypothesis. It 
 
 ## Phase 8: Comparator Pathways
 
-- `[~]` Decide whether comparator pathways are necessary for the target paper.
+**Decision (2026-06-09): Include 1–3 lightweight comparators. Heme biosynthesis is the primary candidate; CoQ or GPI-anchor as second.**
+
+- `[x]` Decide whether comparator pathways are necessary for the target paper.
 - `[x]` Record deferred cross-pathway expansion idea and candidate linear comparators.
 - `[x]` Document optional 1-3 pathway comparator module for the first paper.
-- `[ ]` Create `docs/methods/comparator-pathways.md`.
-- `[ ]` Select one constrained-core comparator pathway.
-- `[ ]` Select one adaptive-interface comparator pathway.
-- `[ ]` Curate comparator gene sets.
+- `[x]` Create `docs/methods/comparator-pathways.md`.
+- `[x]` Select comparator pathways: heme biosynthesis (primary) + CoQ biosynthesis (secondary).
+- `[x]` Curate comparator gene sets: 9 heme + 13 CoQ genes (`data/processed/comparator_gene_table.tsv`).
 - `[ ]` Apply a lightweight version of architecture, constraint, and disease analyses.
 - `[ ]` Create cross-pathway architecture figure.
 
@@ -333,10 +343,10 @@ Expected outputs:
 
 ## Active Decisions
 
-- `[!]` Decide whether the first paper should include comparator pathways or stay focused on N-glycosylation.
-- `[!]` Decide how much population genetics to include.
-- `[!]` Decide whether this is framed as a primary computational analysis paper or a conceptual paper with quantitative support.
-- `[!]` Confirm the ARS paper configuration record before moving from planning to drafting.
+- `[x]` Decide whether the first paper should include comparator pathways or stay focused on N-glycosylation. **Decision (2026-06-09): Include 1–3 lightweight comparators as a specificity-check module. Heme biosynthesis + one other pathway (CoQ or GPI-anchor).**
+- `[x]` Decide how much population genetics to include. **Decision (2026-06-09): Include full pop-gen — FST, iHS, and other tests where data allows. Phase 7 Tier 2 is now an active work package.**
+- `[x]` Decide whether this is framed as a primary computational analysis paper or a conceptual paper with quantitative support. **Decision (2026-06-09): Conceptual paper with quantitative support. Architecture hypothesis and framework are the contribution; N-glycosylation analysis is the evidence.**
+- `[x]` Confirm the ARS paper configuration record before moving from planning to drafting.
 
 ## Change Log
 
@@ -377,5 +387,6 @@ Expected outputs:
 - 2026-05-31: Added `docs/concept/claims-register.md` to control claim strength across thesis, prior art, constraint, disease, regulatory/glycome-output, population-genetic, and comparator-pathway claims.
 - 2026-05-31: Added `docs/methods/architecture-metrics.md` defining planned gene-level architecture features, graph encodings, sensitivity analyses, and claim limits before computing architecture tables.
 - 2026-06-02: Added `docs/methods/constraint-analysis.md` scoping gnomAD v4.1.1 constraint metrics, join rules, covariates, matched-null strategy, sensitivity analyses, and claim limits for the constraint work package.
+- 2026-06-09: Resolved all three active decisions: (1) include 1–3 lightweight comparators (heme + CoQ), (2) include full pop-gen (FST, iHS, PBS), (3) paper type = conceptual with quantitative support. Wrote `docs/methods/popgen-decision.md` and `docs/methods/comparator-pathways.md`. Built `scripts/fetch_popgen_data.py`: lifted over 101/101 genes to hg19 (`data/processed/nglyco_gene_table_hg19.tsv`) and downloaded 1000G Phase 3 panel. Built `scripts/build_comparator_gene_table.py` and curated 22 comparator genes (9 heme, 13 CoQ) with Ensembl IDs and GRCh38 coordinates in `data/processed/comparator_gene_table.tsv`.
 - 2026-06-09: Fixed BioMart multi-species query bug (separate queries per species; no hgnc_symbol mixing). Rewrote `scripts/build_nglyco_conservation_metrics.py`. Ran full conservation fetch: 97/101 BioMart orthologs for both mouse and chimp; 51/101 PhyloP (UCSC network intermittency). Generated `data/processed/nglyco_conservation_metrics.tsv`, `results/tables/conservation_join_audit.tsv`, `results/tables/conservation_summary.tsv`. Ran `scripts/analyze_conservation_gradient.py`: no significant upstream/downstream % identity contrast (p=0.90, r≈0); OST-transfer subgroup has highest mouse % identity (~99%). Added `results/tables/conservation_group_comparisons.tsv`, `results/figures/conservation_gradient.*`, `results/reports/conservation-interpretation.md`. Drafted Discussion and Limitations sections in `docs/manuscript/draft.md`; manuscript now has complete first-pass Introduction, Methods, Results, Discussion, and Limitations.
 - 2026-06-08: Added Tier 1 cross-species conservation analysis to Phase 7. Drafted `docs/methods/conservation-analysis.md` defining dN/dS (Ensembl REST API, human-mouse and human-chimp one-to-one orthologs) and PhyloP100 (UCSC REST API, gene-body mean/median/min/p5) metrics, join rules, claim limits, and output schema. Wrote `scripts/build_nglyco_conservation_metrics.py` to fetch and merge both metric streams. Registered `scope_conservation_analysis`, `build_conservation_metrics`, and `analyze_conservation_gradient` in the agentic workflow backlog. Tier 2 (FST, iHS, PBS) deferred until pre-computed data sources are identified.

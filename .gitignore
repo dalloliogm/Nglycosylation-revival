@@ -67,3 +67,7 @@ results/reports/*
 .DS_Store
 *.swp
 *.swo
+!data/processed/nglyco_gene_table_hg19.tsv
+!data/processed/nglyco_conservation_metrics.tsv
+!data/processed/comparator_gene_table.tsv
+!data/raw/popgen/1000g_phase3_panel.tsv
