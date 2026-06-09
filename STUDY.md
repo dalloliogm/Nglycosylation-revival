@@ -189,17 +189,50 @@ Expected outputs:
 - `results/tables/interface_trait_profile.tsv`
 - `results/figures/interface_trait_profile.*`
 
-## Phase 7: Population Genetics Decision
+## Phase 7: Cross-Species Conservation and Human Population Differentiation
 
-- `[ ]` Decide whether population genetics adds enough value.
+This phase now covers two complementary timescales: (1) cross-species evolutionary
+conservation, implemented as Tier 1 below; and (2) human population differentiation
+(FST, iHS, PBS), deferred to Tier 2 pending pre-computed data sources.
+
+### Tier 1: Cross-Species Conservation (in progress)
+
+- `[x]` Draft `docs/methods/conservation-analysis.md`.
+- `[x]` Write `scripts/build_nglyco_conservation_metrics.py`.
+- `[x]` Run script to fetch ortholog % identity, GOC, WGA (BioMart) and PhyloP100 (UCSC REST API). 97/101 BioMart; 51/101 PhyloP (network issues; re-run pending).
+- `[x]` Review join audit for missing genes. 3 genes missing BioMart orthologs (RPN2, CANX, MGAT4B) — IDs valid in REST but absent from BioMart ortholog table.
+- `[x]` Write `scripts/analyze_conservation_gradient.py` to compare metrics across pathway regions.
+- `[x]` Generate conservation gradient figures and interpretation report.
+
+Expected outputs:
+
+- `docs/methods/conservation-analysis.md`
+- `scripts/build_nglyco_conservation_metrics.py`
+- `scripts/analyze_conservation_gradient.py`
+- `data/processed/nglyco_conservation_metrics.tsv`
+- `results/tables/conservation_join_audit.tsv`
+- `results/tables/conservation_summary.tsv`
+- `results/figures/conservation_gradient.*`
+- `results/reports/conservation-interpretation.md`
+
+Immediate next tasks:
+
+1. Run `python scripts/build_nglyco_conservation_metrics.py` from the repository root.
+   Requires network access; ~25 minutes (dN/dS + PhyloP). Use `--skip-phylop` for a
+   faster first pass (~5 minutes, dN/dS only).
+2. Inspect `results/tables/conservation_join_audit.tsv` for missing genes.
+3. Write `scripts/analyze_conservation_gradient.py` using the same statistical
+   framework as `scripts/analyze_constraint_gradient.py`.
+
+### Tier 2: Human Population Differentiation (planned)
+
+- `[ ]` Decide whether population genetics adds enough value over Tier 1 plus disease and trait layers.
 - `[ ]` Create `docs/methods/popgen-decision.md`.
-- `[ ]` If useful, select modern data sources.
-- `[ ]` If useful, define population labels and comparisons.
-- `[ ]` If useful, run pairwise FST or PBS.
-- `[ ]` If useful, consider iHS, nSL, XP-EHH, or XP-CLR with strict caveats.
+- `[ ]` Identify pre-computed FST data source (PopHuman or 1000G Phase 3 summary).
+- `[ ]` Identify pre-computed iHS / PBS source (published scan paper or PopHuman).
+- `[ ]` Run pairwise FST across superpopulations once data is available.
+- `[ ]` Apply iHS and PBS with matched neutral null; require replication across methods.
 - `[ ]` Keep SNP-level, region-level, and gene-level claims distinct.
-- `[ ]` For candidate loci, inspect nearby genes, LD, recombination, regulatory annotations, and variant consequences.
-- `[ ]` Require replication across methods or datasets before highlighting any candidate locus.
 - `[ ]` Integrate only robust and interpretable signals into the manuscript.
 
 Expected outputs:
@@ -241,8 +274,8 @@ Expected outputs:
 - `[x]` Draft introduction.
 - `[x]` Draft methods.
 - `[x]` Draft results.
-- `[ ]` Draft discussion.
-- `[ ]` Draft limitations.
+- `[x]` Draft discussion.
+- `[x]` Draft limitations.
 - `[ ]` Check that individual gene examples do not dominate the architecture-level argument.
 - `[ ]` Assemble first complete manuscript draft.
 - `[ ]` Prepare supplementary tables.
@@ -344,3 +377,5 @@ Expected outputs:
 - 2026-05-31: Added `docs/concept/claims-register.md` to control claim strength across thesis, prior art, constraint, disease, regulatory/glycome-output, population-genetic, and comparator-pathway claims.
 - 2026-05-31: Added `docs/methods/architecture-metrics.md` defining planned gene-level architecture features, graph encodings, sensitivity analyses, and claim limits before computing architecture tables.
 - 2026-06-02: Added `docs/methods/constraint-analysis.md` scoping gnomAD v4.1.1 constraint metrics, join rules, covariates, matched-null strategy, sensitivity analyses, and claim limits for the constraint work package.
+- 2026-06-09: Fixed BioMart multi-species query bug (separate queries per species; no hgnc_symbol mixing). Rewrote `scripts/build_nglyco_conservation_metrics.py`. Ran full conservation fetch: 97/101 BioMart orthologs for both mouse and chimp; 51/101 PhyloP (UCSC network intermittency). Generated `data/processed/nglyco_conservation_metrics.tsv`, `results/tables/conservation_join_audit.tsv`, `results/tables/conservation_summary.tsv`. Ran `scripts/analyze_conservation_gradient.py`: no significant upstream/downstream % identity contrast (p=0.90, r≈0); OST-transfer subgroup has highest mouse % identity (~99%). Added `results/tables/conservation_group_comparisons.tsv`, `results/figures/conservation_gradient.*`, `results/reports/conservation-interpretation.md`. Drafted Discussion and Limitations sections in `docs/manuscript/draft.md`; manuscript now has complete first-pass Introduction, Methods, Results, Discussion, and Limitations.
+- 2026-06-08: Added Tier 1 cross-species conservation analysis to Phase 7. Drafted `docs/methods/conservation-analysis.md` defining dN/dS (Ensembl REST API, human-mouse and human-chimp one-to-one orthologs) and PhyloP100 (UCSC REST API, gene-body mean/median/min/p5) metrics, join rules, claim limits, and output schema. Wrote `scripts/build_nglyco_conservation_metrics.py` to fetch and merge both metric streams. Registered `scope_conservation_analysis`, `build_conservation_metrics`, and `analyze_conservation_gradient` in the agentic workflow backlog. Tier 2 (FST, iHS, PBS) deferred until pre-computed data sources are identified.

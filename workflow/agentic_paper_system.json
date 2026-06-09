@@ -491,6 +491,45 @@
         "results/reports/disease-architecture-interpretation.md",
         "results/reports/downstream-gwas-locus-review.md"
       ]
+    },
+    {
+      "id": "scope_conservation_analysis",
+      "agent": "data_provenance_agent",
+      "outputs": [
+        "docs/methods/conservation-analysis.md"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_gene_table.tsv",
+        "docs/methods/constraint-analysis.md"
+      ]
+    },
+    {
+      "id": "build_conservation_metrics",
+      "agent": "constraint_agent",
+      "outputs": [
+        "data/processed/nglyco_conservation_metrics.tsv",
+        "results/tables/conservation_join_audit.tsv",
+        "results/tables/conservation_summary.tsv"
+      ],
+      "prerequisites": [
+        "docs/methods/conservation-analysis.md",
+        "data/processed/nglyco_gene_table.tsv",
+        "scripts/build_nglyco_conservation_metrics.py"
+      ]
+    },
+    {
+      "id": "analyze_conservation_gradient",
+      "agent": "constraint_agent",
+      "outputs": [
+        "results/figures/conservation_gradient.png",
+        "results/figures/conservation_gradient.svg",
+        "results/reports/conservation-interpretation.md"
+      ],
+      "prerequisites": [
+        "data/processed/nglyco_conservation_metrics.tsv",
+        "results/tables/conservation_summary.tsv",
+        "data/processed/nglyco_architecture_features.tsv"
+      ]
     }
   ]
 }
