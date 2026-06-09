@@ -178,6 +178,8 @@ def pairwise_fst_summary(
             denom = a + b + c
             with np.errstate(invalid="ignore", divide="ignore"):
                 fst_vals = np.where(denom > 0, a / denom, np.nan)
+            # Clip to valid FST range; values outside [0,1] are numerical artefacts
+            fst_vals = np.clip(fst_vals, 0.0, 1.0)
             valid = fst_vals[np.isfinite(fst_vals)]
             if len(valid) == 0:
                 continue

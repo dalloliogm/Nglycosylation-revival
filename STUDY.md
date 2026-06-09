@@ -235,14 +235,14 @@ Immediate next tasks:
 - `[x]` Liftover gene coordinates hg38 → hg19 (`data/processed/nglyco_gene_table_hg19.tsv`, 101/101 mapped).
 - `[x]` Download 1000G Phase 3 population panel (`data/raw/popgen/1000g_phase3_panel.tsv`).
 - `[x]` Write `scripts/fetch_popgen_data.py` for liftover + VCF slice fetching.
-- `[ ]` Fetch per-gene VCF slices via tabix (requires tabix in PATH; run `--skip-vcf` removed).
-- `[ ]` Write `scripts/compute_fst_pbs.py` — vcftools FST + PBS post-processing.
-- `[ ]` Write `scripts/extract_pophuman_ihs.py` — download and intersect PopHuman iHS BigWigs.
-- `[ ]` Write `scripts/analyze_popgen_gradient.py` — region-level group comparisons.
-- `[ ]` Run pairwise FST across superpopulations once VCF slices are fetched.
-- `[ ]` Apply iHS and PBS with matched neutral null; require replication across methods.
-- `[ ]` Keep SNP-level, region-level, and gene-level claims distinct.
-- `[ ]` Integrate only robust and interpretable signals into the manuscript.
+- `[x]` Fetch per-gene VCF slices via pysam (99/101 genes; ALG13 X-linked, MAGT1 patch chromosome).
+- `[x]` Write `scripts/compute_fst_pbs.py` — WC FST (scikit-allel) + PBS for 10 pairwise contrasts.
+- `[x]` Write `scripts/extract_pophuman_ihs.py` — download 26 PopHuman iHS BigWigs (~42 MB), extract per-gene windowed |iHS| summaries (96/101 genes).
+- `[x]` Write `scripts/analyze_popgen_gradient.py` — region-level group comparisons.
+- `[x]` Run pairwise FST, PBS, iHS. **Key result: no significant upstream/downstream gradient (all p > 0.14, r ≈ 0). Top FST outliers: MOGS, NGLY1 (checkpoint). Top iHS: FUT8 (AFR, max |iHS|=3.39).**
+- `[ ]` Apply matched neutral null controls before any pathway-level enrichment claim.
+- `[x]` Keep SNP-level, region-level, and gene-level claims distinct.
+- `[~]` Integrate pop-gen signals into manuscript — null gradient + FUT8/MOGS candidates noted.
 
 Expected outputs:
 

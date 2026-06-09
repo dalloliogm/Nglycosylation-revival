@@ -1,0 +1,4 @@
+analysis_group	n_genes	median_ihs_max_AFR	max_ihs_max_AFR	median_ihs_max_AMR	max_ihs_max_AMR	median_ihs_max_EAS	max_ihs_max_EAS	median_ihs_max_EUR	max_ihs_max_EUR	median_ihs_max_SAS	max_ihs_max_SAS
+checkpoint_layer	13	1.2491	2.0266	1.1824	4.7266	1.3544	2.6905	1.199	2.1188	1.0706	1.8346
+downstream_diversification	28	1.2476	3.3913	1.242	2.5657	1.443	3.3825	1.2715	2.7448	1.1981	2.2112
+upstream_core	26	1.3805	3.1043	1.3187	3.0854	1.3868	2.4451	1.2218	3.182	1.4401	2.7985

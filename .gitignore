@@ -74,3 +74,12 @@ results/reports/*
 !data/processed/comparator_constraint_metrics.tsv
 !results/tables/comparator_constraint_join_audit.tsv
 !results/tables/comparator_constraint_summary.tsv
+!data/processed/nglyco_fst_per_gene.tsv
+!data/processed/nglyco_pbs_per_gene.tsv
+!data/processed/nglyco_ihs_per_gene.tsv
+!results/tables/popgen_fst_summary.tsv
+!results/tables/popgen_ihs_summary.tsv
+!results/tables/popgen_group_comparisons.tsv
+!results/tables/popgen_candidate_loci.tsv
+!results/figures/popgen_gradient_*.png
+!results/figures/popgen_gradient_*.svg

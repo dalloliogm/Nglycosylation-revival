@@ -1,0 +1,25 @@
+metric	comparison_id	group_a	group_b	n_a	n_b	median_a	median_b	median_diff	ci95_lo	ci95_hi	mann_whitney_u	p_value	rank_biserial_r	scope
+fst_mean_AFR_EUR	upstream_core_vs_downstream	upstream_core	downstream_diversification	22	28	0.08077	0.08482	-0.00405	-0.02778	0.02632	304.0	0.93769	0.013	Primary contrast.
+fst_mean_AFR_EUR	upstream_plus_checkpoint_vs_downstream	upstream_core+checkpoint	downstream_diversification	35	28	0.0878	0.08482	0.00298	-0.01957	0.03115	453.0	0.6088	0.0755	Sensitivity: checkpoint merged with upstream.
+fst_mean_AFR_EUR	checkpoint_vs_downstream	checkpoint_layer	downstream_diversification	13	28	0.09794	0.08482	0.01312	-0.02126	0.05106	141.0	0.25069	0.2253	Checkpoint layer tested separately.
+fst_mean_AFR_EAS	upstream_core_vs_downstream	upstream_core	downstream_diversification	22	28	0.09134	0.10215	-0.01081	-0.04197	0.02801	289.0	0.71039	0.0617	Primary contrast.
+fst_mean_AFR_EAS	upstream_plus_checkpoint_vs_downstream	upstream_core+checkpoint	downstream_diversification	35	28	0.09285	0.10215	-0.0093	-0.03083	0.0172	446.0	0.54278	0.0898	Sensitivity: checkpoint merged with upstream.
+fst_mean_AFR_EAS	checkpoint_vs_downstream	checkpoint_layer	downstream_diversification	13	28	0.09285	0.10215	-0.0093	-0.02776	0.01692	157.0	0.48367	0.1374	Checkpoint layer tested separately.
+pbs_AFR_vs_EUR_EAS	upstream_core_vs_downstream	upstream_core	downstream_diversification	22	28	0.05724	0.04915	0.00809	-0.01334	0.04306	271.0	0.4696	0.1201	Primary contrast.
+pbs_AFR_vs_EUR_EAS	upstream_plus_checkpoint_vs_downstream	upstream_core+checkpoint	downstream_diversification	35	28	0.06677	0.04915	0.01761	-0.00732	0.03526	390.0	0.1666	0.2041	Sensitivity: checkpoint merged with upstream.
+pbs_AFR_vs_EUR_EAS	checkpoint_vs_downstream	checkpoint_layer	downstream_diversification	13	28	0.06782	0.04915	0.01867	-0.00515	0.03937	119.0	0.07756	0.3462	Checkpoint layer tested separately.
+pbs_EUR_vs_AFR_EAS	upstream_core_vs_downstream	upstream_core	downstream_diversification	22	28	0.02089	0.02669	-0.0058	-0.01538	0.00433	233.0	0.1427	0.2435	Primary contrast.
+pbs_EUR_vs_AFR_EAS	upstream_plus_checkpoint_vs_downstream	upstream_core+checkpoint	downstream_diversification	35	28	0.02062	0.02669	-0.00607	-0.01511	0.00463	393.0	0.17969	0.198	Sensitivity: checkpoint merged with upstream.
+pbs_EUR_vs_AFR_EAS	checkpoint_vs_downstream	checkpoint_layer	downstream_diversification	13	28	0.02062	0.02669	-0.00607	-0.02232	0.02085	160.0	0.53765	0.1209	Checkpoint layer tested separately.
+pbs_EAS_vs_AFR_EUR	upstream_core_vs_downstream	upstream_core	downstream_diversification	22	28	0.02742	0.03739	-0.00996	-0.04213	0.02019	263.0	0.37914	0.1461	Primary contrast.
+pbs_EAS_vs_AFR_EUR	upstream_plus_checkpoint_vs_downstream	upstream_core+checkpoint	downstream_diversification	35	28	0.02502	0.03739	-0.01237	-0.04306	0.01063	388.0	0.15828	0.2082	Sensitivity: checkpoint merged with upstream.
+pbs_EAS_vs_AFR_EUR	checkpoint_vs_downstream	checkpoint_layer	downstream_diversification	13	28	0.02293	0.03739	-0.01446	-0.047	0.00677	125.0	0.11028	0.3132	Checkpoint layer tested separately.
+ihs_max_AFR	upstream_core_vs_downstream	upstream_core	downstream_diversification	24	27	1.38045	1.2476	0.13285	-0.28025	0.5799	280.0	0.40635	0.1358	Primary contrast.
+ihs_max_AFR	upstream_plus_checkpoint_vs_downstream	upstream_core+checkpoint	downstream_diversification	36	27	1.3466	1.2476	0.099	-0.33875	0.44645	441.0	0.53197	0.0926	Sensitivity: checkpoint merged with upstream.
+ihs_max_AFR	checkpoint_vs_downstream	checkpoint_layer	downstream_diversification	12	27	1.2491	1.2476	0.0015	-0.39655	0.379	161.0	0.97572	0.0062	Checkpoint layer tested separately.
+ihs_max_EUR	upstream_core_vs_downstream	upstream_core	downstream_diversification	24	27	1.2218	1.2715	-0.0497	-0.4571	0.4674	290.0	0.52111	0.1049	Primary contrast.
+ihs_max_EUR	upstream_plus_checkpoint_vs_downstream	upstream_core+checkpoint	downstream_diversification	36	27	1.2218	1.2715	-0.0497	-0.4058	0.2769	432.0	0.45325	0.1111	Sensitivity: checkpoint merged with upstream.
+ihs_max_EUR	checkpoint_vs_downstream	checkpoint_layer	downstream_diversification	12	27	1.19905	1.2715	-0.07245	-0.4386	0.3309	142.0	0.54278	0.1235	Checkpoint layer tested separately.
+ihs_max_EAS	upstream_core_vs_downstream	upstream_core	downstream_diversification	24	27	1.38675	1.443	-0.05625	-0.4229	0.41495	313.0	0.83555	0.034	Primary contrast.
+ihs_max_EAS	upstream_plus_checkpoint_vs_downstream	upstream_core+checkpoint	downstream_diversification	36	27	1.38675	1.443	-0.05625	-0.38075	0.3556	471.0	0.83497	0.0309	Sensitivity: checkpoint merged with upstream.
+ihs_max_EAS	checkpoint_vs_downstream	checkpoint_layer	downstream_diversification	12	27	1.35445	1.443	-0.08855	-0.5213	0.44455	158.0	0.90312	0.0247	Checkpoint layer tested separately.
