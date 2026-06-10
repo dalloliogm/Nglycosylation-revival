@@ -94,3 +94,6 @@ data/raw/hpa_rna_tissue_gtex.tsv
 !results/tables/loeuf_regression_results.txt
 !results/tables/loeuf_covariate_summary.tsv
 !data/raw/ensembl_paralog_counts.tsv
+!data/processed/pathway_null_model_genes.tsv
+!results/tables/pathway_null_model_comparison.tsv
+!results/tables/pathway_null_model_summary.txt

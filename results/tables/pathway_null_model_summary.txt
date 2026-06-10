@@ -1,0 +1,73 @@
+PATHWAY NULL MODEL — Core vs Downstream LOEUF & Disease Burden
+======================================================================
+
+Prediction: if disease-gradient is trivially universal, ALL pathways
+(including GPI and purine with no downstream diversity) show disease
+concentration in core genes.
+If pattern requires combinatorial topology, only HS and ceramide
+(topology-matched) show the gradient; GPI and purine do NOT.
+
+LOEUF: lower = more constrained. Core-less-constrained = N-glyco pattern.
+OMIM: higher count = more Mendelian disease evidence.
+
+
+  GPI_ANCHOR  [linear]
+    LOEUF  — Core (n=20): 1.091
+             Downstream: no data
+             Too few data for MW test
+    Disease — Core: 20/21 (95%) have Mendelian disease
+              Downstream: no data
+
+  PURINE_DENOVO  [linear]
+    LOEUF  — Core (n=6): 0.774
+             Downstream (n=4): 0.764
+             MW p=1.0000  direction=core_less_constrained
+    Disease — Core: 2/6 (33%) have Mendelian disease
+              Downstream: 2/4 (50%) have Mendelian disease
+              Fisher OR=0.50, p=1.0000  direction=downstream_more_disease
+
+  HS_BIOSYNTHESIS  [layered]
+    LOEUF  — Core (n=8): 0.732
+             Downstream (n=16): 0.691
+             MW p=0.9761  direction=core_less_constrained
+    Disease — Core: 8/8 (100%) have Mendelian disease
+              Downstream: 0/16 (0%) have Mendelian disease
+              Fisher OR=inf, p=0.0000  direction=core_more_disease
+
+  CERAMIDE_GSL  [layered]
+    LOEUF  — Core (n=14): 1.016
+             Downstream (n=8): 0.781
+             MW p=0.3301  direction=core_less_constrained
+    Disease — Core: 8/14 (57%) have Mendelian disease
+              Downstream: 2/8 (25%) have Mendelian disease
+              Fisher OR=4.00, p=0.2043  direction=core_more_disease
+
+  N-GLYCO (reference, from main analysis)
+    Core upstream (n=~26): median LOEUF=0.909
+    Downstream (n=~27): median LOEUF=0.740
+    MW p=0.011 (raw), p=0.222 after gene-length control
+    Direction: core_less_constrained (LOEUF inversion)
+    CDG disease: 11/15 LLO genes, 5/11 OST genes
+    Downstream CDG: 0/5 branching, 1/16 terminal-modification
+
+
+======================================================================
+SUMMARY TABLE
+======================================================================
+Pathway                   Topo     Core LOEUF   DN LOEUF  LOEUF p  Core dis%   DN dis%  Fisher p Disease dir              
+------------------------------------------------------------------------------------------------------------------------
+gpi_anchor                linear        1.091        nan      nan      0.952       nan       nan                          
+purine_denovo             linear       0.7745     0.7645      1.0      0.333       0.5       1.0 downstream_more_disease  
+hs_biosynthesis           layered       0.732      0.691   0.9761        1.0       0.0       0.0 core_more_disease        
+ceramide_gsl              layered       1.016      0.781   0.3301      0.571      0.25    0.2043 core_more_disease        
+nglyco (ref)              layered       0.909      0.740   0.011*       0.73      0.06    <0.001 core_more_disease        
+
+
+INTERPRETATION GUIDE
+----------------------------------------------------------------------
+GPI/purine (linear, no diversity):
+  If CORE < DOWNSTREAM LOEUF (core more constrained) → pattern is universal
+  If CORE ≈ DOWNSTREAM LOEUF (no gradient)           → linear pathways differ from N-glyco
+HS/ceramide (layered, topology-matched):
+  If same inversion as N-glyco → pattern is specific to layered topology
+  If uniform constraint        → N-glyco is uniquely structured

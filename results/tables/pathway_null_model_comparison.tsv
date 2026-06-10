@@ -1,0 +1,5 @@
+pathway	topology_type	n_core	n_downstream	core_median_loeuf	downstream_median_loeuf	loeuf_mw_p	loeuf_direction	core_disease_frac	downstream_disease_frac	disease_fisher_p	disease_direction
+gpi_anchor	linear	21	0	1.091				0.952			
+purine_denovo	linear	6	4	0.7745	0.7645	1.0	core_less_constrained	0.333	0.5	1.0	downstream_more_disease
+hs_biosynthesis	layered	8	16	0.732	0.691	0.9761	core_less_constrained	1.0	0.0	0.0	core_more_disease
+ceramide_gsl	layered	14	8	1.016	0.781	0.3301	core_less_constrained	0.571	0.25	0.2043	core_more_disease
