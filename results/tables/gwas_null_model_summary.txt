@@ -1,0 +1,27 @@
+GWAS GENOME-WIDE NULL MODEL — N-glyco downstream gene enrichment
+======================================================================
+
+Question: Is the immune/glycan GWAS enrichment in downstream N-glyco genes
+explained by gene length (more LD capture) or is it pathway-specific?
+
+Trait classification:
+  glycan_direct: IgG glycosylation, N-glycan, transferrin glycosylation
+  immune_nonglycan: autoimmune, blood cell traits, immune biomarkers
+  other: cardiometabolic, anthropometric, neurological, etc.
+
+Downstream N-glyco genes: 42 with GWAS hits
+Upstream N-glyco genes: 54 with GWAS hits
+Background (non-N-glyco): 31,751 genes
+
+RESULTS:
+  Downstream vs genome (unmatched): OR=2.47, p=3.14e-03 **
+  Downstream vs genome (hit-matched): OR=1.63, p=1.07e-01 n.s.
+  Upstream vs genome (unmatched): OR=0.58, p=9.79e-01 n.s.
+  Upstream vs genome (hit-matched): OR=0.59, p=9.66e-01 n.s.
+  Downstream vs upstream (direct): OR=4.24, p=1.73e-99 ***
+
+INTERPRETATION:
+  If downstream OR > upstream OR: enrichment is LAYER-SPECIFIC, not gene-density artifact
+  If matched p remains significant: enrichment SURVIVES length control
+
+Outputs: results/tables/gwas_null_model_gene_profile.tsv
