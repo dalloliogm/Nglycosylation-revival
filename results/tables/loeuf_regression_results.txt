@@ -1,0 +1,200 @@
+
+======================================================================
+1. RAW GROUP COMPARISON (no covariates)
+======================================================================
+  Upstream (n=23): median LOEUF = 0.9090  IQR [0.844, 1.183]
+  Downstream (n=27): median LOEUF = 0.7400  IQR [0.643, 0.903]
+  Mann-Whitney U = 442.0, p = 0.0108, rank-biserial r = -0.424
+  Direction: Upstream HIGHER (less constrained) — opposite of naive prediction
+
+======================================================================
+2. COVARIATE SUMMARY BY GROUP
+======================================================================
+  downstream_diversification (n=27):
+    n_tissues_expressed: median=35.00, IQR=[20.50,36.00]
+    paralog_count_ensembl: median=6.00, IQR=[3.00,6.00]
+    family_size_in_dataset: median=4.00, IQR=[1.00,6.00]
+    gene_length_bp: median=74847.00, IQR=[27645.00,156495.00]
+    cds_length: median=1272.00, IQR=[1143.00,1665.00]
+  upstream_core (n=23):
+    n_tissues_expressed: median=36.00, IQR=[36.00,36.00]
+    paralog_count_ensembl: median=1.00, IQR=[0.00,1.50]
+    family_size_in_dataset: median=13.00, IQR=[1.00,13.00]
+    gene_length_bp: median=33503.00, IQR=[12632.50,65230.00]
+    cds_length: median=1392.00, IQR=[1008.00,1549.50]
+
+======================================================================
+3. SPEARMAN CORRELATIONS WITH LOEUF (primary genes)
+======================================================================
+  LOEUF ~ n_tissues_expressed: rho=-0.129, p=0.3706
+  LOEUF ~ paralog_count_ensembl: rho=-0.179, p=0.2147
+  LOEUF ~ family_size_in_dataset: rho=0.063, p=0.6616
+  LOEUF ~ gene_length_bp: rho=-0.374, p=0.0074
+  LOEUF ~ cds_length: rho=-0.529, p=0.0001
+  LOEUF ~ log_paralog_count: rho=-0.209, p=0.1447
+  LOEUF ~ log_gene_length: rho=-0.374, p=0.0074
+
+======================================================================
+4. OLS REGRESSIONS
+======================================================================
+
+  Model: Null (group only)
+  Formula: loeuf ~ C(analysis_group, Treatment('upstream_core'))
+  N = 50, R² = 0.0741, Adj R² = 0.0548
+  Downstream coef = -0.1994, p = 0.0558
+  --- Group not significant after covariate control
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  loeuf   R-squared:                       0.074
+Model:                            OLS   Adj. R-squared:                  0.055
+Method:                 Least Squares   F-statistic:                     3.843
+Date:                Wed, 10 Jun 2026   Prob (F-statistic):             0.0558
+Time:                        09:17:56   Log-Likelihood:                -18.628
+No. Observations:                  50   AIC:                             41.26
+Df Residuals:                      48   BIC:                             45.08
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===============================================================================================================================================
+                                                                                  coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                       1.0118      0.075     13.538      0.000       0.862       1.162
+C(analysis_group, Treatment('upstream_core'))[T.downstream_diversification]    -0.1994      0.102     -1.960      0.056      -0.404       0.005
+==============================================================================
+Omnibus:                       16.101   Durbin-Watson:                   1.579
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               19.453
+Skew:                           1.198   Prob(JB):                     5.97e-05
+Kurtosis:                       4.897   Cond. No.                         2.72
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+  Model: Partial (group + log_gene_length)
+  Formula: loeuf ~ C(analysis_group, Treatment('upstream_core')) + log_gene_length
+  N = 50, R² = 0.1802, Adj R² = 0.1453
+  Downstream coef = -0.1252, p = 0.2225
+  --- Group not significant after covariate control
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  loeuf   R-squared:                       0.180
+Model:                            OLS   Adj. R-squared:                  0.145
+Method:                 Least Squares   F-statistic:                     5.167
+Date:                Wed, 10 Jun 2026   Prob (F-statistic):            0.00937
+Time:                        09:17:56   Log-Likelihood:                -15.585
+No. Observations:                  50   AIC:                             37.17
+Df Residuals:                      47   BIC:                             42.91
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===============================================================================================================================================
+                                                                                  coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                       1.9802      0.399      4.963      0.000       1.178       2.783
+C(analysis_group, Treatment('upstream_core'))[T.downstream_diversification]    -0.1252      0.101     -1.236      0.223      -0.329       0.079
+log_gene_length                                                                -0.2175      0.088     -2.467      0.017      -0.395      -0.040
+==============================================================================
+Omnibus:                       12.025   Durbin-Watson:                   1.474
+Prob(Omnibus):                  0.002   Jarque-Bera (JB):               12.177
+Skew:                           1.059   Prob(JB):                      0.00227
+Kurtosis:                       4.165   Cond. No.                         40.8
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+  Model: Partial (group + log_paralog_count)
+  Formula: loeuf ~ C(analysis_group, Treatment('upstream_core')) + log_paralog_count
+  N = 50, R² = 0.0767, Adj R² = 0.0375
+  Downstream coef = -0.2349, p = 0.1034
+  --- Group not significant after covariate control
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  loeuf   R-squared:                       0.077
+Model:                            OLS   Adj. R-squared:                  0.037
+Method:                 Least Squares   F-statistic:                     1.953
+Date:                Wed, 10 Jun 2026   Prob (F-statistic):              0.153
+Time:                        09:17:56   Log-Likelihood:                -18.557
+No. Observations:                  50   AIC:                             43.11
+Df Residuals:                      47   BIC:                             48.85
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===============================================================================================================================================
+                                                                                  coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                       1.0053      0.078     12.965      0.000       0.849       1.161
+C(analysis_group, Treatment('upstream_core'))[T.downstream_diversification]    -0.2349      0.141     -1.661      0.103      -0.519       0.050
+log_paralog_count                                                               0.0699      0.191      0.365      0.717      -0.315       0.455
+==============================================================================
+Omnibus:                       15.608   Durbin-Watson:                   1.566
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               18.492
+Skew:                           1.177   Prob(JB):                     9.65e-05
+Kurtosis:                       4.827   Cond. No.                         5.36
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+  Model: Partial (group + n_tissues_expressed)
+  Formula: loeuf ~ C(analysis_group, Treatment('upstream_core')) + n_tissues_expressed
+  N = 50, R² = 0.1411, Adj R² = 0.1045
+  Downstream coef = -0.2352, p = 0.0239
+  *** GROUP SURVIVES COVARIATE CONTROL
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  loeuf   R-squared:                       0.141
+Model:                            OLS   Adj. R-squared:                  0.105
+Method:                 Least Squares   F-statistic:                     3.861
+Date:                Wed, 10 Jun 2026   Prob (F-statistic):             0.0280
+Time:                        09:17:56   Log-Likelihood:                -16.751
+No. Observations:                  50   AIC:                             39.50
+Df Residuals:                      47   BIC:                             45.24
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===============================================================================================================================================
+                                                                                  coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                       1.3006      0.167      7.767      0.000       0.964       1.637
+C(analysis_group, Treatment('upstream_core'))[T.downstream_diversification]    -0.2352      0.101     -2.334      0.024      -0.438      -0.033
+n_tissues_expressed                                                            -0.0090      0.005     -1.914      0.062      -0.018       0.000
+==============================================================================
+Omnibus:                       13.288   Durbin-Watson:                   1.599
+Prob(Omnibus):                  0.001   Jarque-Bera (JB):               14.177
+Skew:                           1.099   Prob(JB):                     0.000835
+Kurtosis:                       4.405   Cond. No.                         114.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+  Model: Full (group + all covariates)
+  Formula: loeuf ~ C(analysis_group, Treatment('upstream_core')) + log_gene_length + log_paralog_count + n_tissues_expressed
+  N = 50, R² = 0.2745, Adj R² = 0.2101
+  Downstream coef = -0.2289, p = 0.0907
+  --- Group not significant after covariate control
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  loeuf   R-squared:                       0.275
+Model:                            OLS   Adj. R-squared:                  0.210
+Method:                 Least Squares   F-statistic:                     4.257
+Date:                Wed, 10 Jun 2026   Prob (F-statistic):            0.00525
+Time:                        09:17:56   Log-Likelihood:                -12.529
+No. Observations:                  50   AIC:                             35.06
+Df Residuals:                      45   BIC:                             44.62
+Df Model:                           4                                         
+Covariance Type:            nonrobust                                         
+===============================================================================================================================================
+                                                                                  coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                       2.4052      0.423      5.681      0.000       1.552       3.258
+C(analysis_group, Treatment('upstream_core'))[T.downstream_diversification]    -0.2289      0.132     -1.729      0.091      -0.496       0.038
+log_gene_length                                                                -0.2403      0.085     -2.815      0.007      -0.412      -0.068
+log_paralog_count                                                               0.1372      0.175      0.786      0.436      -0.214       0.489
+n_tissues_expressed                                                            -0.0104      0.004     -2.354      0.023      -0.019      -0.002
+==============================================================================
+Omnibus:                        7.158   Durbin-Watson:                   1.448
+Prob(Omnibus):                  0.028   Jarque-Bera (JB):                6.368
+Skew:                           0.852   Prob(JB):                       0.0414
+Kurtosis:                       3.392   Cond. No.                         300.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

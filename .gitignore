@@ -84,3 +84,13 @@ results/reports/*
 !results/figures/popgen_gradient_*.png
 !results/figures/popgen_gradient_*.svg
 *.tbi
+
+# Large HPA raw expression file (re-downloadable)
+data/raw/hpa_rna_tissue_gtex.tsv
+
+# Ensembl paralog count cache (re-fetchable)
+!data/raw/ensembl_paralog_counts.tsv
+!data/processed/nglyco_loeuf_covariates.tsv
+!results/tables/loeuf_regression_results.txt
+!results/tables/loeuf_covariate_summary.tsv
+!data/raw/ensembl_paralog_counts.tsv
