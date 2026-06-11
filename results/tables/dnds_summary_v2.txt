@@ -1,0 +1,120 @@
+PAIRWISE dN/dS — Human vs Mouse, protein-guided codon alignment
+============================================================
+Method: Nei-Gojobori 1986 (NG86), Ensembl canonical CDS,
+        protein-guided codon alignment, 1:1 orthologs, dS≤1.5 filter
+Valid gene pairs: 98 / 101
+
+Upstream_core   (n=54): median dN/dS = 0.0746  IQR=[0.0397,0.1300]
+Downstream      (n=44): median dN/dS = 0.0735  IQR=[0.0460,0.1210]
+Mann-Whitney U (downstream > upstream): p = 0.4929, rank-biserial r = -0.003
+
+RESULT: NULL — pairwise human-mouse dN/dS does not differ between
+pathway layers. Both groups under deep purifying selection.
+This is consistent with the architecture model: downstream evolvability
+is expressed through glycan-output variation and regulatory channels,
+NOT through accelerated protein-coding evolution.
+
+NOTE: This analysis is limited to pairwise human-mouse divergence.
+A full branch-model analysis (PAML/HYPHY across 30 mammals) could detect
+lineage-specific acceleration not captured by pairwise NG86.
+
+Per-gene results:
+  symbol                      group    dn_v2    ds_v2  dnds_v2
+   ALG13              upstream_core 0.178465 0.480198 0.371650
+B4GALNT2 downstream_diversification 0.165159 0.633125 0.260863
+    DPM2              upstream_core 0.177885 0.696293 0.255474
+    OSTC              upstream_core 0.317327 1.313299 0.241626
+   ALG14              upstream_core 0.137771 0.612842 0.224806
+    ALG1              upstream_core 0.123261 0.548396 0.224766
+    FPGT              upstream_core 0.145442 0.709739 0.204924
+    ALG2              upstream_core 0.115074 0.568188 0.202528
+   UGGT2 downstream_diversification 0.112371 0.573177 0.196050
+     MPI              upstream_core 0.078963 0.403159 0.195862
+   ALG12              upstream_core 0.121606 0.702688 0.173058
+  ENGASE downstream_diversification 0.122815 0.752134 0.163289
+    ALG6              upstream_core 0.083062 0.523050 0.158804
+ B4GALT1 downstream_diversification 0.071703 0.461302 0.155437
+    FCSK              upstream_core 0.079986 0.529522 0.151053
+  SRD5A3              upstream_core 0.113395 0.755152 0.150162
+ ST6GAL1 downstream_diversification 0.104881 0.712012 0.147302
+   NGLY1 downstream_diversification 0.082455 0.563655 0.146286
+   ALG11              upstream_core 0.076312 0.537496 0.141978
+     OS9 downstream_diversification 0.099432 0.707854 0.140470
+  MAN1B1 downstream_diversification 0.120601 0.858677 0.140449
+  MAN2A1 downstream_diversification 0.110185 0.793201 0.138912
+ B4GALT4 downstream_diversification 0.092567 0.684067 0.135318
+ SLC35C1              upstream_core 0.069818 0.526581 0.132587
+   MGAT2 downstream_diversification 0.056110 0.456526 0.122907
+    RFT1              upstream_core 0.068463 0.560272 0.122195
+ ST8SIA6 downstream_diversification 0.093998 0.781012 0.120354
+    ALG8              upstream_core 0.060510 0.507607 0.119206
+    MOGS downstream_diversification 0.074271 0.674808 0.110062
+    ALG3              upstream_core 0.055988 0.517537 0.108182
+ B4GALT2 downstream_diversification 0.039354 0.373439 0.105383
+    ALG5              upstream_core 0.058376 0.565259 0.103274
+  MAN2A2 downstream_diversification 0.055232 0.550409 0.100346
+  ALG10B              upstream_core 0.080863 0.815266 0.099186
+    PGM3              upstream_core 0.074864 0.766088 0.097722
+   ALG10              upstream_core 0.074170 0.821578 0.090277
+  MAN1A1 downstream_diversification 0.047338 0.524378 0.090274
+    DPM1              upstream_core 0.050794 0.580822 0.087452
+ ST3GAL4 downstream_diversification 0.056347 0.648976 0.086824
+   CHST8 downstream_diversification 0.068868 0.808195 0.085212
+  MAN1C1 downstream_diversification 0.060439 0.710364 0.085082
+   MPDU1              upstream_core 0.043788 0.517874 0.084553
+    RPN2              upstream_core 0.040119 0.484525 0.082801
+    UAP1              upstream_core 0.052936 0.640136 0.082696
+    DPM3              upstream_core 0.050824 0.633178 0.080268
+   PDIA3 downstream_diversification 0.035113 0.440532 0.079707
+   GANAB downstream_diversification 0.042459 0.555531 0.076429
+  CHST10 downstream_diversification 0.050668 0.665632 0.076120
+ SLC35A1              upstream_core 0.041566 0.549442 0.075651
+  DPAGT1              upstream_core 0.031791 0.431998 0.073591
+   MAGT1              upstream_core 0.031572 0.435864 0.072436
+   MGAT1 downstream_diversification 0.053865 0.760043 0.070870
+    NAGK              upstream_core 0.041635 0.589151 0.070669
+  DOLPP1              upstream_core 0.027310 0.397683 0.068673
+   DHDDS              upstream_core 0.037823 0.561885 0.067315
+  PRKCSH downstream_diversification 0.062481 0.939873 0.066478
+   EDEM1 downstream_diversification 0.035236 0.539809 0.065275
+   UGGT1 downstream_diversification 0.043802 0.708558 0.061818
+    PMM2              upstream_core 0.040417 0.657413 0.061479
+  MAN1A2 downstream_diversification 0.029110 0.504087 0.057748
+   EDEM2 downstream_diversification 0.029634 0.536800 0.055206
+     HK1              upstream_core 0.037845 0.687152 0.055075
+   SEL1L downstream_diversification 0.033155 0.646189 0.051309
+   MGAT3 downstream_diversification 0.035578 0.702924 0.050614
+    CANX downstream_diversification 0.029426 0.590106 0.049866
+    CMAS              upstream_core 0.032061 0.644108 0.049776
+   EDEM3 downstream_diversification 0.028481 0.590734 0.048213
+    DOLK              upstream_core 0.024257 0.512543 0.047328
+    MLEC downstream_diversification 0.024649 0.522883 0.047141
+    PMM1              upstream_core 0.021710 0.466484 0.046541
+    NANS              upstream_core 0.026206 0.595276 0.044024
+   DDOST              upstream_core 0.026680 0.612009 0.043594
+  MGAT4C downstream_diversification 0.027029 0.637529 0.042396
+    ALG9              upstream_core 0.026506 0.649007 0.040842
+    RPN1              upstream_core 0.025222 0.642092 0.039280
+    FUT8 downstream_diversification 0.015749 0.418141 0.037663
+  MGAT4A downstream_diversification 0.032592 0.910739 0.035786
+ B4GALT6 downstream_diversification 0.023131 0.716227 0.032295
+ ST8SIA2 downstream_diversification 0.012229 0.381194 0.032080
+    NANP              upstream_core 0.029249 0.918650 0.031839
+    GMDS              upstream_core 0.018066 0.575364 0.031400
+    CALR downstream_diversification 0.027414 0.894524 0.030647
+ B4GALT5 downstream_diversification 0.023083 0.762645 0.030267
+ B4GALT3 downstream_diversification 0.016102 0.556995 0.028908
+   GMPPA              upstream_core 0.014655 0.617936 0.023717
+   TUSC3              upstream_core 0.013797 0.613771 0.022479
+ GNPNAT1              upstream_core 0.010510 0.490445 0.021430
+ ST8SIA3 downstream_diversification 0.009019 0.422493 0.021348
+   MGAT5 downstream_diversification 0.013314 0.726336 0.018331
+   GMPPB              upstream_core 0.009178 0.503081 0.018244
+   GFPT2              upstream_core 0.011168 0.631561 0.017683
+   STT3B              upstream_core 0.009435 0.542868 0.017380
+  MGAT4B downstream_diversification 0.007178 0.535311 0.013409
+   GFPT1              upstream_core 0.005681 0.580813 0.009781
+     GNE              upstream_core 0.007249 0.846168 0.008567
+   STT3A              upstream_core 0.002462 0.395872 0.006219
+    OST4              upstream_core 0.000000 0.289247 0.000000
+    DAD1              upstream_core 0.000000 0.458805 0.000000
