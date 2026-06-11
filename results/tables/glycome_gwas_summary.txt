@@ -1,0 +1,22 @@
+GLYCOME GWAS VARIANCE PARTITIONING
+=================================================================
+Data: GWAS Catalog v1.0.2 IgG glycosylation + N-glycan measurement
+GWS associations analysed: 656
+Independent loci (500 kb clumping): reported per gene
+
+DOWNSTREAM layer (45 genes):
+  Genes with ≥1 IgG-glycan locus: 7
+  Total independent loci: 7
+  Median loci/gene: 0.0
+
+UPSTREAM layer (56 genes):
+  Genes with ≥1 IgG-glycan locus: 0
+  Total independent loci: 0
+  Median loci/gene: 0.0
+
+Fisher test (≥1 hit): OR=inf, p=0.0026
+Mann-Whitney (loci/gene): p=0.0012, r=-0.156
+Loci ratio downstream/upstream: 7.0x
+
+Note: locus counts reflect GWAS catalog gene mapping (not causal).
+Variance explained requires summary stats + MAF (not in catalog).
