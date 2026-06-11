@@ -210,7 +210,7 @@ The results argue against two extreme models: the model in which upstream genes 
 
 12. Reily C, Stewart TJ, Renfrow MB, Novak J. Glycosylation in health and disease. *Nat Rev Nephrol.* 2019;15(6):346–366. https://doi.org/10.1038/s41581-019-0129-4
 
-13. Smith DF, Cummings RD. Application of microarrays for deciphering the structure and function of the human glycome. *Mol Cell Proteomics.* 2013;12(4):902–912. https://doi.org/10.1074/mcp.R112.027110
+13. Gagneux P, Varki A. Evolutionary considerations in relating oligosaccharide diversity to biological function. *Glycobiology.* 1999;9(8):747–755. https://doi.org/10.1093/glycob/9.8.747
 
 14. Montanucci L, Laayouni H, Dall'Olio GM, Bertranpetit J. Molecular evolution and network-level analysis of the N-glycosylation metabolic pathway across primates. *Mol Biol Evol.* 2011;28(10):2876–2887. https://doi.org/10.1093/molbev/msr116
 
