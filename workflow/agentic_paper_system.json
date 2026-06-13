@@ -530,6 +530,21 @@
         "results/tables/conservation_summary.tsv",
         "data/processed/nglyco_architecture_features.tsv"
       ]
+    },
+    {
+      "id": "tighten_manuscript_claims",
+      "agent": "critic_agent",
+      "outputs": [
+        "docs/manuscript/draft.md"
+      ],
+      "prerequisites": [
+        "docs/manuscript/draft.md",
+        "docs/manuscript/evidence-matrix.md",
+        "results/tables/gwas_null_model_summary.txt",
+        "results/tables/glycome_gwas_summary.txt",
+        "results/tables/dnds_summary_v2.txt",
+        "results/tables/popgen_group_comparisons.tsv"
+      ]
     }
   ]
 }

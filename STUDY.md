@@ -286,7 +286,7 @@ Expected outputs:
 - `[x]` Draft results.
 - `[x]` Draft discussion.
 - `[x]` Draft limitations.
-- `[ ]` Check that individual gene examples do not dominate the architecture-level argument.
+- `[x]` Check that individual gene examples do not dominate the architecture-level argument.
 - `[ ]` Assemble first complete manuscript draft.
 - `[ ]` Prepare supplementary tables.
 - `[ ]` Prepare reproducibility statement.
@@ -379,6 +379,7 @@ Expected outputs:
 - 2026-06-06: Started `docs/manuscript/draft.md` with a first-pass Introduction using the manuscript outline, argument blueprint, claims register, evidence matrix, and literature matrix; added `draft_introduction` to the agentic workflow registry.
 - 2026-06-07: Added a first-pass Methods section to `docs/manuscript/draft.md`, covering pathway curation, architecture features, provisional constraint analysis, disease annotation tiers, GWAS trait mapping, downstream locus audit, and claim-control rules; added `draft_methods` to the agentic workflow registry.
 - 2026-06-08: Added a first-pass Results section to `docs/manuscript/draft.md`, synthesizing architecture, provisional constraint, disease, ClinVar, GWAS category, and downstream locus-review results with claim limits; added `draft_results` to the agentic workflow registry.
+- 2026-06-13: Tightened manuscript claim language in the abstract, results, discussion, limitations, and conclusion so GWAS assignments, LOEUF survivor-bias interpretation, comparator-pathway patterns, and trait-layer examples are framed as supported or provisional rather than causal proof; added `tighten_manuscript_claims` to the agentic workflow registry.
 - 2026-05-30: Completed agentic work unit `draft_paper_thesis` with `docs/concept/paper-thesis.md`, formalizing the robustness/evolvability thesis as a testable model with competing hypotheses, prediction-to-evidence mapping, claim levels, and critic safeguards.
 - 2026-05-31: Documented an optional first-paper comparator module using 1-3 pathways as a specificity check, with heme biosynthesis, CoQ / ubiquinone biosynthesis, and GPI-anchor biosynthesis as the recommended minimal candidates.
 - 2026-05-31: Updated the thesis, project plan, and literature review to position Montanucci et al. and Zoldos/Lauc glyco-regulation work as direct predecessors, and to shift the expected evolvability signal toward regulatory, glycan-output, tissue, disease, and trait layers rather than coding-sequence acceleration.
