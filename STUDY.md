@@ -110,7 +110,7 @@ Immediate next tasks:
 - `[x]` Annotate redundancy or paralog family membership.
 - `[x]` Compute graph metrics.
 - `[ ]` Test whether centrality metrics are robust across graph encodings before using them in the manuscript.
-- `[ ]` Add expression breadth and tissue specificity metrics.
+- `[x]` Add expression breadth and tissue specificity metrics.
 - `[ ]` Add essentiality metrics.
 - `[x]` Create combined architecture feature table.
 
@@ -173,21 +173,45 @@ Expected outputs:
 
 ## Phase 6: Trait and Tissue Interface Layer
 
-- `[ ]` Identify tissue expression datasets.
-- `[ ]` Create `docs/methods/interface-layer-analysis.md`.
-- `[ ]` Add expression breadth.
-- `[ ]` Add tissue specificity.
-- `[ ]` Add epithelial/barrier tissue signal.
-- `[ ]` Add immune-cell expression signal.
+- `[x]` Identify tissue expression datasets. **First-pass source: Human Protein Atlas GTEx tissue nTPM table cached at `data/raw/hpa_rna_tissue_gtex.tsv`.**
+- `[x]` Create `docs/methods/interface-layer-analysis.md`.
+- `[x]` Add expression breadth.
+- `[x]` Add tissue specificity.
+- `[x]` Add epithelial/barrier tissue signal.
+- `[x]` Add immune-tissue proxy signal.
+- `[~]` Add essentiality metrics. **Script supports optional DepMap CRISPR gene-effect input; local DepMap file not yet present.**
 - `[x]` Map GWAS traits to broad categories.
 - `[~]` Test enrichment of immune, infection, inflammation, cancer, microbiome, and tissue-identity traits downstream.
-- `[ ]` Create interface-layer trait profile figure.
+- `[x]` Create first expression-deployment figure.
+- `[ ]` Create combined interface-layer trait profile figure.
 
 Expected outputs:
 
 - `docs/methods/interface-layer-analysis.md`
+- `scripts/analyze_expression_essentiality.py`
+- `data/processed/nglyco_expression_essentiality.tsv`
 - `results/tables/interface_trait_profile.tsv`
+- `results/tables/interface_expression_summary.tsv`
+- `results/tables/interface_essentiality_summary.tsv`
 - `results/figures/interface_trait_profile.*`
+- `results/figures/interface_expression_profile.*`
+
+## Phase 6B: Candidate Analysis Backlog
+
+These analyses are candidates for strengthening the manuscript. They should be scoped individually and included only if the results materially improve the argument.
+
+- `[x]` Expression breadth, tissue specificity, barrier-tissue deployment, and immune-tissue proxy expression. **First pass completed 2026-06-15 using HPA GTEx tissue nTPM.**
+- `[~]` Essentiality and cell-viability evidence from DepMap CRISPR gene-effect scores. **Pipeline hook added; data input pending.**
+- `[ ]` Glycan-trait heritability or variance partitioning by pathway layer.
+- `[ ]` Fine mapping or colocalization review for downstream IgG glycan loci (`FUT8`, `MGAT3`, `ST6GAL1`, `B4GALT1`, `FUT3`, `MGAT5`, `ST3GAL4`).
+- `[ ]` Expanded matched-null disease architecture across more comparator pathways.
+- `[ ]` Paralog-family diversification analysis: family size, duplication age, substrate divergence, and tissue divergence.
+- `[ ]` Standing variation burden from gnomAD allele-frequency summaries.
+- `[ ]` Regulatory complexity: enhancer count, eQTL density, chromatin accessibility breadth, or regulatory tissue specificity.
+
+Decision rule:
+
+Candidate analyses should be included in the first manuscript only if they answer a live critique, sharpen the robustness/evolvability claim, or provide a necessary covariate. Otherwise, keep them as future-work or supplement-only modules.
 
 ## Phase 7: Cross-Species Conservation and Human Population Differentiation
 
@@ -350,6 +374,7 @@ Expected outputs:
 
 ## Change Log
 
+- 2026-06-15: Added the candidate-analysis backlog to the roadmap, prioritizing expression/essentiality, glycan-trait variance, fine mapping/colocalization, expanded pathway nulls, paralog diversification, standing variation, and regulatory complexity. Started the expression/essentiality work package with `docs/methods/interface-layer-analysis.md`, a reusable `scripts/analyze_expression_essentiality.py` script, Makefile target, and data-source notes. Ran the first expression pass from cached HPA GTEx tissue nTPM, generating `data/processed/nglyco_expression_essentiality.tsv`, `results/tables/interface_expression_summary.tsv`, `results/tables/interface_expression_primary_contrasts.tsv`, and `results/figures/interface_expression_profile.*`. Essentiality currently depends on adding a local DepMap CRISPR gene-effect matrix.
 - 2026-05-20: Created `STUDY.md` as the live project tracker.
 - 2026-05-20: Added `docs/concept/literature-review.md` as the readable grouped literature summary; corrected the N-linked glycosylation network citation; expanded `docs/concept/literature-matrix.tsv` with high-priority references across N-glycosylation, population genetics, network biology, disease/constraint, glycoimmunology, and robustness/evolvability.
 - 2026-05-21: Added original-paper criticisms as explicit robustness/reviewer-risk safeguards in `docs/concept/project-plan.md` and mirrored them as checklist items in this tracker.

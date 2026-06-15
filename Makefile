@@ -1,4 +1,4 @@
-.PHONY: help agentic-inspect agentic-check agentic-next agentic-prompt architecture-features constraint-summary constraint-gradient constraint-network-plots disease-seed-table clinvar-disease-layer gwas-trait-layer disease-architecture-plot downstream-gwas-audit downstream-gwas-locus-review ti
+.PHONY: help agentic-inspect agentic-check agentic-next agentic-prompt architecture-features constraint-summary constraint-gradient constraint-network-plots disease-seed-table clinvar-disease-layer gwas-trait-layer disease-architecture-plot downstream-gwas-audit downstream-gwas-locus-review interface-expression-essentiality ti
 
 PYTHON ?= uv run python
 AGENTIC_REGISTRY ?= workflow/agentic_paper_system.json
@@ -7,6 +7,7 @@ CONSTRAINT_METRICS ?=
 CONSTRAINT_DATASET_VERSION ?= gnomAD_v4.1.1
 CLINVAR_VARIANT_SUMMARY ?= data/external/clinvar/variant_summary.txt.gz
 GWAS_CATALOG_ASSOCIATIONS ?= data/external/gwas_catalog/gwas_catalog_v1.0.2-associations_e115_r2026-06-01_split.zip
+DEPMAP_GENE_EFFECT ?= data/external/depmap/CRISPRGeneEffect.csv
 
 help:
 	@printf "%s\n" "Available targets:"
@@ -24,6 +25,7 @@ help:
 	@printf "  %-18s %s\n" "disease-architecture-plot" "Plot CDG, ClinVar, and GWAS trait evidence layers."
 	@printf "  %-18s %s\n" "downstream-gwas-audit" "Audit downstream GWAS/glycome candidate examples."
 	@printf "  %-18s %s\n" "downstream-gwas-locus-review" "Extract locus context for strong downstream GWAS candidates."
+	@printf "  %-18s %s\n" "interface-expression-essentiality" "Compute expression deployment and optional DepMap essentiality metrics."
 	@printf "  %-18s %s\n" "ti" "Alias for agentic-inspect."
 
 agentic-inspect:
@@ -42,6 +44,7 @@ agentic-check:
 	$(PYTHON) -m py_compile scripts/plot_disease_architecture.py
 	$(PYTHON) -m py_compile scripts/audit_downstream_gwas_candidates.py
 	$(PYTHON) -m py_compile scripts/review_downstream_gwas_loci.py
+	$(PYTHON) -m py_compile scripts/analyze_expression_essentiality.py
 	$(PYTHON) scripts/inspect_agentic_system.py --registry $(AGENTIC_REGISTRY)
 
 agentic-next:
@@ -84,5 +87,8 @@ downstream-gwas-audit:
 downstream-gwas-locus-review:
 	@test -f "$(GWAS_CATALOG_ASSOCIATIONS)" || (printf "%s\n" "Set GWAS_CATALOG_ASSOCIATIONS=/path/to/gwas_catalog_associations.zip"; exit 2)
 	$(PYTHON) scripts/review_downstream_gwas_loci.py --gwas-catalog-zip "$(GWAS_CATALOG_ASSOCIATIONS)"
+
+interface-expression-essentiality:
+	$(PYTHON) scripts/analyze_expression_essentiality.py --depmap-gene-effect "$(DEPMAP_GENE_EFFECT)"
 
 ti: agentic-inspect

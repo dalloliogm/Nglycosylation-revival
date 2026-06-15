@@ -83,3 +83,42 @@ The archive is about 63 MB locally and is not committed. Rebuild the GWAS trait 
 make gwas-trait-layer \
   GWAS_CATALOG_ASSOCIATIONS=data/external/gwas_catalog/gwas_catalog_v1.0.2-associations_e115_r2026-06-01_split.zip
 ```
+
+## Human Protein Atlas GTEx Tissue Expression
+
+The interface-layer expression pass uses the Human Protein Atlas GTEx RNA tissue table:
+
+```text
+data/raw/hpa_rna_tissue_gtex.tsv
+```
+
+The file is about 32 MB locally and is currently cached from the LOEUF covariate analysis. It can be rebuilt from the HPA zipped TSV:
+
+```bash
+mkdir -p data/raw
+curl -L \
+  -o /tmp/hpa_rna_tissue_gtex.tsv.zip \
+  https://www.proteinatlas.org/download/tsv/rna_tissue_gtex.tsv.zip
+unzip -p /tmp/hpa_rna_tissue_gtex.tsv.zip > data/raw/hpa_rna_tissue_gtex.tsv
+```
+
+Rebuild the expression and optional essentiality layer with:
+
+```bash
+make interface-expression-essentiality
+```
+
+## DepMap CRISPR Essentiality
+
+The interface-layer essentiality pass can optionally use a DepMap CRISPR gene-effect matrix:
+
+```text
+data/external/depmap/CRISPRGeneEffect.csv
+```
+
+This file is not currently committed or required. If present, rerun:
+
+```bash
+make interface-expression-essentiality \
+  DEPMAP_GENE_EFFECT=data/external/depmap/CRISPRGeneEffect.csv
+```
