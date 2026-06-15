@@ -111,7 +111,7 @@ Immediate next tasks:
 - `[x]` Compute graph metrics.
 - `[ ]` Test whether centrality metrics are robust across graph encodings before using them in the manuscript.
 - `[x]` Add expression breadth and tissue specificity metrics.
-- `[ ]` Add essentiality metrics.
+- `[x]` Add essentiality metrics.
 - `[x]` Create combined architecture feature table.
 
 Expected outputs:
@@ -179,7 +179,7 @@ Expected outputs:
 - `[x]` Add tissue specificity.
 - `[x]` Add epithelial/barrier tissue signal.
 - `[x]` Add immune-tissue proxy signal.
-- `[~]` Add essentiality metrics. **Script supports optional DepMap CRISPR gene-effect input; local DepMap file not yet present.**
+- `[x]` Add essentiality metrics. **First-pass DepMap CRISPR gene-effect run completed from `data/external/depmap/CRISPRGeneEffect.csv`.**
 - `[x]` Map GWAS traits to broad categories.
 - `[~]` Test enrichment of immune, infection, inflammation, cancer, microbiome, and tissue-identity traits downstream.
 - `[x]` Create first expression-deployment figure.
@@ -201,7 +201,7 @@ Expected outputs:
 These analyses are candidates for strengthening the manuscript. They should be scoped individually and included only if the results materially improve the argument.
 
 - `[x]` Expression breadth, tissue specificity, barrier-tissue deployment, and immune-tissue proxy expression. **First pass completed 2026-06-15 using HPA GTEx tissue nTPM.**
-- `[~]` Essentiality and cell-viability evidence from DepMap CRISPR gene-effect scores. **Pipeline hook added; data input pending.**
+- `[x]` Essentiality and cell-viability evidence from DepMap CRISPR gene-effect scores. **First pass completed 2026-06-15; upstream-core genes show much stronger pan-cell-line fitness costs than downstream-diversification genes.**
 - `[ ]` Glycan-trait heritability or variance partitioning by pathway layer.
 - `[ ]` Fine mapping or colocalization review for downstream IgG glycan loci (`FUT8`, `MGAT3`, `ST6GAL1`, `B4GALT1`, `FUT3`, `MGAT5`, `ST3GAL4`).
 - `[ ]` Expanded matched-null disease architecture across more comparator pathways.
@@ -374,7 +374,7 @@ Expected outputs:
 
 ## Change Log
 
-- 2026-06-15: Added the candidate-analysis backlog to the roadmap, prioritizing expression/essentiality, glycan-trait variance, fine mapping/colocalization, expanded pathway nulls, paralog diversification, standing variation, and regulatory complexity. Started the expression/essentiality work package with `docs/methods/interface-layer-analysis.md`, a reusable `scripts/analyze_expression_essentiality.py` script, Makefile target, and data-source notes. Ran the first expression pass from cached HPA GTEx tissue nTPM, generating `data/processed/nglyco_expression_essentiality.tsv`, `results/tables/interface_expression_summary.tsv`, `results/tables/interface_expression_primary_contrasts.tsv`, and `results/figures/interface_expression_profile.*`. Essentiality currently depends on adding a local DepMap CRISPR gene-effect matrix.
+- 2026-06-15: Added the candidate-analysis backlog to the roadmap, prioritizing expression/essentiality, glycan-trait variance, fine mapping/colocalization, expanded pathway nulls, paralog diversification, standing variation, and regulatory complexity. Started the expression/essentiality work package with `docs/methods/interface-layer-analysis.md`, a reusable `scripts/analyze_expression_essentiality.py` script, Makefile target, and data-source notes. Ran the first expression pass from cached HPA GTEx tissue nTPM, generating `data/processed/nglyco_expression_essentiality.tsv`, `results/tables/interface_expression_summary.tsv`, `results/tables/interface_expression_primary_contrasts.tsv`, and `results/figures/interface_expression_profile.*`. After adding `data/external/depmap/CRISPRGeneEffect.csv`, reran the script and generated `results/tables/interface_essentiality_summary.tsv` plus `results/tables/interface_essentiality_primary_contrasts.tsv`; upstream-core genes showed far stronger DepMap fitness costs than downstream-diversification genes (median mean gene effect −0.496 vs −0.014; Mann-Whitney p = 2.16e-07).
 - 2026-05-20: Created `STUDY.md` as the live project tracker.
 - 2026-05-20: Added `docs/concept/literature-review.md` as the readable grouped literature summary; corrected the N-linked glycosylation network citation; expanded `docs/concept/literature-matrix.tsv` with high-priority references across N-glycosylation, population genetics, network biology, disease/constraint, glycoimmunology, and robustness/evolvability.
 - 2026-05-21: Added original-paper criticisms as explicit robustness/reviewer-risk safeguards in `docs/concept/project-plan.md` and mirrored them as checklist items in this tracker.

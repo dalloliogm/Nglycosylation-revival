@@ -19,6 +19,7 @@ data/processed/*
 data/external/clinvar/*.gz
 data/external/gwas_catalog/*.zip
 data/external/gnomad/*.tsv
+data/external/depmap/*.csv
 results/figures/*
 results/tables/*
 results/reports/*
