@@ -21,7 +21,7 @@ Purpose: connect manuscript claims to current evidence artifacts, allowed wordin
 | A simple pathway-depth model is insufficient. | Supported | `results/reports/constraint-gradient-interpretation.md`; `results/tables/constraint_group_comparisons.tsv` | "Constraint results refine the model: pathway depth alone does not explain intolerance." | "The robustness/evolvability model is falsified by constraint." |
 | Severe Mendelian/CDG disease burden is concentrated in early shared machinery. | Supported | `data/processed/nglyco_disease_annotations.tsv`; `results/tables/disease_architecture_summary.tsv`; `results/figures/disease_architecture.*` | "Curated CDG and ClinVar P/LP evidence concentrate in substrate-support, LLO assembly, and OST-related machinery." | "All upstream genes are severe disease genes." |
 | Downstream regions show richer glycome and interface trait evidence than severe Mendelian disease evidence. | Supported, with GWAS caveat | `results/figures/disease_architecture.*`; `results/tables/gwas_catalog_gene_trait_counts.tsv`; `results/tables/downstream_gwas_candidate_audit.tsv`; `results/tables/downstream_gwas_locus_review_summary.tsv` | "Downstream branching and terminal-modification genes show broad glycome and immune/interface trait-category evidence, especially in GWAS Catalog annotations." | "GWAS mapped genes are causal"; "downstream variation proves adaptation." |
-| The current evidence supports a layered disease/trait architecture more strongly than a pure coding-constraint gradient. | Supported | Constraint, disease, and GWAS layers above | "The strongest current support is a layered architecture: severe disease evidence is concentrated in core/shared machinery, while glycome and interface trait evidence is richer downstream." | "Downstream genes are generally unconstrained"; "upstream genes are the only constrained genes." |
+| The current evidence supports a layered disease/trait architecture more strongly than a pure coding-constraint gradient. | Supported | Disease, DepMap essentiality, expression, constraint, and GWAS layers above | "The strongest current support is a layered architecture: severe disease and cell-viability evidence are concentrated in core/shared machinery, while glycome and interface trait evidence is richer downstream." | "Downstream genes are generally unconstrained"; "upstream genes are the only constrained genes." |
 
 ## Constraint Evidence
 
@@ -30,6 +30,15 @@ Purpose: connect manuscript claims to current evidence artifacts, allowed wordin
 | Primary upstream-core genes have higher median LOEUF than downstream genes in the provisional gnomAD run. | This goes against the naive expectation that upstream always means more LoF-constrained. | `results/tables/constraint_group_comparisons.tsv`; `results/reports/constraint-gradient-interpretation.md` | Do not use LOEUF alone as the architecture proof. |
 | Downstream genes have higher median missense Z than upstream-core genes in the primary contrast. | Some downstream enzymes may be coding-constrained despite being part of the glycan-output/interface layer. | `results/tables/constraint_group_comparisons.tsv`; `results/figures/constraint_gradient.*` | Do not equate downstream diversification with coding tolerance. |
 | Strong constraint examples span OST, ER quality control, and downstream glycan-output genes. | Catastrophic potential may localize to dependency/checkpoint/output nodes rather than just early pathway position. | `results/figures/nglyco_pathway_constraint_loeuf.*`; `results/figures/nglyco_pathway_constraint_mis_z.*` | Requires matched nulls, covariates, and expression/essentiality layers before strong generalization. |
+
+## Expression And Essentiality Evidence
+
+| Finding | Interpretation | Supporting artifact | Claim limit |
+| --- | --- | --- | --- |
+| Upstream-core genes have much stronger DepMap CRISPR fitness costs than downstream-diversification genes. | This is one of the strongest current supports for the catastrophic-core component of the model. | `data/processed/nglyco_expression_essentiality.tsv`; `results/tables/interface_essentiality_summary.tsv`; `results/tables/interface_essentiality_primary_contrasts.tsv` | DepMap cancer-cell fitness is not the same as organism-level developmental essentiality, and should be treated as cell-viability evidence. |
+| Median DepMap mean gene effect is -0.496 upstream versus -0.014 downstream. | Upstream/core disruption is broadly costly across cell lines, while downstream terminal/branching genes are much less pan-essential. | `results/tables/interface_essentiality_primary_contrasts.tsv` | Do not claim every upstream gene is essential or every downstream gene is dispensable. |
+| Downstream-diversification genes have higher HPA/GTEx tissue-specificity tau than upstream-core genes. | This supports more context-specific deployment downstream. | `results/tables/interface_expression_summary.tsv`; `results/tables/interface_expression_primary_contrasts.tsv`; `results/figures/interface_expression_profile.*` | Bulk tissue expression does not resolve cell-type-specific immune or epithelial expression. |
+| Barrier and immune bulk-tissue proxy expression ratios are not clearly downstream-enriched. | This weakens any simple claim that downstream genes are globally higher in barrier or immune tissues. | `results/tables/interface_expression_primary_contrasts.tsv` | Do not use the first-pass HPA tissue proxy as strong evidence for immune or mucosal deployment. |
 
 ## Disease Evidence
 
@@ -71,12 +80,9 @@ Purpose: connect manuscript claims to current evidence artifacts, allowed wordin
 
 ## Manuscript-Ready Synthesis
 
-The current results support a cautious architecture model. The simple prediction that upstream genes are always more constrained is not supported by the provisional gnomAD constraint analysis. Instead, the stronger pattern is layered: early shared machinery, especially substrate support, LLO assembly, and OST transfer, carries a high severe Mendelian/CDG and ClinVar P/LP burden, while downstream branching and terminal-modification genes show richer glycome and interface trait evidence. This supports a model in which robustness and evolvability are not separated by coding constraint alone; the downstream layer may express evolvability through glycan-output traits, regulatory deployment, and context-dependent phenotypes.
+The current results support a cautious architecture model. The simple prediction that upstream genes are always more constrained by LOEUF is not supported by the provisional gnomAD constraint analysis. Instead, the stronger pattern is layered: early shared machinery, especially LLO assembly and OST transfer, carries high severe Mendelian/CDG burden and strong DepMap cell-viability cost, while downstream branching and terminal-modification genes show richer glycome and interface trait evidence and more tissue-specific expression. This supports a model in which robustness and evolvability are not separated by coding constraint alone; the downstream layer may express evolvability through glycan-output traits, regulatory deployment, and context-dependent phenotypes.
 
 ## Remaining Gaps
 
-- Add expression breadth and tissue-specific deployment.
-- Add essentiality metrics.
 - Build matched-null controls for gene length, constraint, and GWAS annotation density.
-- Decide whether comparator pathways are required for the first paper.
 - Convert this matrix into Results and Discussion prose with strict claim levels.
