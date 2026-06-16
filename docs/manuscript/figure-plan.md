@@ -18,29 +18,29 @@ ARS workflow: `academic-paper`, Visualization planning support.
 
 **Evidence status**: Existing first version available; needs database cross-check and visual refinement.
 
-## Figure 3: Constraint and Tolerated Variation Gradient
+## Figure 3: Constraint, Essentiality, and Cell-Viability Gradient
 
-**Purpose**: Test the robustness-layer prediction.
+**Purpose**: Test whether the catastrophic-core prediction is visible in functional intolerance even when simple coding-constraint metrics are mixed.
 
-**Content**: Gene-level constraint and tolerated variation metrics by pathway region, with uncertainty and matched-null or covariate-adjusted summaries.
+**Content**: Gene-level LOEUF and missense Z by pathway region, paired with DepMap CRISPR gene-effect summaries. Include the covariate-controlled DepMap result as an inset or caption statistic: downstream-diversification coefficient remains negative after expression, tissue-specificity, gene-length, and paralog controls.
 
-**Evidence status**: Planned.
+**Evidence status**: Core result available. Existing constraint figures are `results/figures/constraint_gradient.*`; DepMap expression/essentiality first-pass figure is `results/figures/interface_expression_profile.*`; regression output is `results/tables/interface_essentiality_regression_results.txt`. Needs final main-text visual composition.
 
-## Figure 4: Disease Architecture Gradient
+## Figure 4: Disease and Trait Architecture Gradient
 
-**Purpose**: Test severe Mendelian burden upstream versus complex/context-dependent trait burden downstream.
+**Purpose**: Test severe Mendelian burden upstream versus complex/context-dependent trait and glycan-output evidence downstream.
 
-**Content**: Region-level burden of CDG/Mendelian disease, ClinVar pathogenic evidence, and GWAS/trait categories separated by evidence confidence.
+**Content**: Region-level burden of CDG/Mendelian disease, ClinVar pathogenic evidence, GWAS/trait categories, and IgG/plasma glycome locus layer separated by evidence confidence.
 
-**Evidence status**: Planned.
+**Evidence status**: Existing disease architecture figure available at `results/figures/disease_architecture.*`; glycome and GWAS-null outputs are available in `results/tables/`. Needs final update if IgG locus partitioning is promoted to a panel.
 
 ## Figure 5: Interface Trait and Tissue Profile
 
 **Purpose**: Show whether downstream/interface regions are enriched for immune, infection, inflammation, cancer, microbiome, barrier-tissue, or tissue-identity signals.
 
-**Content**: Heatmap or dot plot of trait categories and expression/tissue features by pathway region.
+**Content**: Heatmap or dot plot of trait categories and expression/tissue features by pathway region. Expression tau can be shown as context-deployment support; first-pass barrier/immune bulk-tissue proxy ratios should be visually de-emphasized or left to supplement because they are weak.
 
-**Evidence status**: Planned.
+**Evidence status**: Expression/essentiality outputs are available. A combined interface trait profile is still pending.
 
 ## Figure 6: Evidence Matrix
 
@@ -52,8 +52,8 @@ ARS workflow: `academic-paper`, Visualization planning support.
 
 ## Optional Figure 7: Population-Genetic Supporting Signals
 
-**Purpose**: Include only if modern analysis adds controlled, interpretable evidence.
+**Purpose**: Present population genetics as null/exploratory context, not as a primary support layer.
 
-**Content**: Region-level differentiation or selection summaries with strict caveats, plus candidate-locus inspection only for replicated signals.
+**Content**: Region-level differentiation or selection summaries with strict caveats. Candidate-locus inspection should be included only as hypothesis-generating context.
 
-**Evidence status**: Decision pending.
+**Evidence status**: FST/PBS/iHS outputs are available and mostly null. Include only if the final manuscript needs continuity with the 2012 paper or a transparent negative result.

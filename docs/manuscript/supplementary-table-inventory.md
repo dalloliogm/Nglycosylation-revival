@@ -1,0 +1,41 @@
+# Supplementary Table Inventory
+
+Date: 2026-06-16
+
+Purpose: map manuscript claims to stable result tables, scripts, and claim limits before assembling the first complete manuscript package.
+
+## Primary Tables
+
+| Proposed table | Repository artifact | Producing script or target | Manuscript role | Claim limit |
+| --- | --- | --- | --- | --- |
+| Supplementary Table 1: curated N-glycosylation gene set | `data/processed/nglyco_gene_table.tsv` | Manual curation documented in `docs/methods/pathway-curation.md` | Defines the 101-gene case-study set, pathway regions, primary/sensitivity flags, and gene coordinates. | Reactome-first curation; GlyGen/UniProt/HGNC/GO cross-check remains a future curation hardening step. |
+| Supplementary Table 2: architecture features | `data/processed/nglyco_architecture_features.tsv`; `results/tables/architecture_feature_summary.tsv` | `make architecture-features` | Provides depth, checkpoint, branching, terminal-modification, paralog-family, and graph features. | Graph centrality is exploratory unless robustness across graph encodings is shown. |
+| Supplementary Table 3: coding constraint metrics | `data/processed/nglyco_constraint_metrics.tsv`; `results/tables/constraint_summary.tsv`; `results/tables/constraint_group_comparisons.tsv` | `make constraint-summary`; `make constraint-gradient` | Supports the LOEUF/missense-Z result and the claim that a simple upstream-more-constrained coding model is not supported. | LOEUF is not a direct measure of recessive lethality or pathway-level catastrophic potential. |
+| Supplementary Table 4: LOEUF covariate regression | `data/processed/nglyco_loeuf_covariates.tsv`; `results/tables/loeuf_regression_results.txt`; `results/tables/loeuf_covariate_summary.tsv` | `uv run python scripts/analyze_loeuf_regression.py` | Documents gene-length, expression, and paralog covariates used to interpret the LOEUF inversion. | Small pathway-level regression; explanatory rather than causal. |
+| Supplementary Table 5: expression and DepMap essentiality | `data/processed/nglyco_expression_essentiality.tsv`; `results/tables/interface_expression_summary.tsv`; `results/tables/interface_expression_primary_contrasts.tsv`; `results/tables/interface_essentiality_summary.tsv`; `results/tables/interface_essentiality_primary_contrasts.tsv` | `make interface-expression-essentiality` | Supports tissue-specificity and cell-line essentiality claims. | DepMap is cancer-cell-line fitness, not organismal lethality; HPA/GTEx is bulk tissue expression. |
+| Supplementary Table 6: DepMap essentiality covariate control | `results/tables/interface_essentiality_regression_results.txt`; `results/reports/interface-essentiality-interpretation.md` | `make interface-essentiality-regression` | Shows that the upstream/downstream DepMap separation survives first-pass expression, gene-length, and paralog covariates. | OLS covariate screen on 54 primary genes, not a definitive causal model. |
+| Supplementary Table 7: disease architecture | `data/processed/nglyco_disease_annotations.tsv`; `results/tables/disease_architecture_summary.tsv`; `results/tables/clinvar_plp_gene_counts.tsv` | `make disease-seed-table`; `make clinvar-disease-layer`; `make disease-architecture-plot` | Supports the severe Mendelian/CDG gradient. | GeneReviews and ClinVar are ascertainment-biased and conservative; absence of annotation is not absence of disease relevance. |
+| Supplementary Table 8: GWAS trait category layer | `results/tables/gwas_catalog_gene_trait_counts.tsv`; `results/tables/gwas_catalog_nglyco_matched_associations.tsv` | `make gwas-trait-layer` | Supports downstream glycan/immune/interface trait-category enrichment. | GWAS Catalog reported/mapped genes are not causal assignments. |
+| Supplementary Table 9: downstream GWAS locus audit | `results/tables/downstream_gwas_candidate_audit.tsv`; `results/tables/downstream_gwas_candidate_associations.tsv`; `results/tables/downstream_gwas_locus_review.tsv`; `results/tables/downstream_gwas_locus_review_summary.tsv` | `make downstream-gwas-audit`; `make downstream-gwas-locus-review` | Documents candidate downstream glycome examples such as `FUT8`, `MGAT3`, `ST6GAL1`, `B4GALT1`, `FUT3`, `MGAT5`, and `ST3GAL4`. | Candidate-gene evidence only; fine mapping and colocalization remain needed for causal claims. |
+| Supplementary Table 10: GWAS null model | `data/processed/pathway_null_model_genes.tsv`; `results/tables/pathway_null_model_comparison.tsv`; `results/tables/pathway_null_model_summary.txt`; `results/tables/gwas_null_model_gene_profile.tsv`; `results/tables/gwas_null_model_summary.txt` | `uv run python scripts/build_gwas_null_model.py`; `uv run python scripts/build_pathway_null_model.py` | Records genome-wide/hit-count matching checks for GWAS annotation-density confounding. | Matching is partial and does not replace locus-level fine mapping. |
+| Supplementary Table 11: IgG/plasma glycome locus layer | `results/tables/glycome_gwas_per_gene.tsv`; `results/tables/glycome_gwas_summary.txt` | `uv run python scripts/glycome_variance_partitioning.py` | Supports the direct glycan-output spatial skew used in the abstract and results. | Current implementation is locus/gene assignment based, not variance explained or causal fine mapping. |
+| Supplementary Table 12: cross-species conservation and dN/dS | `data/processed/nglyco_conservation_metrics.tsv`; `results/tables/conservation_summary.tsv`; `results/tables/conservation_group_comparisons.tsv`; `results/tables/dnds_summary_v2.txt` | `uv run python scripts/build_nglyco_conservation_metrics.py`; `uv run python scripts/analyze_conservation_gradient.py`; `uv run python scripts/compute_dnds_nglyco.py` | Supports the null coding-conservation/dN/dS gradient. | Pairwise human-mouse dN/dS has limited power for lineage-specific selection. |
+| Supplementary Table 13: population-genetic context | `data/processed/nglyco_fst_per_gene.tsv`; `data/processed/nglyco_pbs_per_gene.tsv`; `data/processed/nglyco_ihs_per_gene.tsv`; `results/tables/popgen_fst_summary.tsv`; `results/tables/popgen_ihs_summary.tsv`; `results/tables/popgen_group_comparisons.tsv` | `uv run python scripts/fetch_popgen_data.py`; `uv run python scripts/compute_fst_pbs.py`; `uv run python scripts/extract_pophuman_ihs.py`; `uv run python scripts/analyze_popgen_gradient.py` | Supports the statement that FST/PBS/iHS do not show a clean upstream/downstream gradient. | Population-genetic signals remain exploratory and not causal adaptation evidence. |
+| Supplementary Table 14: comparator pathways | `data/processed/comparator_gene_table.tsv`; `data/processed/comparator_constraint_metrics.tsv`; `results/tables/comparator_constraint_summary.tsv`; `results/tables/comparator_constraint_join_audit.tsv`; `results/tables/pathway_null_model_comparison.tsv` | `uv run python scripts/build_comparator_gene_table.py`; `uv run python scripts/build_comparator_constraint.py`; comparator curation documented in `docs/methods/comparator-pathways.md` | Supports the claim that disease/essentiality layering may be topology-dependent rather than universal. | Current comparator set is lightweight and not formally matched across all covariates. |
+
+## Reports Used As Interpretation Support
+
+| Report | Role |
+| --- | --- |
+| `results/reports/constraint-gradient-interpretation.md` | Interprets LOEUF/missense-Z gradient and cautions against simple coding-constraint claims. |
+| `results/reports/disease-architecture-interpretation.md` | Interprets CDG, ClinVar, and GWAS disease/trait layering. |
+| `results/reports/downstream-gwas-candidate-audit.md` | Summarizes downstream glycome candidate evidence and assignment risk. |
+| `results/reports/downstream-gwas-locus-review.md` | Provides locus-level context for downstream GWAS examples. |
+| `results/reports/interface-essentiality-interpretation.md` | Interprets DepMap covariate-control result and claim limits. |
+
+## Gaps Before Submission
+
+- Decide which of these tables should be main-text tables, formal supplementary tables, or repository-only reproducibility artifacts.
+- Create a final table numbering scheme after journal target selection.
+- Add checksums or release IDs for all external files in the reproducibility statement.
+- Reconcile figure numbering with the table inventory after final figure assembly.
