@@ -1,0 +1,195 @@
+Interface Essentiality Regression Results
+============================================
+
+Input table: data/processed/nglyco_expression_essentiality.tsv
+Covariate table: data/processed/nglyco_loeuf_covariates.tsv
+Primary complete genes: 54
+
+Primary group comparison
+------------------------
+upstream_n: 26.0000
+downstream_n: 28.0000
+upstream_median_cost: 0.4961
+downstream_median_cost: 0.0143
+median_diff_upstream_minus_downstream: 0.4819
+mannwhitney_u: 664.0000
+mannwhitney_p: 2.16e-07
+rank_biserial_r: -0.8242
+
+Model summary
+-------------
+group_only: downstream coefficient=-0.6318, HC3 p=3.72e-08, R2=0.394, adjusted R2=0.382
+  formula: depmap_fitness_cost ~ C(analysis_group, Treatment('upstream_core'))
+group_plus_expression: downstream coefficient=-0.5393, HC3 p=1.01e-05, R2=0.429, adjusted R2=0.395
+  formula: depmap_fitness_cost ~ C(analysis_group, Treatment('upstream_core')) + expression_n_tissues_ntpm_ge_1 + expression_tau
+group_plus_gene_architecture: downstream coefficient=-0.6039, HC3 p=9.32e-05, R2=0.407, adjusted R2=0.372
+  formula: depmap_fitness_cost ~ C(analysis_group, Treatment('upstream_core')) + log_gene_length + log_paralog_count
+full_covariate_model: downstream coefficient=-0.5144, HC3 p=0.0015, R2=0.441, adjusted R2=0.382
+  formula: depmap_fitness_cost ~ C(analysis_group, Treatment('upstream_core')) + expression_n_tissues_ntpm_ge_1 + expression_tau + log_gene_length + log_paralog_count
+full_plus_cds_length: downstream coefficient=-0.5087, HC3 p=0.0073, R2=0.440, adjusted R2=0.362
+  formula: depmap_fitness_cost ~ C(analysis_group, Treatment('upstream_core')) + expression_n_tissues_ntpm_ge_1 + expression_tau + log_gene_length + log_cds_length + log_paralog_count
+
+Covariate Spearman correlations with DepMap fitness cost
+----------------------------------------------------------
+expression_n_tissues_ntpm_ge_1: rho=0.212, p=0.1237
+expression_tau: rho=-0.508, p=8.91e-05
+log_gene_length: rho=-0.396, p=0.0030
+log_cds_length: rho=-0.106, p=0.4645
+log_paralog_count: rho=-0.550, p=1.67e-05
+family_size_in_dataset: rho=0.158, p=0.2547
+
+Full model details
+------------------
+
+group_only
+depmap_fitness_cost ~ C(analysis_group, Treatment('upstream_core'))
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     depmap_fitness_cost   R-squared:                       0.394
+Model:                             OLS   Adj. R-squared:                  0.382
+Method:                  Least Squares   F-statistic:                     30.29
+Date:                 Tue, 16 Jun 2026   Prob (F-statistic):           1.16e-06
+Time:                         21:42:02   Log-Likelihood:                -26.014
+No. Observations:                   54   AIC:                             56.03
+Df Residuals:                       52   BIC:                             60.01
+Df Model:                            1                                         
+Covariance Type:                   HC3                                         
+===============================================================================================================================================
+                                                                                  coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                       0.6624      0.113      5.877      0.000       0.442       0.883
+C(analysis_group, Treatment('upstream_core'))[T.downstream_diversification]    -0.6318      0.115     -5.504      0.000      -0.857      -0.407
+==============================================================================
+Omnibus:                       13.055   Durbin-Watson:                   0.764
+Prob(Omnibus):                  0.001   Jarque-Bera (JB):               14.743
+Skew:                           0.973   Prob(JB):                     0.000629
+Kurtosis:                       4.662   Cond. No.                         2.66
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+group_plus_expression
+depmap_fitness_cost ~ C(analysis_group, Treatment('upstream_core')) + expression_n_tissues_ntpm_ge_1 + expression_tau
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     depmap_fitness_cost   R-squared:                       0.429
+Model:                             OLS   Adj. R-squared:                  0.395
+Method:                  Least Squares   F-statistic:                     10.43
+Date:                 Tue, 16 Jun 2026   Prob (F-statistic):           1.94e-05
+Time:                         21:42:02   Log-Likelihood:                -24.386
+No. Observations:                   54   AIC:                             56.77
+Df Residuals:                       50   BIC:                             64.73
+Df Model:                            3                                         
+Covariance Type:                   HC3                                         
+===============================================================================================================================================
+                                                                                  coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                       1.0729      0.486      2.207      0.027       0.120       2.026
+C(analysis_group, Treatment('upstream_core'))[T.downstream_diversification]    -0.5393      0.122     -4.416      0.000      -0.779      -0.300
+expression_n_tissues_ntpm_ge_1                                                 -0.0007      0.006     -0.112      0.911      -0.013       0.012
+expression_tau                                                                 -0.6612      0.490     -1.349      0.177      -1.622       0.299
+==============================================================================
+Omnibus:                       13.353   Durbin-Watson:                   0.812
+Prob(Omnibus):                  0.001   Jarque-Bera (JB):               15.100
+Skew:                           0.998   Prob(JB):                     0.000526
+Kurtosis:                       4.653   Cond. No.                         326.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+group_plus_gene_architecture
+depmap_fitness_cost ~ C(analysis_group, Treatment('upstream_core')) + log_gene_length + log_paralog_count
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     depmap_fitness_cost   R-squared:                       0.407
+Model:                             OLS   Adj. R-squared:                  0.372
+Method:                  Least Squares   F-statistic:                     10.29
+Date:                 Tue, 16 Jun 2026   Prob (F-statistic):           2.19e-05
+Time:                         21:42:02   Log-Likelihood:                -25.407
+No. Observations:                   54   AIC:                             58.81
+Df Residuals:                       50   BIC:                             66.77
+Df Model:                            3                                         
+Covariance Type:                   HC3                                         
+===============================================================================================================================================
+                                                                                  coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                       1.1440      0.502      2.278      0.023       0.160       2.128
+C(analysis_group, Treatment('upstream_core'))[T.downstream_diversification]    -0.6039      0.155     -3.908      0.000      -0.907      -0.301
+log_gene_length                                                                -0.1070      0.103     -1.036      0.300      -0.309       0.095
+log_paralog_count                                                               0.0003      0.171      0.002      0.999      -0.335       0.335
+==============================================================================
+Omnibus:                       11.746   Durbin-Watson:                   0.761
+Prob(Omnibus):                  0.003   Jarque-Bera (JB):               12.466
+Skew:                           0.924   Prob(JB):                      0.00196
+Kurtosis:                       4.458   Cond. No.                         41.4
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+full_covariate_model
+depmap_fitness_cost ~ C(analysis_group, Treatment('upstream_core')) + expression_n_tissues_ntpm_ge_1 + expression_tau + log_gene_length + log_paralog_count
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     depmap_fitness_cost   R-squared:                       0.441
+Model:                             OLS   Adj. R-squared:                  0.382
+Method:                  Least Squares   F-statistic:                     6.453
+Date:                 Tue, 16 Jun 2026   Prob (F-statistic):           0.000116
+Time:                         21:42:02   Log-Likelihood:                -23.835
+No. Observations:                   54   AIC:                             59.67
+Df Residuals:                       48   BIC:                             71.60
+Df Model:                            5                                         
+Covariance Type:                   HC3                                         
+===============================================================================================================================================
+                                                                                  coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                       1.5307      0.676      2.263      0.024       0.205       2.856
+C(analysis_group, Treatment('upstream_core'))[T.downstream_diversification]    -0.5144      0.162     -3.184      0.001      -0.831      -0.198
+expression_n_tissues_ntpm_ge_1                                                 -0.0012      0.006     -0.186      0.852      -0.014       0.011
+expression_tau                                                                 -0.6543      0.490     -1.336      0.182      -1.614       0.306
+log_gene_length                                                                -0.0992      0.106     -0.936      0.349      -0.307       0.108
+log_paralog_count                                                              -0.0035      0.171     -0.021      0.984      -0.339       0.332
+==============================================================================
+Omnibus:                       11.791   Durbin-Watson:                   0.794
+Prob(Omnibus):                  0.003   Jarque-Bera (JB):               12.420
+Skew:                           0.937   Prob(JB):                      0.00201
+Kurtosis:                       4.417   Cond. No.                         400.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+full_plus_cds_length
+depmap_fitness_cost ~ C(analysis_group, Treatment('upstream_core')) + expression_n_tissues_ntpm_ge_1 + expression_tau + log_gene_length + log_cds_length + log_paralog_count
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     depmap_fitness_cost   R-squared:                       0.440
+Model:                             OLS   Adj. R-squared:                  0.362
+Method:                  Least Squares   F-statistic:                     3.965
+Date:                 Tue, 16 Jun 2026   Prob (F-statistic):            0.00304
+Time:                         21:42:02   Log-Likelihood:                -22.347
+No. Observations:                   50   AIC:                             58.69
+Df Residuals:                       43   BIC:                             72.08
+Df Model:                            6                                         
+Covariance Type:                   HC3                                         
+===============================================================================================================================================
+                                                                                  coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                       1.8835      1.600      1.177      0.239      -1.252       5.019
+C(analysis_group, Treatment('upstream_core'))[T.downstream_diversification]    -0.5087      0.190     -2.682      0.007      -0.880      -0.137
+expression_n_tissues_ntpm_ge_1                                                  0.0011      0.006      0.181      0.857      -0.011       0.013
+expression_tau                                                                 -0.4522      0.561     -0.806      0.420      -1.551       0.647
+log_gene_length                                                                -0.0593      0.134     -0.443      0.658      -0.322       0.203
+log_cds_length                                                                 -0.2361      0.449     -0.526      0.599      -1.116       0.644
+log_paralog_count                                                              -0.0279      0.192     -0.146      0.884      -0.404       0.348
+==============================================================================
+Omnibus:                       12.082   Durbin-Watson:                   0.856
+Prob(Omnibus):                  0.002   Jarque-Bera (JB):               12.713
+Skew:                           0.988   Prob(JB):                      0.00174
+Kurtosis:                       4.481   Cond. No.                         496.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)

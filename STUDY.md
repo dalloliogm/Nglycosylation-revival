@@ -112,6 +112,7 @@ Immediate next tasks:
 - `[ ]` Test whether centrality metrics are robust across graph encodings before using them in the manuscript.
 - `[x]` Add expression breadth and tissue specificity metrics.
 - `[x]` Add essentiality metrics.
+- `[x]` Test whether essentiality gradient survives first-pass expression, gene-length, and paralog covariates.
 - `[x]` Create combined architecture feature table.
 
 Expected outputs:
@@ -193,6 +194,8 @@ Expected outputs:
 - `results/tables/interface_trait_profile.tsv`
 - `results/tables/interface_expression_summary.tsv`
 - `results/tables/interface_essentiality_summary.tsv`
+- `results/tables/interface_essentiality_regression_results.txt`
+- `results/reports/interface-essentiality-interpretation.md`
 - `results/figures/interface_trait_profile.*`
 - `results/figures/interface_expression_profile.*`
 
@@ -312,6 +315,7 @@ Expected outputs:
 - `[x]` Draft limitations.
 - `[x]` Check that individual gene examples do not dominate the architecture-level argument.
 - `[x]` Integrate first-pass expression and DepMap essentiality results into the manuscript and evidence matrix.
+- `[x]` Run first-pass covariate control for the DepMap essentiality gradient.
 - `[ ]` Assemble first complete manuscript draft.
 - `[ ]` Prepare supplementary tables.
 - `[ ]` Prepare reproducibility statement.
@@ -377,6 +381,7 @@ Expected outputs:
 
 - 2026-06-15: Added the candidate-analysis backlog to the roadmap, prioritizing expression/essentiality, glycan-trait variance, fine mapping/colocalization, expanded pathway nulls, paralog diversification, standing variation, and regulatory complexity. Started the expression/essentiality work package with `docs/methods/interface-layer-analysis.md`, a reusable `scripts/analyze_expression_essentiality.py` script, Makefile target, and data-source notes. Ran the first expression pass from cached HPA GTEx tissue nTPM, generating `data/processed/nglyco_expression_essentiality.tsv`, `results/tables/interface_expression_summary.tsv`, `results/tables/interface_expression_primary_contrasts.tsv`, and `results/figures/interface_expression_profile.*`. After adding `data/external/depmap/CRISPRGeneEffect.csv`, reran the script and generated `results/tables/interface_essentiality_summary.tsv` plus `results/tables/interface_essentiality_primary_contrasts.tsv`; upstream-core genes showed far stronger DepMap fitness costs than downstream-diversification genes (median mean gene effect −0.496 vs −0.014; Mann-Whitney p = 2.16e-07).
 - 2026-06-16: Integrated the HPA/GTEx expression and DepMap CRISPR essentiality results into `docs/manuscript/evidence-matrix.md` and `docs/manuscript/draft.md`. DepMap is now treated as a major support layer for catastrophic-core biology; expression tau is treated as context-deployment support, while barrier/immune bulk-tissue proxy ratios are explicitly framed as weak evidence.
+- 2026-06-16: Added and ran `scripts/analyze_interface_essentiality_regression.py` to test whether the DepMap essentiality gradient survives first-pass covariate control. The full model retained a strong downstream-diversification coefficient after controlling for expression breadth, tissue-specificity tau, log gene length, and log paralog count (fitness-cost coefficient = -0.514, HC3 p = 0.0015). Wrote `results/tables/interface_essentiality_regression_results.txt` and `results/reports/interface-essentiality-interpretation.md`.
 - 2026-05-20: Created `STUDY.md` as the live project tracker.
 - 2026-05-20: Added `docs/concept/literature-review.md` as the readable grouped literature summary; corrected the N-linked glycosylation network citation; expanded `docs/concept/literature-matrix.tsv` with high-priority references across N-glycosylation, population genetics, network biology, disease/constraint, glycoimmunology, and robustness/evolvability.
 - 2026-05-21: Added original-paper criticisms as explicit robustness/reviewer-risk safeguards in `docs/concept/project-plan.md` and mirrored them as checklist items in this tracker.

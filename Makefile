@@ -1,4 +1,4 @@
-.PHONY: help agentic-inspect agentic-check agentic-next agentic-prompt architecture-features constraint-summary constraint-gradient constraint-network-plots disease-seed-table clinvar-disease-layer gwas-trait-layer disease-architecture-plot downstream-gwas-audit downstream-gwas-locus-review interface-expression-essentiality ti
+.PHONY: help agentic-inspect agentic-check agentic-next agentic-prompt architecture-features constraint-summary constraint-gradient constraint-network-plots disease-seed-table clinvar-disease-layer gwas-trait-layer disease-architecture-plot downstream-gwas-audit downstream-gwas-locus-review interface-expression-essentiality interface-essentiality-regression ti
 
 PYTHON ?= uv run python
 AGENTIC_REGISTRY ?= workflow/agentic_paper_system.json
@@ -26,6 +26,7 @@ help:
 	@printf "  %-18s %s\n" "downstream-gwas-audit" "Audit downstream GWAS/glycome candidate examples."
 	@printf "  %-18s %s\n" "downstream-gwas-locus-review" "Extract locus context for strong downstream GWAS candidates."
 	@printf "  %-18s %s\n" "interface-expression-essentiality" "Compute expression deployment and optional DepMap essentiality metrics."
+	@printf "  %-18s %s\n" "interface-essentiality-regression" "Test DepMap essentiality gradients with expression and gene covariates."
 	@printf "  %-18s %s\n" "ti" "Alias for agentic-inspect."
 
 agentic-inspect:
@@ -45,6 +46,7 @@ agentic-check:
 	$(PYTHON) -m py_compile scripts/audit_downstream_gwas_candidates.py
 	$(PYTHON) -m py_compile scripts/review_downstream_gwas_loci.py
 	$(PYTHON) -m py_compile scripts/analyze_expression_essentiality.py
+	$(PYTHON) -m py_compile scripts/analyze_interface_essentiality_regression.py
 	$(PYTHON) scripts/inspect_agentic_system.py --registry $(AGENTIC_REGISTRY)
 
 agentic-next:
@@ -90,5 +92,8 @@ downstream-gwas-locus-review:
 
 interface-expression-essentiality:
 	$(PYTHON) scripts/analyze_expression_essentiality.py --depmap-gene-effect "$(DEPMAP_GENE_EFFECT)"
+
+interface-essentiality-regression:
+	$(PYTHON) scripts/analyze_interface_essentiality_regression.py
 
 ti: agentic-inspect
