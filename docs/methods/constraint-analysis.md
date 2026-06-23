@@ -24,7 +24,7 @@ Primary inputs:
 
 ## Primary Dataset
 
-Use gnomAD v4.1.1 gene constraint metrics as the primary source.
+Use gnomAD v4.1 gene constraint metrics as the implemented primary source (the public `gnomad.v4.1.constraint_metrics.tsv` TSV, labeled `gnomAD_v4.1` throughout the result tables; see the As-Implemented note below). gnomAD v4.1.1 is the intended upgrade once its exact constraint export is identified; the rationale below motivates that target release.
 
 Source:
 
@@ -240,7 +240,7 @@ missingness_notes
 After `data/processed/nglyco_architecture_features.tsv` exists, write a script that:
 
 1. reads the N-glycosylation gene table and architecture features;
-2. imports gnomAD v4.1.1 gene constraint metrics;
+2. imports gnomAD v4.1 gene constraint metrics (v4.1.1 once its exact export is identified);
 3. joins by Ensembl gene ID with symbol cross-checks;
 4. writes a per-gene constraint table;
 5. writes a join-audit table;
