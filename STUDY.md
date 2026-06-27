@@ -49,7 +49,7 @@ Key files:
 - `[ ]` Extract structured notes from high-priority papers.
 - `[x]` Write `docs/concept/paper-thesis.md`.
 - `[x]` Create a claims register distinguishing what the paper shows, suggests, and does not show.
-- `[ ]` Create a reviewer-risk checklist from the original paper criticisms.
+- `[x]` Create a reviewer-risk checklist from the original paper criticisms. **Completed through the 2026-06-27 pre-submission re-review in `results/reports/manuscript-rereview-2026-06-27.md`.**
 - `[ ]` Decide the paper type: primary analysis, conceptual synthesis plus analysis, or perspective with computational case study.
 
 Key files:
@@ -339,10 +339,10 @@ Expected outputs:
 - `[~]` Check all scripts and notebooks are reproducible. **2026-06-23: all 33 scripts compile; deterministic analysis tables and all main/supporting figures regenerate without error. Network-dependent fetch scripts still need a documented latest-successful-run record.**
 - `[~]` Verify all data sources are documented with versions and access dates. **2026-06-23: reconciled gnomAD constraint version label — the implemented source is the public v4.1 TSV (labeled `gnomAD_v4.1`), but the Makefile default and two `constraint-analysis.md` sentences mislabeled it `gnomAD_v4.1.1`, which would silently corrupt provenance on a clean `make constraint-summary`. Fixed both; rerun now reproduces the committed v4.1 tables byte-for-byte. Checksums for external files still pending.**
 - `[x]` Verify all figures can be regenerated. **2026-06-23: all four main figures (1, 3C, 5, 6) plus constraint/disease/conservation gradient figures regenerate from committed data; numerical content stable (only image-encoding metadata bytes differ on rerun).**
-- `[ ]` Review statistical assumptions and sensitivity analyses.
-- `[ ]` Review the manuscript against the original-paper failure modes in `docs/concept/project-plan.md`.
-- `[ ]` Verify that all adaptive or mechanistic claims are supported by the appropriate evidence level.
-- `[ ]` Review citation coverage.
+- `[~]` Review statistical assumptions and sensitivity analyses. **2026-06-27 re-review found that primary contrasts still need group sizes, effect sizes with uncertainty, explicit primary/exploratory labels, and an integrated multiple-testing statement.**
+- `[x]` Review the manuscript against the original-paper failure modes in `docs/concept/project-plan.md`. **Completed 2026-06-27; the main residual risks are unmatched comparator inference, provisional GWAS gene assignment, and treating evolvability as a model rather than a directly measured outcome.**
+- `[~]` Verify that all adaptive or mechanistic claims are supported by the appropriate evidence level. **2026-06-27 re-review identified two passages requiring narrowing: topology dependence from unmatched comparators and survivor sampling as an explanation of the LOEUF inversion.**
+- `[~]` Review citation coverage. **2026-06-27 re-review confirmed that the conceptual Introduction is cited, but empirical Methods/Results sources and comparator assignments require primary-source citations before submission.**
 - `[ ]` Select target journal.
 - `[ ]` Format manuscript for target journal.
 - `[ ]` Prepare cover letter.
@@ -383,6 +383,7 @@ Expected outputs:
 
 ## Change Log
 
+- 2026-06-27: Completed a pre-submission manuscript re-review and wrote `results/reports/manuscript-rereview-2026-06-27.md`. The verdict is major revision before submission without reopening broad analysis: complete empirical citation coverage, assemble Supplementary Methods and figure/table callouts, narrow comparator-topology and LOEUF survivor-sampling claims, align the title with measured outcomes, strengthen statistical reporting, and finish target-journal metadata. The review judges the scientific core publishable for a specialist readership once these bounded gates are closed.
 - 2026-06-23: Started Phase 10 quality control with a reproducibility verification pass. Confirmed all 33 scripts compile and that the deterministic analysis tables and all main/supporting figures regenerate without error and with stable numerical content (only matplotlib metadata bytes and statsmodels date stamps differ on rerun). Found and fixed a gnomAD constraint provenance inconsistency: the implemented source is the public v4.1 TSV (labeled `gnomAD_v4.1` in every committed table and in the manuscript), but `Makefile` defaulted `CONSTRAINT_DATASET_VERSION` to `gnomAD_v4.1.1` and two `docs/methods/constraint-analysis.md` sentences overstated v4.1.1 as the implemented primary source — so a clean `make constraint-summary` would have silently relabeled the v4.1 data as v4.1.1, the exact failure the methods doc warns against. Corrected the Makefile default to `gnomAD_v4.1` and reconciled the two methods-doc sentences (v4.1 implemented, v4.1.1 noted as the intended upgrade); the rerun now reproduces the committed v4.1 tables byte-for-byte.
 - 2026-06-20: Assembled the current manuscript draft in a collaborative Google Doc, applied manuscript-wide title and heading formatting, linked reference DOIs, and appended the six main figure assets with concise captions. Target-journal formatting and rendered page-level quality control remain pending.
 - 2026-06-15: Added the candidate-analysis backlog to the roadmap, prioritizing expression/essentiality, glycan-trait variance, fine mapping/colocalization, expanded pathway nulls, paralog diversification, standing variation, and regulatory complexity. Started the expression/essentiality work package with `docs/methods/interface-layer-analysis.md`, a reusable `scripts/analyze_expression_essentiality.py` script, Makefile target, and data-source notes. Ran the first expression pass from cached HPA GTEx tissue nTPM, generating `data/processed/nglyco_expression_essentiality.tsv`, `results/tables/interface_expression_summary.tsv`, `results/tables/interface_expression_primary_contrasts.tsv`, and `results/figures/interface_expression_profile.*`. After adding `data/external/depmap/CRISPRGeneEffect.csv`, reran the script and generated `results/tables/interface_essentiality_summary.tsv` plus `results/tables/interface_essentiality_primary_contrasts.tsv`; upstream-core genes showed far stronger DepMap fitness costs than downstream-diversification genes (median mean gene effect −0.496 vs −0.014; Mann-Whitney p = 2.16e-07).
