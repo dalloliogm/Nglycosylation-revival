@@ -170,6 +170,12 @@ The sloppiness literature adds an important alternative explanation: apparent ro
 
 ## Immediate Reading Priorities
 
+### Update through 2026-09-06
+
+The targeted update covering 2026-06-01 through 2026-09-06 found no direct test of the proposed upstream-to-downstream robustness/evolvability gradient. It did, however, add three useful evidence bundles. First, TUSC3-dependent ER triage, RPN1-CDG, ALG14-CDG, and PMM2-CDG glycoproteomics strengthen the high-consequence core and checkpoint model with mechanistic or causal evidence. Second, glycan-driven MHC-I recycling shows that ER quality control can directly serve an adaptive-immune interface, cautioning against treating core and interface as fully separable modules. Third, newer IgG, asthma, infection, and preprint studies reinforce the view that downstream glycan states are context-responsive, while still not demonstrating adaptive evolution of host glycosylation genes.
+
+The GTEx-based CDG study is especially important for interpretation of the current expression analysis: baseline expression did not consistently predict affected-tissue vulnerability. Expression breadth and tissue specificity should therefore remain deployment-context features, not direct measures of disease susceptibility or evolvability. Full search methods, screening results, paper-level limitations, and the preprint watchlist are recorded in `docs/concept/literature-update-2026-09-06.md`; 16 records were added to the structured matrix.
+
 1. Read the pathway-core papers first: Stanley et al., Helenius and Aebi, Aebi, Varki, and Kim et al.
 2. Extract a gene/pathway-region vocabulary from pathway-core papers before expanding the bibliography much further.
 3. Read Montanucci et al. and the Zoldos/Lauc glyco-regulation papers as predecessor literature to refine the novelty claim.

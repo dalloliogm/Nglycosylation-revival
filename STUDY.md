@@ -45,6 +45,7 @@ Key files:
 - `[~]` Expand disease architecture and CDG references.
 - `[~]` Expand pathway/network biology references.
 - `[~]` Expand glycome genetics and glyco-gene regulatory references.
+- `[x]` Run a targeted literature update through 2026-09-06 and record peer-reviewed additions plus a preprint watchlist.
 - `[ ]` Expand comparator-pathway references.
 - `[ ]` Extract structured notes from high-priority papers.
 - `[x]` Write `docs/concept/paper-thesis.md`.
@@ -383,6 +384,7 @@ Expected outputs:
 
 ## Change Log
 
+- 2026-09-11: Updated the literature search from the prior 2026-05-28 to 2026-05-31 cutoff through the requested 2026-09-06 publication cutoff using PubMed, Europe PMC, OpenAlex, and direct bioRxiv checks. Added 16 relevant records to `docs/concept/literature-matrix.tsv` (12 peer-reviewed papers and four preprints), wrote `docs/concept/literature-update-2026-09-06.md`, and updated the narrative synthesis. The new literature strengthens glycan-dependent ER quality control, severe upstream CDG, tissue-regulatory context, and immune/interface mechanisms but does not directly validate an upstream-to-downstream robustness/evolvability gradient.
 - 2026-06-27: Completed a pre-submission manuscript re-review and wrote `results/reports/manuscript-rereview-2026-06-27.md`. The verdict is major revision before submission without reopening broad analysis: complete empirical citation coverage, assemble Supplementary Methods and figure/table callouts, narrow comparator-topology and LOEUF survivor-sampling claims, align the title with measured outcomes, strengthen statistical reporting, and finish target-journal metadata. The review judges the scientific core publishable for a specialist readership once these bounded gates are closed.
 - 2026-06-23: Started Phase 10 quality control with a reproducibility verification pass. Confirmed all 33 scripts compile and that the deterministic analysis tables and all main/supporting figures regenerate without error and with stable numerical content (only matplotlib metadata bytes and statsmodels date stamps differ on rerun). Found and fixed a gnomAD constraint provenance inconsistency: the implemented source is the public v4.1 TSV (labeled `gnomAD_v4.1` in every committed table and in the manuscript), but `Makefile` defaulted `CONSTRAINT_DATASET_VERSION` to `gnomAD_v4.1.1` and two `docs/methods/constraint-analysis.md` sentences overstated v4.1.1 as the implemented primary source — so a clean `make constraint-summary` would have silently relabeled the v4.1 data as v4.1.1, the exact failure the methods doc warns against. Corrected the Makefile default to `gnomAD_v4.1` and reconciled the two methods-doc sentences (v4.1 implemented, v4.1.1 noted as the intended upgrade); the rerun now reproduces the committed v4.1 tables byte-for-byte.
 - 2026-06-20: Assembled the current manuscript draft in a collaborative Google Doc, applied manuscript-wide title and heading formatting, linked reference DOIs, and appended the six main figure assets with concise captions. Target-journal formatting and rendered page-level quality control remain pending.
